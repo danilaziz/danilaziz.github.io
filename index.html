@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portofolio | Danil Aziz</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- My CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body id="home">
@@ -54,18 +59,20 @@
     <section id="about">
       <div class="countainer">
         <div class="row text-center mb-3">
-          <div class="col">
+          <div class="col" data-aos="fade-down" data-aos-duration="1000">
             <h2>About Me</h2>
           </div>
         </div>
         <div class="row justify-content-center fs-5 text-center">
-          <div class="col-md-4">
+          <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae natus laboriosam eius eos eum dolore exercitationem. Quibusdam, quas enim? Ullam, consequatur quos. Quae accusantium nemo eos ipsum necessitatibus
               voluptates saepe!
             </p>
           </div>
-          <div class="col-md-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quia adipisci, non, nisi eos blanditiis obcaecati saepe explicabo tenetur, vel illo dolor. Magnam, dolorum inventore.</div>
+          <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quia adipisci, non, nisi eos blanditiis obcaecati saepe explicabo tenetur, vel illo dolor. Magnam, dolorum inventore.
+          </div>
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -83,12 +90,12 @@
     <section id="projects">
       <div class="countainer">
         <div class="row text-center mb-3">
-          <div class="col">
+          <div class="col" data-aos="fade-down" data-aos-duration="1000">
             <h2>My Projects</h2>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="fade-right" data-aos-duration="2000">
             <div class="card">
               <img src="assets/img/1.jpg" class="card-img-top" alt="projects 1" />
               <div class="card-body">
@@ -96,7 +103,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-duration="2000">
             <div class="card">
               <img src="assets/img/2.jpg" class="card-img-top" alt="projects 2" />
               <div class="card-body">
@@ -104,7 +111,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="fade-left" data-aos-duration="2000">
             <div class="card">
               <img src="assets/img/3.jpg" class="card-img-top" alt="projects 3" />
               <div class="card-body">
@@ -112,7 +119,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in-up" data-aos-duration="2000">
             <div class="card">
               <img src="assets/img/4.jpg" class="card-img-top" alt="projects 4" />
               <div class="card-body">
@@ -120,7 +127,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" data-aos="zoom-in-up" data-aos-duration="2000">
             <div class="card">
               <img src="assets/img/5.jpg" class="card-img-top" alt="projects 5" />
               <div class="card-body">
@@ -144,12 +151,12 @@
 
     <section id="contact">
       <div class="container">
-        <div class="row text-center mb-3">
+        <div class="row text-center mb-3" data-aos="fade-down" data-aos-duration="1000">
           <div class="col">
             <h2>Contact Me</h2>
           </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="2000">
           <div class="col-md-6">
             <div class="alert alert-warning alert-dismissible fade show d-none my-alert" role="alert">
               <strong>Terimakasih!</strong> Pesan anda sudah kami terima.
@@ -197,6 +204,11 @@
     <!-- Akhir Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
     <script>
       const scriptURL = "https://script.google.com/macros/s/AKfycbz-k4wRA0ywuNBw3hCBJDLK28TBxuNWLUwrN3PK_-ynVfJpPcJmhZrA8W_dYreiz3JgXQ/exec";
