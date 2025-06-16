@@ -201,7 +201,6 @@ section .section-title {
   background: #fff;
 }
 
-
 /* HIGLIGHT PROJECT */
 .project-section {
   background-color: var(--background-color);
@@ -432,7 +431,6 @@ screen and (max-width: 1024px) {
   }
 }
 
-
 @media screen and (max-width: 800px) {
   section {
     padding: 80px 0;
@@ -461,7 +459,6 @@ screen and (max-width: 1024px) {
     padding: 5px 15px;
     margin-bottom: 15px;
   }
-
 
   /* HEADER */
   .header-section {
@@ -520,8 +517,6 @@ screen and (max-width: 1024px) {
     width: 30px;
     height: 2px;
   }
-
-  s
 
   /* PORTFOLIO */
   .project-section .section-title {
