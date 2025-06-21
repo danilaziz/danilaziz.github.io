@@ -230,6 +230,43 @@ section .section-title {
   transition: .2s ease-in-out;
 }
 
+.lihat-link {
+  position: absolute;
+  left: 10px;
+  bottom: 16px;
+  font-size: 1rem;
+  color: #ff6600;
+  z-index: 2;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.detail-link {
+  position: absolute;
+  right: 16px;
+  bottom: 10px;
+  font-size: 2rem;
+  color: #ff6600;
+  z-index: 2;
+  text-decoration: none;
+  border: 1px solid #ff6600;
+  border-radius: 40%;
+  padding: 4px 5px;
+}
+
+.detail-link i {
+  transition: transform 0.3s;
+}
+
+.lihat-link:hover+.detail-link i,
+.detail-link:hover i {
+  transform: rotate(-50deg);
+}
+
+.card-body h6 {
+  margin-bottom: 2.5rem;
+}
+
 /* SKILLS */
 .skills-section {
   background-color: black;
@@ -537,6 +574,30 @@ screen and (max-width: 1024px) {
     width: 100%;
     object-fit: cover;
     padding: 5px 5px;
+  }
+
+  .lihat-link {
+    position: absolute;
+    left: 10px;
+    bottom: 16px;
+    font-size: .5rem;
+    color: #ff6600;
+    z-index: 2;
+    text-decoration: none;
+    font-style: italic;
+  }
+
+  .detail-link {
+    position: absolute;
+    right: 16px;
+    bottom: 10px;
+    font-size: 1.5rem;
+    color: #ff6600;
+    z-index: 2;
+    text-decoration: none;
+    border: 1px solid #ff6600;
+    border-radius: 40%;
+    padding: 3px 4px;
   }
 
   /* SKILLS */
