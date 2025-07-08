@@ -6,11 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Danil Aziz Portfolio</title>
   <link rel="stylesheet" href="public/vendors/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="public/vendors/boxicons/css/boxicons.min.css" />
+  <link rel="preload" href="public/vendors/boxicons/css/boxicons.min.css" as="style">
+  <link rel="stylesheet" href="public/vendors/boxicons/css/boxicons.min.css" media="all" onload="this.onload=null;this.rel='stylesheet';">
+  <noscript><link rel="stylesheet" href="public/vendors/boxicons/css/boxicons.min.css"></noscript>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <link rel="stylesheet" href="public/styles/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1.2">
+  <link rel="stylesheet" href="public/styles/style.min.css" />
 </head>
 
 <body>
@@ -78,7 +83,7 @@
           </div>
         </div>
         <div class="col-md-5 justify-content-center d-md-flex" data-aos="fade-left">
-          <img src="public/images/aziz.JPG" class="header-img" alt="Danil Aziz">
+          <img rel="preload" src="public/images/aziz.webp" class="header-img" alt="Danil Aziz" loading="lazy">
         </div>
       </div>
   </section>
@@ -93,7 +98,7 @@
           <div class="swiper-slide">
             <div class="card" data-aos="fade-right">
               <div class="card-body position-relative">
-                <img src="public/images/portfolio-1.jpg" alt="" class="rounded mb-3 card-img-top">
+                <img src="public/images/portfolio-1.webp" class="rounded mb-3 card-img-top" alt="project 1" loading="lazy">
                 <h6 class="fw-semibold">Contoh Project 1</h6>
                 <a href="#" class="lihat-link">lihat selengkapnya</a>
                 <a href="#" class="detail-link"><i class="bx bx-right-arrow-alt"></i></a>
@@ -103,7 +108,7 @@
           <div class="swiper-slide">
             <div class="card" data-aos="fade-up">
               <div class="card-body position-relative">
-                <img src="public/images/portfolio-1.jpg" alt="" class="rounded mb-3 card-img-top">
+                <img src="public/images/portfolio-1.webp" class="rounded mb-3 card-img-top" alt="project 1" loading="lazy">
                 <h6 class="fw-semibold">Contoh Project 1</h6>
                 <a href="#" class="lihat-link">lihat selengkapnya</a>
                 <a href="#" class="detail-link"><i class="bx bx-right-arrow-alt"></i></a>
@@ -113,7 +118,7 @@
           <div class="swiper-slide">
             <div class="card" data-aos="fade-left">
               <div class="card-body position-relative">
-                <img src="public/images/portfolio-1.jpg" alt="" class="rounded mb-3 card-img-top">
+                <img src="public/images/portfolio-1.webp" class="rounded mb-3 card-img-top" alt="project 1" loading="lazy">
                 <h6 class="fw-semibold">Contoh Project 1</h6>
                 <a href="#" class="lihat-link">lihat selengkapnya</a>
                 <a href="#" class="detail-link"><i class="bx bx-right-arrow-alt"></i></a>
@@ -123,7 +128,7 @@
           <div class="swiper-slide data-aos=" fade-right">
             <div class="card">
               <div class="card-body position-relative">
-                <img src="public/images/portfolio-1.jpg" alt="" class="rounded mb-3 card-img-top">
+                <img src="public/images/portfolio-1.webp" class="rounded mb-3 card-img-top" alt="project 1" loading="lazy">
                 <h6 class="fw-semibold">Contoh Project 1</h6>
                 <a href="#" class="lihat-link">lihat selengkapnya</a>
                 <a href="#" class="detail-link"><i class="bx bx-right-arrow-alt"></i></a>
@@ -133,7 +138,7 @@
           <div class="swiper-slide">
             <div class="card">
               <div class="card-body position-relative">
-                <img src="public/images/portfolio-1.jpg" alt="" class="rounded mb-3 card-img-top">
+                <img src="public/images/portfolio-1.webp" class="rounded mb-3 card-img-top" alt="project 1" loading="lazy">
                 <h6 class="fw-semibold">Contoh Project 1</h6>
                 <a href="#" class="lihat-link">lihat selengkapnya</a>
                 <a href="#" class="detail-link"><i class="bx bx-right-arrow-alt"></i></a>
@@ -143,7 +148,7 @@
           <div class="swiper-slide">
             <div class="card">
               <div class="card-body position-relative">
-                <img src="public/images/portfolio-1.jpg" alt="" class="rounded mb-3 card-img-top">
+                <img src="public/images/portfolio-1.webp" class="rounded mb-3 card-img-top" alt="project 1" loading="lazy">
                 <h6 class="fw-semibold">Contoh Project 1</h6>
                 <a href="#" class="lihat-link">lihat selengkapnya</a>
                 <a href="#" class="detail-link"><i class="bx bx-right-arrow-alt"></i></a>
@@ -357,7 +362,8 @@
     </div>
   </footer>
 
-  <script src="public/scripts/index.js"></script>
+  <script src="index.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
   <script src="public/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -394,8 +400,8 @@
   </script>
   <script>
     var swiper = new Swiper(".project-swiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 1,
+      spaceBetween: 10,
       navigation: {
         nextEl: ".btn-prev",
         prevEl: ".btn-next",
