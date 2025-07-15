@@ -106,6 +106,24 @@ section .section-title {
   font-size: 20px;
   color: var(--text-primary);
 }
+.header-section h2 {
+  width: 20ch;
+  textwrap: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(20, end) infinite;
+  white-space: nowrap;
+  border-right: 2px solid var(--text-secondary);
+  font-size: var(--h1-font-size);
+  color: var(--text-primary);
+}
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 10ch;
+  }
+}
 .header-section .fw-normal {
   font-size: 16px;
   letter-spacing: 1px;
