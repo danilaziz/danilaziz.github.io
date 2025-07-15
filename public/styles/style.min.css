@@ -115,11 +115,6 @@ section .section-title {
   box-shadow: 0 0 20px 10px rgb(189 189 189 / 0.1);
   margin-left: auto;
 }
-.header-section #typed-text {
-  font-size: 3rem;
-  color: var(--primary-color);
-  line-height: 1.2;
-}
 .swiper-cube {
   width: 60%;
   position: relative;
@@ -320,9 +315,6 @@ footer .d-flex {
 @media screen and (max-width: 1194px),
   screen and (max-width: 1180px),
   screen and (max-width: 1024px) {
-  .header-section #typed-text {
-    font-size: 2.5rem;
-  }
   .header-section .swiper-cube {
     width: 80%;
     margin-bottom: 30px;
@@ -410,9 +402,6 @@ footer .d-flex {
     margin-top: 0.2rem;
     font-size: 30px;
   }
-  .header-section #typed-text {
-    font-size: 2rem;
-  }
   .header-section .fw-normal {
     font-size: 15px;
   }
@@ -434,6 +423,12 @@ footer .d-flex {
   .header-section .swiper-cube .swiper-pagination-bullet {
     width: 30px;
     height: 2px;
+  }
+  .header-section .header-img {
+    height: 450px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
   }
   .project-section .section-title {
     font-size: 23px;

@@ -4,7 +4,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio Danil Aziz - Front End & Web Developer. Landing page, portfolio, blog, dan website bisnis."
+    />
     <title>Danil Aziz Portfolio</title>
+    <link rel="icon" href="public/images/favicon.ico" />
     <link
       rel="stylesheet"
       href="public/vendors/bootstrap/css/bootstrap.min.css"
@@ -17,14 +22,7 @@
     <link
       rel="stylesheet"
       href="public/vendors/boxicons/css/boxicons.min.css"
-      media="all"
-      onload="this.onload=null;this.rel='stylesheet';"
     />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="public/vendors/boxicons/css/boxicons.min.css"
-    /></noscript>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -32,27 +30,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
-    />
-    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
-      media="all"
     />
-
     <link rel="stylesheet" href="public/styles/style.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+    <link rel="preload" as="image" href="public/images/aziz.avif" />
     <link
       rel="stylesheet"
-      href="style.min.css"
-      media="print"
-      onload="this.media='all'"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
     />
-    <noscript><link rel="stylesheet" href="style.min.css" /></noscript>
-    <link rel="preload" as="image" href="public/images/aziz.avif" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -89,6 +75,7 @@
           <a
             href="https://wa.me/6287728890135"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Chat via WhatsApp"
             class="btn btn-whatsapp d-inline-flex align-items-center gap-1 ms-auto"
           >
@@ -102,11 +89,11 @@
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md-6" data-aos="fade-right">
-            <p class="text fw-semibold">Hello!</p>
-            <h1 class="header-title fw-bold mb-4">
-              <span id="typed-text"></span><span class="typed-cursor"></span>
-              <p class="fw-semibold tulisan">Front End & Web Developer</p>
-            </h1>
+            <p class="text fw-semibold mb-0 pb-0">Hello!</p>
+            <h2 class="text fw-semibold fs-4 mb-0 pb-0">i'm Danil Aziz</h2>
+            <p class="fw-semibold tulisan text-orange fs-1 mb-0 pb-0">
+              Front End & Web Developer
+            </p>
             <p class="fw-normal mb-5 opacity-75 lh-base">
               We are here as your online business solution. We offer creation of
               landing pages for companies or individuals, business landing
@@ -126,7 +113,6 @@
                   <h3 class="cube-text">Professional</h3>
                 </div>
               </div>
-              <!-- Add Pagination -->
               <div class="swiper-pagination"></div>
             </div>
           </div>
@@ -135,10 +121,12 @@
             data-aos="fade-left"
           >
             <img
-              srcset="public/images/aziz.avif"
+              src="public/images/aziz.avif"
               class="header-img"
-              alt="Danil Aziz"
-              loading="lazy"
+              alt="Danil Aziz - Front End & Web Developer"
+              loading="eager"
+              width="500"
+              height="550"
             />
           </div>
         </div>
@@ -394,57 +382,53 @@
         <a
           href="https://tiktok.com/@da.code1"
           target="_blank"
+          rel="noopener noreferrer"
           class="bx bxl-tiktok text-white fs-2"
           aria-label="Tiktok Profile of Danil Aziz"
           data-bs-toggle="tooltip"
           title="Tiktok"
         ></a>
-
         <a
           href="https://instagram.com/danilaziz__"
           target="_blank"
+          rel="noopener noreferrer"
           class="bx bxl-instagram text-white fs-2"
           aria-label="instagram Profile of Danil Aziz"
           data-bs-toggle="tooltip"
           title="instagram"
         ></a>
-
         <a
           href="https://github.com/danilaziz"
           target="_blank"
+          rel="noopener noreferrer"
           class="bx bxl-github text-white fs-2"
           aria-label="GitHub Profile of Danil Aziz"
           data-bs-toggle="tooltip"
           title="GitHub"
         ></a>
-
-        <p></p>
-        <p></p>
       </div>
     </footer>
-
+    <!-- SCRIPTS -->
     <script src="public/scripts/index.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
-    <script src="public/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"
       defer
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+    <script
+      src="public/vendors/bootstrap/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
       function getAOSOptions() {
-        if (
-          window.innerWidth < 1180 || // Nonaktifkan pada <1180px (termasuk 800px & 576px)
-          window.innerWidth < 800 ||
-          window.innerWidth < 576
-        ) {
-          return {
-            disable: true,
-          };
+        if (window.innerWidth < 1180) {
+          return { disable: true };
         } else {
-          // Desktop besar
           return {
             duration: 1000,
             once: false,
@@ -458,34 +442,19 @@
       function initAOS() {
         AOS.init(getAOSOptions());
       }
-      initAOS();
-      window.addEventListener("resize", function () {
-        initAOS();
-      });
+      window.addEventListener("DOMContentLoaded", initAOS);
+      window.addEventListener("resize", initAOS);
     </script>
+    <!-- Feedback form JS (contoh sederhana) -->
     <script>
-      var swiper = new Swiper(".project-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".btn-prev",
-          prevEl: ".btn-next",
-        },
-        breakpoints: {
-          // when window width is >= 320px
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          // when window width is >= 480px
-          480: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-        },
-        // Enable swiping on mobile devices
-        allowTouchMove: true,
-      });
+      document
+        .getElementById("contactForm")
+        ?.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // AJAX submit or show feedback
+          alert("Thank you for contacting me!");
+          this.reset();
+        });
     </script>
   </body>
 </html>
