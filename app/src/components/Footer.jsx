@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const links = [
   { name: "Beranda", path: "/" },
-  { name: "Tentang", path: "/about" },
-  { name: "Template", path: "/templates" },
-  { name: "Kontak", path: "/contact" },
+  { name: "Tentang", path: "/tentang" },
+  { name: "Template", path: "/template" },
+  { name: "Kontak", path: "/kontak" },
 ];
 
 export default function Footer() {
@@ -44,3 +44,4 @@ export default function Footer() {
     </footer>
   );
 }
+

@@ -111,7 +111,7 @@ export default function Home() {
               <p className="section-label">Proyek Pilihan</p>
               <h2 className="section-title mt-4">Project pilihan dengan presentasi yang lebih rapi dan profesional.</h2>
             </div>
-            <Link to="/templates" className="text-sm font-semibold text-stone-700 transition hover:text-[var(--accent)] dark:text-stone-200">
+            <Link to="/template" className="text-sm font-semibold text-stone-700 transition hover:text-[var(--accent)] dark:text-stone-200">
               Lihat semua template
             </Link>
           </div>
@@ -176,3 +176,5 @@ export default function Home() {
     </main>
   );
 }
+
+

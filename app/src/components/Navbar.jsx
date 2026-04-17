@@ -6,9 +6,9 @@ import logo from "../assets/images/danil.webp";
 
 const navItems = [
   { name: "Beranda", path: "/" },
-  { name: "Tentang", path: "/about" },
-  { name: "Template", path: "/templates" },
-  { name: "Kontak", path: "/contact" },
+  { name: "Tentang", path: "/tentang" },
+  { name: "Template", path: "/template" },
+  { name: "Kontak", path: "/kontak" },
 ];
 
 export default function Navbar() {
@@ -79,7 +79,7 @@ export default function Navbar() {
               <button onClick={() => setDarkMode((value) => !value)} className="rounded-full border border-stone-300/70 p-2 text-stone-700 transition hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10 dark:text-stone-200" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <Link to="/contact" className="premium-button bg-stone-950 text-white hover:bg-stone-800 dark:bg-[var(--accent)] dark:text-stone-950">
+              <Link to="/kontak" className="premium-button bg-stone-950 text-white hover:bg-stone-800 dark:bg-[var(--accent)] dark:text-stone-950">
                 Hubungi Saya
                 <ArrowUpRight size={16} className="ml-2" />
               </Link>
@@ -118,3 +118,4 @@ export default function Navbar() {
     </>
   );
 }
+
