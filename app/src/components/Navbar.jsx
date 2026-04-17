@@ -32,6 +32,13 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const navClass = scrolled
     ? "border-stone-200/70 bg-white/80 shadow-[0_20px_60px_-35px_rgba(28,25,23,0.45)] dark:border-white/10 dark:bg-black/40"
     : "border-transparent bg-transparent";
@@ -98,24 +105,39 @@ export default function Navbar() {
       </motion.header>
 
       {mobileMenuOpen && (
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="fixed inset-x-4 top-24 z-40 rounded-[28px] border border-stone-200/80 bg-white/95 p-5 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-stone-950/95 md:hidden">
-          <div className="flex flex-col gap-3">
-            {navItems.map((item) => {
-              const active = location.pathname === item.path;
-              return (
-                <Link key={item.path} to={item.path} className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${active ? "bg-stone-950 text-white dark:bg-[var(--accent)] dark:text-stone-950" : "bg-stone-100 text-stone-700 dark:bg-white/[0.05] dark:text-stone-200"}`}>
-                  {item.name}
-                </Link>
-              );
-            })}
-            <div className="mt-2 flex items-center gap-3">
-              <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="flex-1 rounded-2xl border border-stone-200 px-4 py-3 text-center text-sm font-medium dark:border-white/10">Instagram</a>
-              <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="flex-1 rounded-2xl border border-stone-200 px-4 py-3 text-center text-sm font-medium dark:border-white/10">GitHub</a>
+        <div className="md:hidden">
+          <motion.button
+            type="button"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 z-30 bg-black/30 backdrop-blur-[2px]"
+            aria-label="Tutup navigasi"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="fixed inset-x-4 top-24 z-40 rounded-[28px] border border-stone-200/80 bg-white/95 p-5 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-stone-950/95"
+          >
+            <div className="flex flex-col gap-3">
+              {navItems.map((item) => {
+                const active = location.pathname === item.path;
+                return (
+                  <Link key={item.path} to={item.path} className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${active ? "bg-stone-950 text-white dark:bg-[var(--accent)] dark:text-stone-950" : "bg-stone-100 text-stone-700 dark:bg-white/[0.05] dark:text-stone-200"}`}>
+                    {item.name}
+                  </Link>
+                );
+              })}
+              <div className="mt-2 flex items-center gap-3">
+                <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="flex-1 rounded-2xl border border-stone-200 px-4 py-3 text-center text-sm font-medium dark:border-white/10">Instagram</a>
+                <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="flex-1 rounded-2xl border border-stone-200 px-4 py-3 text-center text-sm font-medium dark:border-white/10">GitHub</a>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       )}
     </>
   );
 }
-
