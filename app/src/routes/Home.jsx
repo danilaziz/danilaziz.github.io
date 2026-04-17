@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Award, BriefcaseBusiness, MessagesSquare, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "../assets/images/danilaziz.webp";
 import Footer from "../components/Footer";
 import templates from "../data/templates";
@@ -110,9 +111,9 @@ export default function Home() {
               <p className="section-label">Proyek Pilihan</p>
               <h2 className="section-title mt-4">Project pilihan dengan presentasi yang lebih rapi dan profesional.</h2>
             </div>
-            <a href="/templates" className="text-sm font-semibold text-stone-700 transition hover:text-[var(--accent)] dark:text-stone-200">
+            <Link to="/templates" className="text-sm font-semibold text-stone-700 transition hover:text-[var(--accent)] dark:text-stone-200">
               Lihat semua template
-            </a>
+            </Link>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
@@ -175,4 +176,3 @@ export default function Home() {
     </main>
   );
 }
-
