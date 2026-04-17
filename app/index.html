@@ -11,6 +11,17 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/webp" href="/danil.webp" />
     <title>Danil Aziz | Portfolio Web Developer</title>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirectPath = params.get('p');
+        if (!redirectPath) return;
+
+        const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
+        const nextUrl = `${window.location.origin}/docs${cleanPath}${window.location.hash || ''}`;
+        window.history.replaceState(null, '', nextUrl);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
