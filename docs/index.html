@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mengalihkan...</title>
+    <script>
+      (function () {
+        const path = window.location.pathname.replace(/^\/docs/, "") || "/";
+        const target = `${window.location.origin}${path}${window.location.search || ""}${window.location.hash || ""}`;
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Mengalihkan ke website...</p>
+  </body>
+</html>
