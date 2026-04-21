@@ -6,15 +6,7 @@
     <script>
       (function () {
         const path = window.location.pathname;
-        const docsPrefix = '/docs';
-
-        if (!path.startsWith(docsPrefix)) {
-          window.location.replace('/docs/');
-          return;
-        }
-
-        const route = path.slice(docsPrefix.length) || '/';
-        const target = `${window.location.origin}/docs/?p=${encodeURIComponent(route)}${window.location.hash || ''}`;
+        const target = `${window.location.origin}/?p=${encodeURIComponent(path)}${window.location.hash || ''}`;
         window.location.replace(target);
       })();
     </script>

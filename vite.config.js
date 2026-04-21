@@ -5,10 +5,10 @@ export default defineConfig({
   root: "app",
   publicDir: "public",
   plugins: [react()],
-  base: "/docs/",
+  base: "/",
   build: {
-    outDir: "../docs",
-    emptyOutDir: true,
+    outDir: "..",
+    emptyOutDir: false,
     assetsDir: "assets",
   },
   server: {

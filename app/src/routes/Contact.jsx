@@ -21,19 +21,19 @@ const contactLinks = [
     label: "WhatsApp",
     href: "https://wa.me/6287728890135",
     icon: MessageCircleMore,
-    description: "Respon cepat untuk diskusi proyek, revisi, dan kebutuhan website baru.",
+    description: "Saluran utama untuk mendiskusikan kebutuhan website, penawaran kerja sama, maupun konsultasi proyek.",
   },
   {
     label: "Instagram",
     href: "https://instagram.com/danilaziz__",
     icon: Instagram,
-    description: "Tempat paling mudah untuk melihat update dan menghubungi saya secara santai.",
+    description: "Media sosial untuk melihat update karya, aktivitas, dan terhubung secara lebih informal.",
   },
   {
     label: "GitHub",
     href: "https://github.com/danilaziz",
     icon: Github,
-    description: "Lihat proyek dan pendekatan coding yang saya gunakan.",
+    description: "Tempat untuk melihat repository, eksperimen, dan pendekatan pengembangan yang saya gunakan.",
   },
 ];
 
@@ -118,25 +118,26 @@ ${cleanedMessage}
         <div className="shell grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="soft-card p-8 md:p-10">
             <p className="section-label">Kontak</p>
-            <h1 className="section-title mt-4">Siap membantu jika Anda butuh website yang lebih profesional dan terasa premium.</h1>
-            <p className="mt-6 text-base leading-8 text-stone-600 dark:text-stone-300 md:text-lg">
-              Jika Anda punya ide, butuh redesign, atau ingin mulai proyek baru, kirim pesan lewat platform yang paling nyaman.
+            <h1 className="section-title mt-4">Mari bahas kebutuhan website Anda dan temukan solusi digital yang paling tepat.</h1>
+            <p className="mt-6 text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
+              Jika Anda sedang menyiapkan website baru, membutuhkan redesign, atau ingin meningkatkan kualitas presentasi digital,
+              saya terbuka untuk diskusi dan kolaborasi.
             </p>
 
             <div className="mt-8 space-y-4">
               {contactLinks.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="glass-panel flex items-start gap-4 rounded-[28px] p-5 transition hover:-translate-y-1">
-                    <div className="rounded-2xl bg-stone-950 p-3 text-white dark:bg-[var(--accent)] dark:text-stone-950">
+                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="glass-panel flex items-start gap-4 rounded-[22px] p-5 transition hover:-translate-y-1">
+                    <div className="theme-primary-button rounded-xl p-3">
                       <Icon size={20} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-4">
-                        <p className="heading-font text-xl font-bold text-stone-950 dark:text-stone-50">{item.label}</p>
-                        <ArrowUpRight size={16} className="text-stone-500" />
+                        <p className="heading-font text-xl font-bold text-[color:var(--text-main)]">{item.label}</p>
+                        <ArrowUpRight size={16} className="text-[color:var(--text-muted)]" />
                       </div>
-                      <p className="mt-2 text-sm leading-7 text-stone-600 dark:text-stone-300">{item.description}</p>
+                      <p className="mt-2 text-sm leading-7 text-[color:var(--text-muted)]">{item.description}</p>
                     </div>
                   </a>
                 );
@@ -144,14 +145,14 @@ ${cleanedMessage}
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12 }} className="glass-panel rounded-[36px] p-8 md:p-10">
+          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12 }} className="glass-panel rounded-[28px] p-8 md:p-10">
             <div className="flex items-center gap-3">
               <div className="rounded-full bg-[var(--accent)]/20 p-3 text-[var(--accent)]">
                 <Mail size={18} />
               </div>
               <div>
-                <p className="heading-font text-2xl font-bold text-stone-950 dark:text-stone-50">Kirim Pesan</p>
-                <p className="text-sm text-stone-500 dark:text-stone-400">Pesan akan langsung dikirim ke WhatsApp.</p>
+                <p className="heading-font text-2xl font-bold text-[color:var(--text-main)]">Kirim Pesan</p>
+                <p className="text-sm text-[color:var(--text-muted)]">Pesan Anda akan langsung diarahkan ke WhatsApp.</p>
               </div>
             </div>
 
@@ -159,20 +160,20 @@ ${cleanedMessage}
               <input type="text" name="company" value={botField} onChange={(event) => setBotField(event.target.value)} className="hidden" tabIndex="-1" autoComplete="off" />
 
               <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium text-stone-700 dark:text-stone-300">Nama</label>
-                <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} placeholder="Nama Anda" autoComplete="name" minLength={2} maxLength={MAX_NAME_LENGTH} className="w-full rounded-2xl border border-stone-300 bg-white/85 px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-[var(--accent)] dark:border-white/10 dark:bg-white/[0.05] dark:text-stone-100" required />
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-[color:var(--text-main)]">Nama</label>
+                <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} placeholder="Nama Anda" autoComplete="name" minLength={2} maxLength={MAX_NAME_LENGTH} className="theme-input w-full rounded-xl px-4 py-3 text-sm outline-none transition" required />
               </div>
 
               <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium text-stone-700 dark:text-stone-300">Email</label>
-                <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="nama@email.com" inputMode="email" autoComplete="email" maxLength={MAX_EMAIL_LENGTH} className="w-full rounded-2xl border border-stone-300 bg-white/85 px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-[var(--accent)] dark:border-white/10 dark:bg-white/[0.05] dark:text-stone-100" required />
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-[color:var(--text-main)]">Email</label>
+                <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="nama@email.com" inputMode="email" autoComplete="email" maxLength={MAX_EMAIL_LENGTH} className="theme-input w-full rounded-xl px-4 py-3 text-sm outline-none transition" required />
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-stone-700 dark:text-stone-300">Ringkasan proyek</label>
-                <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} placeholder="Ceritakan kebutuhan website Anda..." minLength={10} maxLength={MAX_MESSAGE_LENGTH} className="w-full rounded-2xl border border-stone-300 bg-white/85 px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-[var(--accent)] dark:border-white/10 dark:bg-white/[0.05] dark:text-stone-100" required />
-                <div className="mt-2 flex items-center justify-between gap-4 text-xs text-stone-500 dark:text-stone-400">
-                  <span>Tulis kebutuhan secara singkat dan jelas.</span>
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-[color:var(--text-main)]">Ringkasan kebutuhan</label>
+                <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} placeholder="Jelaskan jenis website, tujuan, atau gambaran proyek Anda..." minLength={10} maxLength={MAX_MESSAGE_LENGTH} className="theme-input w-full rounded-xl px-4 py-3 text-sm outline-none transition" required />
+                <div className="mt-2 flex items-center justify-between gap-4 text-xs text-[color:var(--text-muted)]">
+                  <span>Tuliskan kebutuhan utama Anda secara singkat dan jelas.</span>
                   <span>{formData.message.length}/{MAX_MESSAGE_LENGTH}</span>
                 </div>
               </div>
@@ -184,7 +185,7 @@ ${cleanedMessage}
                 </div>
               )}
 
-              <button type="submit" disabled={isSubmitting} className="premium-button w-full bg-stone-950 text-white hover:bg-stone-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-[var(--accent)] dark:text-stone-950">
+              <button type="submit" disabled={isSubmitting} className="premium-button theme-primary-button w-full disabled:cursor-not-allowed disabled:opacity-60">
                 {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
               </button>
             </form>

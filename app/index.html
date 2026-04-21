@@ -18,7 +18,7 @@
         if (!redirectPath) return;
 
         const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
-        const nextUrl = `${window.location.origin}/docs${cleanPath}${window.location.hash || ''}`;
+        const nextUrl = `${window.location.origin}${cleanPath}${window.location.hash || ''}`;
         window.history.replaceState(null, '', nextUrl);
       })();
     </script>

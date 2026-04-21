@@ -14,16 +14,16 @@ export default function Footer() {
   return (
     <footer className="pb-10 pt-6">
       <div className="shell">
-        <div className="glass-panel rounded-[36px] px-8 py-8 md:px-10 md:py-10">
+        <div className="glass-panel rounded-[28px] px-8 py-8 md:px-10 md:py-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="heading-font text-2xl font-bold text-stone-950 dark:text-stone-50">Danil Aziz</p>
-              <p className="mt-2 max-w-md text-sm leading-7 text-stone-600 dark:text-stone-300">
-                Pengembang frontend yang fokus pada website elegan, rapi, dan siap membantu bisnis tampil lebih profesional.
+              <p className="heading-font text-2xl font-bold text-[color:var(--text-main)]">Danil Aziz</p>
+              <p className="mt-2 max-w-md text-sm leading-7 text-[color:var(--text-muted)]">
+                Frontend developer yang membantu membangun website dengan tampilan profesional, struktur rapi, dan pengalaman pengguna yang kuat.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-5 text-sm font-medium text-stone-600 dark:text-stone-300">
+            <div className="flex flex-wrap gap-5 text-sm font-medium text-[color:var(--text-muted)]">
               {links.map((item) => (
                 <Link key={item.path} to={item.path} className="transition hover:text-[var(--accent)]">
                   {item.name}
@@ -31,13 +31,13 @@ export default function Footer() {
               ))}
             </div>
 
-            <button onClick={scrollToTop} className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-stone-950 text-white transition hover:bg-stone-800 dark:bg-[var(--accent)] dark:text-stone-950" aria-label="Kembali ke atas">
+            <button onClick={scrollToTop} className="theme-primary-button inline-flex h-12 w-12 items-center justify-center rounded-full transition" aria-label="Kembali ke atas">
               <ArrowUp size={18} />
             </button>
           </div>
 
-          <div className="mt-8 border-t border-stone-200/80 pt-5 text-sm text-stone-500 dark:border-white/10 dark:text-stone-400">
-            Copyright {new Date().getFullYear()} Danil Aziz. Dibangun untuk memperkuat kehadiran digital.
+          <div className="mt-8 border-t border-[color:var(--border-soft)] pt-5 text-sm text-[color:var(--text-muted)]">
+            Copyright {new Date().getFullYear()} Danil Aziz. Dirancang untuk membangun presentasi digital yang lebih profesional.
           </div>
         </div>
       </div>

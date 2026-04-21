@@ -6,31 +6,31 @@ import Footer from "../components/Footer";
 import templates from "../data/templates";
 
 const stats = [
-  { label: "Fokus", value: "Interface Premium" },
-  { label: "Gaya kerja", value: "Cepat dan rapi" },
-  { label: "Cocok untuk", value: "Website bisnis" },
+  { label: "Spesialisasi", value: "Frontend & UI Website" },
+  { label: "Pendekatan", value: "Strategis dan detail" },
+  { label: "Layanan", value: "Portfolio, bisnis, company profile" },
 ];
 
 const highlights = [
-  "Antarmuka elegan dengan hierarki visual yang kuat",
-  "Pengembangan responsif untuk desktop dan mobile",
-  "Proses kerja yang rapi untuk brand, bisnis, dan klien freelance",
+  "Desain antarmuka yang rapi, modern, dan mudah dipercaya calon klien.",
+  "Pengembangan responsif dengan pengalaman yang konsisten di berbagai perangkat.",
+  "Kolaborasi kerja yang jelas, efisien, dan berorientasi pada hasil bisnis.",
 ];
 
 export default function Home() {
   return (
-    <main className="overflow-hidden pt-28 text-stone-900 dark:text-stone-100 md:pt-32">
+    <main className="overflow-hidden pt-20 text-[color:var(--text-main)] md:pt-24">
       <section className="relative pb-16 pt-8 md:pb-24 md:pt-12">
-        <div className="absolute inset-x-0 top-0 -z-10 h-[420px] bg-[radial-gradient(circle_at_top,rgba(184,139,90,0.22),transparent_58%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-[380px] bg-[radial-gradient(circle_at_top,color-mix(in_srgb,var(--accent)_12%,transparent),transparent_62%)]" />
         <div className="shell grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <p className="section-label">Portfolio</p>
-            <h1 className="heading-font mt-5 max-w-3xl text-4xl font-extrabold leading-tight text-stone-950 dark:text-stone-50 md:text-6xl">
-              Website yang terlihat mahal, tenang, dan dipercaya sejak kesan pertama.
+            <h1 className="heading-font mt-5 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
+              Saya merancang dan membangun website profesional yang memperkuat citra brand dan meningkatkan kepercayaan.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-300 md:text-lg">
-              Saya membantu bisnis, personal brand, dan UMKM tampil lebih profesional lewat website yang cepat,
-              rapi, dan punya arah visual yang kuat.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
+              Fokus saya adalah menghadirkan website yang tidak hanya menarik secara visual, tetapi juga terstruktur,
+              responsif, dan siap mendukung kebutuhan komunikasi bisnis maupun personal branding.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -38,38 +38,38 @@ export default function Home() {
                 href="https://wa.me/6287728890135"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="premium-button bg-stone-950 text-white hover:bg-stone-800 dark:bg-[var(--accent)] dark:text-stone-950"
+                className="premium-button theme-primary-button"
               >
                 Konsultasi Proyek
                 <ArrowRight size={16} className="ml-2" />
               </a>
-              <a href="#selected-work" className="premium-button border border-stone-300 bg-white/60 text-stone-800 hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10 dark:bg-white/[0.04] dark:text-stone-100">
-                Lihat Proyek
+              <a href="#selected-work" className="premium-button theme-secondary-button">
+                Tinjau Portofolio
               </a>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {stats.map((item) => (
                 <div key={item.label} className="soft-card px-5 py-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-stone-500 dark:text-stone-400">{item.label}</p>
-                  <p className="mt-2 heading-font text-lg font-bold text-stone-900 dark:text-stone-50">{item.value}</p>
+                  <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--text-muted)]">{item.label}</p>
+                  <p className="mt-2 heading-font text-lg font-bold text-[color:var(--text-main)]">{item.value}</p>
                 </div>
               ))}
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }} className="relative">
-            <div className="glass-panel rounded-[36px] p-4">
-              <div className="relative overflow-hidden rounded-[28px] bg-stone-950 p-5 dark:bg-stone-900">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(184,139,90,0.35),transparent_35%)]" />
-                <img src={heroImage} alt="Danil Aziz" className="relative h-[420px] w-full rounded-[24px] object-cover md:h-[520px]" />
-                <div className="absolute bottom-10 left-10 right-10 rounded-[24px] border border-white/15 bg-black/30 p-5 backdrop-blur-md">
+            <div className="glass-panel rounded-[28px] p-4">
+              <div className="theme-panel relative overflow-hidden p-5">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,color-mix(in_srgb,var(--accent)_18%,transparent),transparent_38%)]" />
+                <img src={heroImage} alt="Danil Aziz" className="relative h-[420px] w-full rounded-[18px] object-cover md:h-[520px]" />
+                <div className="absolute bottom-8 left-8 right-8 rounded-[18px] border border-white/15 bg-slate-900/36 p-5 backdrop-blur-md dark:bg-slate-950/30">
                   <div className="flex items-center gap-2 text-[var(--accent)]">
                     <Sparkles size={16} />
-                    <span className="text-xs font-semibold uppercase tracking-[0.24em]">Tersedia untuk freelance</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.24em]">Tersedia untuk kolaborasi profesional</span>
                   </div>
-                  <p className="mt-3 max-w-sm text-sm leading-7 text-stone-100 md:text-base">
-                    Fokus pada landing page, company profile, dan website bisnis yang tampil rapi sekaligus meyakinkan.
+                  <p className="mt-3 max-w-sm text-sm leading-7 text-slate-100 md:text-base">
+                    Berpengalaman mengerjakan landing page, company profile, dan website portfolio dengan presentasi yang bersih dan meyakinkan.
                   </p>
                 </div>
               </div>
@@ -87,18 +87,18 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="soft-card p-6">
               <Award className="text-[var(--accent)]" size={22} />
-              <h3 className="mt-5 heading-font text-xl font-bold">Tampilan Profesional</h3>
-              <p className="mt-3 text-sm leading-7 text-stone-600 dark:text-stone-300">Tampilan lebih bersih, premium, dan lebih mewakili value bisnis Anda.</p>
+              <h3 className="mt-5 heading-font text-xl font-bold">Presentasi Visual Profesional</h3>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">Setiap halaman dirancang agar terlihat matang, kredibel, dan relevan dengan identitas brand Anda.</p>
             </div>
             <div className="soft-card p-6">
               <BriefcaseBusiness className="text-[var(--accent)]" size={22} />
-              <h3 className="mt-5 heading-font text-xl font-bold">Siap untuk Bisnis</h3>
-              <p className="mt-3 text-sm leading-7 text-stone-600 dark:text-stone-300">Struktur konten dibuat jelas supaya pengunjung langsung paham layanan dan kualitas Anda.</p>
+              <h3 className="mt-5 heading-font text-xl font-bold">Siap Digunakan untuk Bisnis</h3>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">Struktur informasi disusun agar pengunjung cepat memahami layanan, nilai, dan keunggulan Anda.</p>
             </div>
             <div className="soft-card p-6">
               <MessagesSquare className="text-[var(--accent)]" size={22} />
-              <h3 className="mt-5 heading-font text-xl font-bold">Kolaborasi Nyaman</h3>
-              <p className="mt-3 text-sm leading-7 text-stone-600 dark:text-stone-300">Proses komunikasi dibuat simpel, cepat, dan nyaman untuk klien maupun partner.</p>
+              <h3 className="mt-5 heading-font text-xl font-bold">Kolaborasi yang Terarah</h3>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">Komunikasi, revisi, dan pengembangan dilakukan secara jelas agar proses proyek tetap efisien.</p>
             </div>
           </div>
         </div>
@@ -109,9 +109,9 @@ export default function Home() {
           <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="section-label">Proyek Pilihan</p>
-              <h2 className="section-title mt-4">Project pilihan dengan presentasi yang lebih rapi dan profesional.</h2>
+              <h2 className="section-title mt-4">Beberapa proyek yang menunjukkan pendekatan saya dalam membangun website yang rapi, modern, dan profesional.</h2>
             </div>
-            <Link to="/template" className="text-sm font-semibold text-stone-700 transition hover:text-[var(--accent)] dark:text-stone-200">
+            <Link to="/template" className="text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)] whitespace-nowrap">
               Lihat semua template
             </Link>
           </div>
@@ -126,16 +126,16 @@ export default function Home() {
                 <div className="p-6">
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.24em] text-stone-500 dark:text-stone-400">{item.category}</p>
+                      <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--text-muted)]">{item.category}</p>
                       <h3 className="mt-2 heading-font text-2xl font-bold">{item.title}</h3>
                     </div>
-                    <a href={item.demo} target="_blank" rel="noopener noreferrer" className="rounded-full border border-stone-300 p-3 text-stone-700 transition hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10 dark:text-stone-200" aria-label={`Buka ${item.title}`}>
+                    <a href={item.demo} target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-full p-3 transition" aria-label={`Buka ${item.title}`}>
                       <ArrowRight size={16} />
                     </a>
                   </div>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {item.tech.map((tech) => (
-                      <span key={tech} className="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-600 dark:bg-white/[0.06] dark:text-stone-300">{tech}</span>
+                      <span key={tech} className="theme-badge rounded-full px-3 py-1 text-xs font-medium">{tech}</span>
                     ))}
                   </div>
                 </div>
@@ -147,24 +147,24 @@ export default function Home() {
 
       <section className="pb-24">
         <div className="shell">
-          <div className="glass-panel rounded-[36px] px-8 py-10 md:px-12 md:py-14">
+          <div className="glass-panel rounded-[28px] px-8 py-10 md:px-12 md:py-14">
             <div className="grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
               <div>
                 <p className="section-label">Kerja Sama</p>
-                <h2 className="section-title mt-4">Mari bangun website yang terasa premium dan benar-benar siap dipresentasikan ke klien Anda.</h2>
-                <p className="mt-5 max-w-2xl text-base leading-8 text-stone-600 dark:text-stone-300">Cocok untuk company profile, landing page, personal branding, dan kebutuhan digital presence yang ingin terlihat lebih serius.</p>
+                <h2 className="section-title mt-4">Jika Anda membutuhkan website yang kuat secara visual dan jelas secara komunikasi, saya siap membantu mewujudkannya.</h2>
+                <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)]">Layanan ini cocok untuk company profile, landing page, website portfolio, dan kebutuhan digital presence yang ingin tampil lebih profesional.</p>
               </div>
               <div className="space-y-4">
                 {highlights.map((item) => (
-                  <div key={item} className="soft-card px-5 py-4 text-sm leading-7 text-stone-700 dark:text-stone-200">{item}</div>
+                  <div key={item} className="soft-card px-5 py-4 text-sm leading-7 text-[color:var(--text-main)]">{item}</div>
                 ))}
                 <a
                   href="https://wa.me/6287728890135"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="premium-button w-full bg-[var(--accent)] text-stone-950 hover:opacity-90"
+                  className="premium-button w-full bg-[var(--accent)] text-slate-950 hover:opacity-90"
                 >
-                  Mulai Proyek
+                  Mulai Diskusi
                 </a>
               </div>
             </div>
@@ -176,5 +176,3 @@ export default function Home() {
     </main>
   );
 }
-
-

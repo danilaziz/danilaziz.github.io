@@ -1,15 +1,31 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=/docs/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mengalihkan...</title>
+    <meta
+      name="description"
+      content="Portfolio Danil Aziz, pengembang web yang membantu bisnis, UMKM, dan personal brand tampil lebih profesional melalui website modern, elegan, dan premium."
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/webp" href="/danil.webp" />
+    <title>Danil Aziz | Portfolio Web Developer</title>
     <script>
-      window.location.replace('/docs/');
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirectPath = params.get('p');
+        if (!redirectPath) return;
+
+        const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
+        const nextUrl = `${window.location.origin}${cleanPath}${window.location.hash || ''}`;
+        window.history.replaceState(null, '', nextUrl);
+      })();
     </script>
+    <script type="module" crossorigin src="/assets/index-xbRqQGq8.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CRUJ7qFL.css">
   </head>
   <body>
-    <p>Mengalihkan ke website...</p>
+    <div id="root"></div>
   </body>
 </html>
