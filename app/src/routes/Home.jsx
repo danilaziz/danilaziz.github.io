@@ -1,8 +1,10 @@
 import { ArrowRight, Award, BriefcaseBusiness, MessagesSquare, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/images/danilaziz-hero.webp";
 import Footer from "../components/Footer";
 import templates from "../data/templates";
+
+const mobileHeroImage = "/danilaziz-hero-mobile.webp";
+const desktopHeroImage = "/danilaziz-hero.webp";
 
 const stats = [
   { label: "Spesialisasi", value: "Frontend & UI Website" },
@@ -61,7 +63,10 @@ export default function Home() {
             <div className="glass-panel rounded-[24px] p-3 sm:rounded-[28px] sm:p-4">
               <div className="theme-panel relative overflow-hidden p-4 sm:p-5">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,color-mix(in_srgb,var(--accent)_18%,transparent),transparent_38%)]" />
-                <img src={heroImage} alt="Danil Aziz" width="720" height="900" fetchPriority="high" decoding="async" className="relative h-[420px] w-full rounded-[18px] object-cover object-top sm:h-[520px]" />
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
+                  <img src={desktopHeroImage} alt="Danil Aziz" width="720" height="900" loading="eager" fetchPriority="high" decoding="async" className="relative h-[420px] w-full rounded-[18px] object-cover object-top sm:h-[520px]" />
+                </picture>
                 <div className="hero-overlay absolute inset-x-5 bottom-5 rounded-[18px] p-4 sm:inset-x-8 sm:bottom-8 sm:p-5">
                   <div className="hero-overlay-eyebrow flex items-center gap-2">
                     <Sparkles size={14} className="shrink-0 sm:h-4 sm:w-4" />
@@ -77,7 +82,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-24">
+      <section className="deferred-section pb-20 md:pb-24">
         <div className="shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="soft-card p-6 sm:p-8">
             <p className="section-label">Alasan Bekerja Sama</p>
@@ -103,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="selected-work" className="pb-20 md:pb-24">
+      <section id="selected-work" className="deferred-section pb-20 md:pb-24">
         <div className="shell">
           <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
             <div>
@@ -144,7 +149,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="deferred-section pb-24">
         <div className="shell">
           <div className="glass-panel rounded-[28px] px-8 py-10 md:px-12 md:py-14">
             <div className="grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">

@@ -1,6 +1,7 @@
 import { Atom, Code2, GitBranch, Github, MonitorSmartphone, Palette, Sparkles, Wind } from "lucide-react";
 import Footer from "../components/Footer";
-import profileImage from "../assets/images/danilaziz-hero.webp";
+
+const profileImage = "/danilaziz-hero.webp";
 
 const expertise = [
   {

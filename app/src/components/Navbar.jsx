@@ -48,7 +48,7 @@ export default function Navbar() {
         <div className={`shell rounded-[22px] border backdrop-blur-xl transition-all duration-300 ${navClass}`}>
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
-              <img src={logo} alt="Danil Aziz" width="44" height="44" loading="eager" fetchPriority="high" decoding="async" className="h-10 w-10 shrink-0 rounded-full border border-white/70 object-cover shadow-sm dark:border-white/10 md:h-11 md:w-11" />
+              <img src={logo} alt="Danil Aziz" width="44" height="44" loading="eager" decoding="async" className="h-10 w-10 shrink-0 rounded-full border border-white/70 object-cover shadow-sm dark:border-white/10 md:h-11 md:w-11" />
               <div className="min-w-0">
                 <p className="heading-font truncate text-[0.95rem] font-bold uppercase tracking-[0.24em] text-[color:var(--text-main)] md:text-sm md:tracking-[0.28em]">Danil Aziz</p>
                 <p className="line-clamp-2 text-xs leading-5 text-[color:var(--text-muted)] md:line-clamp-1">Frontend Developer & Website Specialist</p>
