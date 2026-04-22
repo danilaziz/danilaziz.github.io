@@ -1,4 +1,4 @@
-import { ExternalLink, MessageCircleMore, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, MessageCircleMore } from "lucide-react";
 import { useState } from "react";
 
 const WA_NUMBER = "6287728890135";
@@ -25,6 +25,7 @@ export default function TemplateCard({ item }) {
           src={images[current]}
           alt={`${item.title} ${current + 1}`}
           loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition duration-700"
         />
 

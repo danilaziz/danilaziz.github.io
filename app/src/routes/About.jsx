@@ -1,9 +1,6 @@
-import { motion } from "framer-motion";
-import { Code2, MonitorSmartphone, Palette, Sparkles } from "lucide-react";
-import { FaGitAlt, FaGithub, FaReact } from "react-icons/fa";
-import { SiFramer, SiTailwindcss } from "react-icons/si";
+import { Atom, Code2, GitBranch, Github, MonitorSmartphone, Palette, Sparkles, Wind } from "lucide-react";
 import Footer from "../components/Footer";
-import profileImage from "../assets/images/danilaziz.webp";
+import profileImage from "../assets/images/danilaziz-hero.webp";
 
 const expertise = [
   {
@@ -23,7 +20,7 @@ const expertise = [
   },
 ];
 
-const techIcons = [FaReact, SiTailwindcss, FaGitAlt, FaGithub, SiFramer];
+const techIcons = [Atom, Wind, GitBranch, Github, Sparkles];
 
 const skills = [
   { name: "Perancangan UI", value: "95%" },
@@ -37,14 +34,14 @@ export default function About() {
     <main className="overflow-hidden pt-28 md:pt-32">
       <section className="pb-16 md:pb-24">
         <div className="shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.75 }} className="glass-panel rounded-[28px] p-4">
+          <div className="glass-panel rounded-[28px] p-4">
             <div className="theme-panel relative overflow-hidden p-5">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,color-mix(in_srgb,var(--accent)_18%,transparent),transparent_40%)]" />
-              <img src={profileImage} alt="Danil Aziz" className="relative h-[420px] w-full rounded-[18px] object-cover md:h-[520px]" />
+              <img src={profileImage} alt="Danil Aziz" width="720" height="900" loading="lazy" decoding="async" className="relative h-[420px] w-full rounded-[18px] object-cover md:h-[520px]" />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.75, delay: 0.1 }}>
+          <div>
             <p className="section-label">Tentang Saya</p>
             <h1 className="section-title mt-4">Saya adalah frontend developer yang fokus membangun website dengan kualitas visual yang kuat dan komunikasi yang jelas.</h1>
             <p className="mt-6 text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
@@ -63,20 +60,20 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="pb-16 md:pb-24">
         <div className="shell grid gap-6 md:grid-cols-3">
-          {expertise.map((item, index) => {
+          {expertise.map((item) => {
             const Icon = item.icon;
             return (
-              <motion.article key={item.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6, delay: index * 0.12 }} className="soft-card p-7">
+              <article key={item.title} className="soft-card p-7">
                 <Icon size={24} className="text-[var(--accent)]" />
                 <h2 className="mt-5 heading-font text-2xl font-bold">{item.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">{item.description}</p>
-              </motion.article>
+              </article>
             );
           })}
         </div>

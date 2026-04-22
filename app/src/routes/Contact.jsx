@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight, CircleAlert, Github, Instagram, Mail, MessageCircleMore } from "lucide-react";
 import Footer from "../components/Footer";
 
@@ -116,7 +115,7 @@ ${cleanedMessage}
     <main className="overflow-hidden pt-28 md:pt-32">
       <section className="pb-16 md:pb-24">
         <div className="shell grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="soft-card p-8 md:p-10">
+          <div className="soft-card p-8 md:p-10">
             <p className="section-label">Kontak</p>
             <h1 className="section-title mt-4">Mari bahas kebutuhan website Anda dan temukan solusi digital yang paling tepat.</h1>
             <p className="mt-6 text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
@@ -143,9 +142,9 @@ ${cleanedMessage}
                 );
               })}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12 }} className="glass-panel rounded-[28px] p-8 md:p-10">
+          <div className="glass-panel rounded-[28px] p-8 md:p-10">
             <div className="flex items-center gap-3">
               <div className="rounded-full bg-[var(--accent)]/20 p-3 text-[var(--accent)]">
                 <Mail size={18} />
@@ -189,7 +188,7 @@ ${cleanedMessage}
                 {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
               </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </section>
 
