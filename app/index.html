@@ -9,6 +9,10 @@
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="color-scheme" content="light dark" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+    />
     <link rel="icon" type="image/webp" href="/danil.webp" />
     <link
       rel="preload"
@@ -32,9 +36,11 @@
 
         const params = new URLSearchParams(window.location.search);
         const redirectPath = params.get('p');
-        if (!redirectPath) return;
+        if (!redirectPath || redirectPath.includes('://') || redirectPath.startsWith('//')) return;
 
         const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
+        if (!/^\/[a-z0-9\-/_]*$/i.test(cleanPath)) return;
+
         const nextUrl = `${window.location.origin}${cleanPath}${window.location.hash || ''}`;
         window.history.replaceState(null, '', nextUrl);
       })();

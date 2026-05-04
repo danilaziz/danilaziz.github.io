@@ -2,16 +2,19 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>Mengalihkan...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>404 Not Found</title>
     <script>
       (function () {
         const path = window.location.pathname;
-        const target = `${window.location.origin}/?p=${encodeURIComponent(path)}${window.location.hash || ''}`;
+        const safePath = /^\/[a-z0-9\-/_]*$/i.test(path) ? path : '/404';
+        const target = `${window.location.origin}/?p=${encodeURIComponent(safePath)}${window.location.hash || ''}`;
         window.location.replace(target);
       })();
     </script>
   </head>
   <body>
-    <p>Mengalihkan...</p>
+    <p>Halaman tidak ditemukan. Mengalihkan ke halaman 404...</p>
   </body>
 </html>

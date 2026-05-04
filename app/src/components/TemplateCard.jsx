@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const WA_NUMBER = "6287728890135";
 
-export default function TemplateCard({ item }) {
+export default function TemplateCard({ item, priority = false }) {
   const message = `Halo, saya tertarik dengan template *${item.title}*. Bisa minta info lebih lanjut?`;
   const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
 
@@ -20,11 +20,12 @@ export default function TemplateCard({ item }) {
 
   return (
     <article className="soft-card h-full overflow-hidden">
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden sm:h-56 sm:aspect-auto">
         <img
           src={images[current]}
           alt={`${item.title} ${current + 1}`}
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           decoding="async"
           className="h-full w-full object-cover transition duration-700"
         />
@@ -50,7 +51,7 @@ export default function TemplateCard({ item }) {
         )}
       </div>
 
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--text-muted)]">
@@ -71,7 +72,7 @@ export default function TemplateCard({ item }) {
           </a>
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           {item.tech?.map((tech) => (
             <span
               key={tech}
@@ -82,7 +83,7 @@ export default function TemplateCard({ item }) {
           ))}
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
           <a
             href={item.demo}
             target="_blank"
@@ -102,10 +103,6 @@ export default function TemplateCard({ item }) {
             Pesan
           </a>
         </div>
-
-        <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)]">
-          Cocok untuk presentasi bisnis, promosi layanan, dan kebutuhan brand yang ingin tampil lebih profesional.
-        </p>
       </div>
     </article>
   );

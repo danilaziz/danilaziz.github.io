@@ -5,8 +5,8 @@ import logo from "../assets/images/danil.webp";
 
 const navItems = [
   { name: "Beranda", path: "/" },
-  { name: "Tentang", path: "/tentang" },
-  { name: "Template", path: "/template" },
+  { name: "Harga", path: "/harga" },
+  { name: "Contoh", path: "/template" },
   { name: "Kontak", path: "/kontak" },
 ];
 
@@ -51,13 +51,14 @@ export default function Navbar() {
               <img src={logo} alt="Danil Aziz" width="44" height="44" loading="eager" decoding="async" className="h-10 w-10 shrink-0 rounded-full border border-white/70 object-cover shadow-sm dark:border-white/10 md:h-11 md:w-11" />
               <div className="min-w-0">
                 <p className="heading-font truncate text-[0.95rem] font-bold uppercase tracking-[0.24em] text-[color:var(--text-main)] md:text-sm md:tracking-[0.28em]">Danil Aziz</p>
-                <p className="line-clamp-2 text-xs leading-5 text-[color:var(--text-muted)] md:line-clamp-1">Frontend Developer & Website Specialist</p>
+                <p className="line-clamp-2 text-xs leading-5 text-[color:var(--text-muted)] md:line-clamp-1">Website Developer</p>
               </div>
             </Link>
 
             <nav className="hidden items-center gap-8 md:flex">
               {navItems.map((item) => {
-                const active = location.pathname === item.path;
+                const [path, hash] = item.path.split("#");
+                const active = hash ? location.pathname === path && location.hash === `#${hash}` : location.pathname === item.path;
                 return (
                   <Link
                     key={item.path}
@@ -81,7 +82,7 @@ export default function Navbar() {
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
               <Link to="/kontak" className="premium-button theme-primary-button">
-                Hubungi Saya
+                Buat Website
                 <ArrowUpRight size={16} className="ml-2" />
               </Link>
             </div>
@@ -110,7 +111,8 @@ export default function Navbar() {
           <div className="fixed inset-x-3 top-24 z-40 rounded-[22px] border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl backdrop-blur-xl">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => {
-                const active = location.pathname === item.path;
+                const [path, hash] = item.path.split("#");
+                const active = hash ? location.pathname === path && location.hash === `#${hash}` : location.pathname === item.path;
                 return (
                   <Link key={item.path} to={item.path} className={`rounded-xl px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
                     {item.name}

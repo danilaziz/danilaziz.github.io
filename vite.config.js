@@ -10,6 +10,17 @@ export default defineConfig({
     outDir: "..",
     emptyOutDir: false,
     assetsDir: "assets",
+    cssCodeSplit: true,
+    modulePreload: {
+      polyfill: false,
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+        },
+      },
+    },
   },
   server: {
     host: "127.0.0.1",

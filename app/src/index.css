@@ -80,7 +80,11 @@ span,
     border: 1px solid var(--border-soft);
     background: var(--surface-glass);
     box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(8px);
+  }
+
+  .deferred-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 720px;
   }
 
   .section-label {
@@ -98,6 +102,56 @@ span,
     background: var(--surface-card);
     box-shadow: var(--shadow-card);
     @apply rounded-[24px];
+  }
+
+  .quick-win {
+    color: var(--text-main);
+    background: var(--surface-card);
+    border: 1px solid var(--border-soft);
+    @apply flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold;
+  }
+
+  .quick-win svg {
+    color: var(--accent);
+  }
+
+  .hero-offer {
+    border: 1px solid var(--border-strong);
+    background: var(--surface-glass);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+    @apply absolute bottom-5 left-5 right-5 rounded-[20px] p-5;
+  }
+
+  .hero-offer span {
+    color: var(--accent);
+    @apply text-xs font-bold uppercase tracking-[0.24em];
+  }
+
+  .hero-offer strong {
+    color: var(--text-main);
+    @apply mt-2 block heading-font text-2xl;
+  }
+
+  .price-card {
+    border: 1px solid var(--border-soft);
+    background: var(--surface-card);
+    box-shadow: var(--shadow-card);
+    @apply rounded-[24px] p-6;
+  }
+
+  .price-card-featured {
+    border-color: color-mix(in srgb, var(--accent) 52%, transparent);
+    box-shadow: 0 24px 58px -34px color-mix(in srgb, var(--accent) 42%, transparent);
+    @apply relative;
+  }
+
+  .cta-band {
+    border: 1px solid var(--border-soft);
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--surface-card) 94%, var(--accent) 6%), var(--surface-card));
+    box-shadow: var(--shadow-soft);
+    @apply flex flex-col gap-6 rounded-[28px] px-7 py-9 md:flex-row md:items-center md:justify-between md:px-10 md:py-12;
   }
 
   .premium-button {
@@ -165,34 +219,6 @@ span,
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent);
   }
 
-  .hero-overlay {
-    border: 1px solid rgba(15, 23, 42, 0.18);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(241, 245, 249, 0.92) 100%);
-    box-shadow: 0 20px 36px -28px rgba(15, 23, 42, 0.32);
-    backdrop-filter: blur(12px);
-  }
-
-  .hero-overlay-eyebrow {
-    color: var(--accent-strong);
-  }
-
-  .hero-overlay-copy {
-    color: #1f2937;
-  }
-
-  .dark .hero-overlay {
-    border-color: rgba(255, 255, 255, 0.14);
-    background: rgba(2, 6, 23, 0.74);
-    box-shadow: 0 20px 36px -28px rgba(0, 0, 0, 0.46);
-  }
-
-  .dark .hero-overlay-eyebrow {
-    color: var(--accent);
-  }
-
-  .dark .hero-overlay-copy {
-    color: #f8fafc;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

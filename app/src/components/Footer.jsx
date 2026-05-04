@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const links = [
   { name: "Beranda", path: "/" },
-  { name: "Tentang", path: "/tentang" },
-  { name: "Template", path: "/template" },
+  { name: "Harga", path: "/harga" },
+  { name: "Contoh", path: "/template" },
   { name: "Kontak", path: "/kontak" },
 ];
 
@@ -19,7 +19,7 @@ export default function Footer() {
             <div>
               <p className="heading-font text-2xl font-bold text-[color:var(--text-main)]">Danil Aziz</p>
               <p className="mt-2 max-w-md text-sm leading-7 text-[color:var(--text-muted)]">
-                Frontend developer yang membantu membangun website dengan tampilan profesional, struktur rapi, dan pengalaman pengguna yang kuat.
+                Pembuatan company profile, landing page, dan website custom yang cepat dibuka.
               </p>
             </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-8 border-t border-[color:var(--border-soft)] pt-5 text-sm text-[color:var(--text-muted)]">
-            Copyright {new Date().getFullYear()} Danil Aziz. Dirancang untuk membangun presentasi digital yang lebih profesional.
+            Copyright {new Date().getFullYear()} Danil Aziz. Website cepat untuk bisnis yang ingin tampil lebih menjual.
           </div>
         </div>
       </div>
