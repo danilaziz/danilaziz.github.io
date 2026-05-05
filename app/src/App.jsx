@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 const About = lazy(() => import("./routes/About"));
@@ -24,7 +24,8 @@ export default function App() {
           <Route path="/tentang" element={<About />} />
           <Route path="/harga" element={<Pricing />} />
           <Route path="/harga/:slug" element={<PricingDetail />} />
-          <Route path="/template" element={<Templates />} />
+          <Route path="/contoh" element={<Templates />} />
+          <Route path="/template" element={<Navigate to="/contoh" replace />} />
           <Route path="/kontak" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -6,7 +6,7 @@ import logo from "../assets/images/danil.webp";
 const navItems = [
   { name: "Beranda", path: "/" },
   { name: "Harga", path: "/harga" },
-  { name: "Contoh", path: "/template" },
+  { name: "Contoh", path: "/contoh" },
   { name: "Kontak", path: "/kontak" },
 ];
 

@@ -143,7 +143,7 @@ export default function Home() {
               <p className="section-label">Contoh</p>
               <h2 className="section-title mt-3">Website yang pernah dibuat.</h2>
             </div>
-            <Link to="/template" className="text-sm font-semibold text-[var(--accent)]">
+            <Link to="/contoh" className="text-sm font-semibold text-[var(--accent)]">
               Lihat semua
             </Link>
           </div>

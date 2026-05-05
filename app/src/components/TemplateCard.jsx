@@ -4,7 +4,7 @@ import { useState } from "react";
 const WA_NUMBER = "6287728890135";
 
 export default function TemplateCard({ item, priority = false }) {
-  const message = `Halo, saya tertarik dengan template *${item.title}*. Bisa minta info lebih lanjut?`;
+  const message = `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;
   const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
 
   const images = (item.images || [item.image]).slice(0, 4);
