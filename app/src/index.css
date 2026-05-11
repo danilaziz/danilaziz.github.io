@@ -139,7 +139,7 @@ span,
 
   .hero-offer span {
     color: var(--accent);
-    @apply text-xs font-bold uppercase tracking-[0.2em];
+    @apply inline-block whitespace-nowrap text-xs font-bold uppercase tracking-[0.2em];
   }
 
   .hero-offer strong {
