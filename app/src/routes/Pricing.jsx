@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Clock3, Gauge, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
+﻿import { ArrowRight, Check, Clock3, Gauge, Info, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
@@ -30,38 +30,45 @@ export default function Pricing() {
       <section className="pb-16 md:pb-20">
         <div className="shell grid gap-4 lg:grid-cols-3">
           {packages.map((item) => (
-            <article key={item.name} className={`price-card ${item.featured ? "price-card-featured" : ""}`}>
-              <div className="flex items-start justify-between gap-4">
+            <article key={item.name} className={`price-card flex h-full flex-col overflow-hidden ${item.featured ? "price-card-featured" : ""}`}>
+              <div className="mb-6 flex items-start justify-between gap-4 border-b border-[color:var(--border-soft)] pb-5">
                 <div>
                   <p className="text-sm font-semibold text-[color:var(--text-muted)]">{item.name}</p>
-                  <h2 className="heading-font mt-2 text-3xl font-extrabold">{item.price}</h2>
+                  <h2 className="heading-font mt-2 text-3xl font-extrabold tracking-tight">{item.price}</h2>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">{item.adminLabel}</p>
                 </div>
-                <span className="theme-badge whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold">{item.bestFor}</span>
+                <span className="theme-badge whitespace-nowrap rounded-md px-3 py-1 text-xs font-semibold">{item.bestFor}</span>
               </div>
-              <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)]">{item.summary}</p>
 
-              <ul className="mt-6 space-y-3">
+              <p className="text-sm leading-7 text-[color:var(--text-muted)]">{item.summary}</p>
+
+              <ul className="mt-6 grid gap-2.5 rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-4">
                 {item.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm">
-                    <Check size={16} className="shrink-0 text-[var(--accent)]" />
-                    {feature}
+                  <li key={feature} className="flex items-start gap-3 text-sm leading-6">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[var(--accent-soft)] text-[var(--accent)]">
+                      <Check size={13} />
+                    </span>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <Link to={`/harga/${item.slug}`} className="theme-secondary-button mt-6 flex w-full items-center justify-center rounded-2xl px-4 py-3 text-sm font-semibold transition">
-                Detail layanan
-              </Link>
+              <div className="mt-auto grid grid-cols-2 gap-3 pt-7">
+                <Link to={`/layanan/${item.slug}`} className="theme-secondary-button flex min-h-11 items-center justify-center rounded-md px-3 py-3 text-center text-xs font-semibold transition sm:text-sm">
+                  <span className="hidden sm:inline">Detail layanan</span>
+                  <span className="sm:hidden">Detail</span>
+                </Link>
 
-              <a
-                href={`https://wa.me/6287728890135?text=${encodeURIComponent(`Halo Danil, saya tertarik paket ${item.name}. Bisa konsultasi?`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`premium-button mt-7 w-full ${item.featured ? "theme-primary-button" : "theme-secondary-button"}`}
-              >
-                Pilih Paket
-                <ArrowRight size={16} className="ml-2" />
-              </a>
+                <a
+                  href={`https://wa.me/6287728890135?text=${encodeURIComponent(`Halo Danil, saya tertarik paket ${item.name}. Bisa konsultasi?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex min-h-11 items-center justify-center rounded-md px-3 py-3 text-center text-xs font-semibold transition sm:text-sm ${item.featured ? "theme-primary-button" : "theme-secondary-button"}`}
+                >
+                  <MessageCircleMore size={15} className="mr-1.5 shrink-0" />
+                  <span>Pilih paket</span>
+                </a>
+              </div>
             </article>
           ))}
         </div>
@@ -92,7 +99,9 @@ export default function Pricing() {
               <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Mau hitung estimasi website kamu?</h2>
             </div>
             <a href="https://wa.me/6287728890135" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+              <MessageCircleMore size={16} className="mr-2" />
               Chat WhatsApp
+              <ArrowRight size={16} className="ml-2" />
             </a>
           </div>
         </div>

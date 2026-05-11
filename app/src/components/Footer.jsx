@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const links = [
   { name: "Beranda", path: "/" },
-  { name: "Harga", path: "/harga" },
-  { name: "Contoh", path: "/contoh" },
+  { name: "Layanan", path: "/layanan" },
+  { name: "Portfolio", path: "/portfolio" },
   { name: "Kontak", path: "/kontak" },
 ];
 
@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="pb-10 pt-6">
       <div className="shell">
-        <div className="glass-panel rounded-[28px] px-8 py-8 md:px-10 md:py-10">
+        <div className="glass-panel rounded-lg px-8 py-8 md:px-10 md:py-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="heading-font text-2xl font-bold text-[color:var(--text-main)]">Danil Aziz</p>
@@ -31,7 +31,7 @@ export default function Footer() {
               ))}
             </div>
 
-            <button onClick={scrollToTop} className="theme-primary-button inline-flex h-12 w-12 items-center justify-center rounded-full transition" aria-label="Kembali ke atas">
+            <button onClick={scrollToTop} className="theme-primary-button inline-flex h-12 w-12 items-center justify-center rounded-md transition" aria-label="Kembali ke atas">
               <ArrowUp size={18} />
             </button>
           </div>
@@ -44,4 +44,3 @@ export default function Footer() {
     </footer>
   );
 }
-

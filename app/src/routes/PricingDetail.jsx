@@ -18,9 +18,9 @@ export default function PricingDetail() {
     <main className="overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
       <section className="pb-14 md:pb-18">
         <div className="shell">
-          <Link to="/harga" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)]">
+          <Link to="/layanan" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)]">
             <ArrowLeft size={16} />
-            Kembali ke Harga
+            Kembali ke Layanan
           </Link>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_0.82fr]">
@@ -30,16 +30,16 @@ export default function PricingDetail() {
               <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">{item.summary}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-[20px] border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
+                <div className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Tanpa Admin</p>
                   <p className="heading-font mt-2 text-3xl font-extrabold">{item.price}</p>
                 </div>
-                <div className="rounded-[20px] border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
+                <div className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Dengan Admin</p>
                   <p className="heading-font mt-2 text-3xl font-extrabold">{item.adminPrice}</p>
                   <p className="mt-1 text-xs leading-5 text-[color:var(--text-muted)]">{item.adminLabel}</p>
                 </div>
-                <div className="rounded-[20px] border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
+                <div className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Estimasi</p>
                   <p className="heading-font mt-2 text-3xl font-extrabold">{item.timeline}</p>
                 </div>
@@ -103,7 +103,7 @@ export default function PricingDetail() {
           </div>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {addons.map((addon) => (
-              <div key={addon.name} className="rounded-[18px] border border-[color:var(--border-soft)] bg-[color:var(--surface-card)] p-4">
+              <div key={addon.name} className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-card)] p-4">
                 <p className="text-sm font-semibold text-[color:var(--text-main)]">{addon.name}</p>
                 <p className="mt-2 heading-font text-lg font-extrabold text-[var(--accent)]">{addon.price}</p>
               </div>

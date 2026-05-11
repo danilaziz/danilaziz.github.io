@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight, Github, Instagram, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Github, Home, Instagram, Layers3, Menu, MessageCircleMore, Moon, Phone, Sun, X } from "lucide-react";
 import logo from "../assets/images/danil.webp";
 
 const navItems = [
-  { name: "Beranda", path: "/" },
-  { name: "Harga", path: "/harga" },
-  { name: "Contoh", path: "/contoh" },
-  { name: "Kontak", path: "/kontak" },
+  { name: "Beranda", path: "/", icon: Home },
+  { name: "Layanan", path: "/layanan", icon: BriefcaseBusiness },
+  { name: "Portfolio", path: "/portfolio", icon: Layers3 },
+  { name: "Kontak", path: "/kontak", icon: Phone },
 ];
 
 export default function Navbar() {
@@ -40,31 +40,28 @@ export default function Navbar() {
 
   const navClass = scrolled
     ? "border-[color:var(--border-strong)] bg-[color:var(--surface-glass)] shadow-[var(--shadow-soft)]"
-    : "border-transparent bg-transparent";
+    : "border-transparent bg-[color:var(--surface-glass)]/60";
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-4">
-        <div className={`shell rounded-[22px] border backdrop-blur-xl transition-all duration-300 ${navClass}`}>
+        <div className={`shell rounded-lg border backdrop-blur-xl transition-all duration-300 ${navClass}`}>
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
-              <img src={logo} alt="Danil Aziz" width="44" height="44" loading="eager" decoding="async" className="h-10 w-10 shrink-0 rounded-full border border-white/70 object-cover shadow-sm dark:border-white/10 md:h-11 md:w-11" />
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1.5 shadow-sm md:h-14 md:w-14 md:p-2">
+                <img src={logo} alt="Danil Aziz" width="52" height="52" loading="eager" decoding="async" className="h-full w-full rounded-md object-cover object-top" />
+              </span>
               <div className="min-w-0">
-                <p className="heading-font truncate text-[0.95rem] font-bold uppercase tracking-[0.24em] text-[color:var(--text-main)] md:text-sm md:tracking-[0.28em]">Danil Aziz</p>
-                <p className="line-clamp-2 text-xs leading-5 text-[color:var(--text-muted)] md:line-clamp-1">Website Developer</p>
+                <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">Danil Aziz</p>
+                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Website untuk bisnis jasa dan UMKM</p>
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-8 md:flex">
+            <nav className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => {
-                const [path, hash] = item.path.split("#");
-                const active = hash ? location.pathname === path && location.hash === `#${hash}` : location.pathname === item.path;
+                const active = item.path === "/" ? location.pathname === item.path : location.pathname.startsWith(item.path);
                 return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`text-sm font-medium transition ${active ? "text-[color:var(--text-main)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-main)]"}`}
-                  >
+                  <Link key={item.path} to={item.path} className={`text-sm font-medium transition ${active ? "text-[color:var(--text-main)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-main)]"}`}>
                     {item.name}
                   </Link>
                 );
@@ -72,26 +69,26 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden items-center gap-3 md:flex">
-              <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-full p-2 transition" aria-label="Instagram">
+              <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-full p-2 transition" aria-label="GitHub">
+              <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
                 <Github size={18} />
               </a>
-              <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-full p-2 transition" aria-label="Ubah tema">
+              <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2 transition" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <Link to="/kontak" className="premium-button theme-primary-button">
-                Buat Website
+              <a href="https://wa.me/6287728890135" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+                Konsultasi
                 <ArrowUpRight size={16} className="ml-2" />
-              </Link>
+              </a>
             </div>
 
             <div className="flex shrink-0 items-center gap-2 md:hidden">
-              <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-full p-2" aria-label="Ubah tema">
+              <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <button onClick={() => setMobileMenuOpen((value) => !value)} className="theme-icon-button rounded-full p-2" aria-label="Buka navigasi">
+              <button onClick={() => setMobileMenuOpen((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Buka navigasi">
                 {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
@@ -101,28 +98,24 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="md:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(false)}
-            className="fixed inset-0 z-30 bg-black/30 backdrop-blur-[2px]"
-            aria-label="Tutup navigasi"
-          />
+          <button type="button" onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-black/30 backdrop-blur-[2px]" aria-label="Tutup navigasi" />
 
-          <div className="fixed inset-x-3 top-24 z-40 rounded-[22px] border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl backdrop-blur-xl">
+          <div className="fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl backdrop-blur-xl">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => {
-                const [path, hash] = item.path.split("#");
-                const active = hash ? location.pathname === path && location.hash === `#${hash}` : location.pathname === item.path;
+                const Icon = item.icon;
+                const active = item.path === "/" ? location.pathname === item.path : location.pathname.startsWith(item.path);
                 return (
-                  <Link key={item.path} to={item.path} className={`rounded-xl px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
+                  <Link key={item.path} to={item.path} className={`flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
+                    <Icon size={17} />
                     {item.name}
                   </Link>
                 );
               })}
-              <div className="mt-2 flex items-center gap-3">
-                <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-secondary-button flex-1 rounded-xl px-4 py-3 text-center text-sm font-medium">Instagram</a>
-                <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-secondary-button flex-1 rounded-xl px-4 py-3 text-center text-sm font-medium">GitHub</a>
-              </div>
+              <a href="https://wa.me/6287728890135" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button mt-2">
+                Konsultasi Website
+                <ArrowUpRight size={16} className="ml-2" />
+              </a>
             </div>
           </div>
         </div>
