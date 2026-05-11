@@ -31,13 +31,15 @@ export default function Pricing() {
         <div className="shell grid gap-4 lg:grid-cols-3">
           {packages.map((item) => (
             <article key={item.name} className={`price-card flex h-full flex-col overflow-hidden ${item.featured ? "price-card-featured" : ""}`}>
-              <div className="mb-6 flex items-start justify-between gap-4 border-b border-[color:var(--border-soft)] pb-5">
-                <div>
+              <div className="mb-6 border-b border-[color:var(--border-soft)] pb-5">
+                <div className="flex items-start justify-between gap-4">
                   <p className="text-sm font-semibold text-[color:var(--text-muted)]">{item.name}</p>
-                  <h2 className="heading-font mt-2 text-3xl font-extrabold tracking-tight">{item.price}</h2>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">{item.adminLabel}</p>
+                  <span className="theme-badge shrink-0 whitespace-nowrap rounded-md px-3 py-1 text-xs font-semibold">{item.bestFor}</span>
                 </div>
-                <span className="theme-badge whitespace-nowrap rounded-md px-3 py-1 text-xs font-semibold">{item.bestFor}</span>
+                <h2 className="heading-font mt-2 text-3xl font-extrabold tracking-tight">{item.price}</h2>
+                <p className="mt-2 overflow-hidden text-ellipsis whitespace-nowrap text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] sm:tracking-[0.16em]">
+                  {item.adminLabel}
+                </p>
               </div>
 
               <p className="text-sm leading-7 text-[color:var(--text-muted)]">{item.summary}</p>

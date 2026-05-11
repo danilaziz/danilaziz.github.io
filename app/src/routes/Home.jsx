@@ -137,7 +137,7 @@ export default function Home() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-sm font-semibold text-[color:var(--text-muted)]">{item.name}</p>
-                    <h3 className="heading-font mt-2 text-3xl font-extrabold">{item.price}</h3>
+                    <h3 className="heading-font mt-2 text-3xl font-extrabold whitespace-nowrap">{item.price}</h3>
                   </div>
                   <span className="theme-badge whitespace-nowrap rounded-md px-3 py-1 text-xs font-semibold">{item.bestFor}</span>
                 </div>
