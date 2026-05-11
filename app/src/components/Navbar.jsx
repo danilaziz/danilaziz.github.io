@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, BriefcaseBusiness, Github, Home, Instagram, Layers3, Menu, MessageCircleMore, Moon, Phone, Sun, X } from "lucide-react";
 import logo from "../assets/images/danil.webp";
@@ -53,7 +53,7 @@ export default function Navbar() {
               </span>
               <div className="min-w-0">
                 <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">Danil Aziz</p>
-                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Website untuk bisnis jasa dan UMKM</p>
+                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Modern • Cepat • Profesional</p>
               </div>
             </Link>
 

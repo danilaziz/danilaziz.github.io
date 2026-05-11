@@ -19,7 +19,7 @@ export default function Footer() {
             <div>
               <p className="heading-font text-2xl font-bold text-[color:var(--text-main)]">Danil Aziz</p>
               <p className="mt-2 max-w-md text-sm leading-7 text-[color:var(--text-muted)]">
-                Pembuatan company profile, landing page, dan website custom yang cepat dibuka.
+                Modern • Cepat • Profesional
               </p>
             </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-8 border-t border-[color:var(--border-soft)] pt-5 text-sm text-[color:var(--text-muted)]">
-            Copyright {new Date().getFullYear()} Danil Aziz. Website cepat untuk bisnis yang ingin tampil lebih menjual.
+            Copyright {new Date().getFullYear()} Danil Aziz. Modern • Cepat • Profesional
           </div>
         </div>
       </div>
