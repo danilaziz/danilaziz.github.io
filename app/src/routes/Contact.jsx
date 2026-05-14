@@ -1,9 +1,10 @@
 ﻿import { useState } from "react";
-import { ArrowUpRight, CircleAlert, Github, Instagram, Mail, Send } from "lucide-react";
+import { ArrowUpRight, CircleAlert, Facebook, Github, Instagram, Mail, Send } from "lucide-react";
 import Footer from "../components/Footer";
 
 const MAX_NAME_LENGTH = 80;
 const MAX_MESSAGE_LENGTH = 500;
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589413059391";
 
 const sanitizeInput = (value) =>
   value
@@ -17,6 +18,12 @@ const contactLinks = [
     href: "https://instagram.com/danilaziz__",
     icon: Instagram,
     description: "Lihat update karya dan aktivitas terbaru.",
+  },
+  {
+    label: "Facebook",
+    href: FACEBOOK_URL,
+    icon: Facebook,
+    description: "Terhubung lewat halaman Facebook resmi.",
   },
   {
     label: "GitHub",

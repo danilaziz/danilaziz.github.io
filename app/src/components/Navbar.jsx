@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight, BriefcaseBusiness, Github, Home, Instagram, Layers3, Menu, MessageCircleMore, Moon, Phone, Sun, X } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Facebook, Github, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
 import logo from "../assets/images/danil.webp";
+
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589413059391";
 
 const navItems = [
   { name: "Beranda", path: "/", icon: Home },
@@ -72,6 +74,9 @@ export default function Navbar() {
               <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
+                <Facebook size={18} />
+              </a>
               <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
                 <Github size={18} />
               </a>
@@ -112,6 +117,17 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <div className="grid grid-cols-3 gap-3">
+                <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Instagram">
+                  <Instagram size={18} />
+                </a>
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Facebook">
+                  <Facebook size={18} />
+                </a>
+                <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="GitHub">
+                  <Github size={18} />
+                </a>
+              </div>
               <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button mt-2">
                 Konsultasi Website
                 <ArrowUpRight size={16} className="ml-2" />
