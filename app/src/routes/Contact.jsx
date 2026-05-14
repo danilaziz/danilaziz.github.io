@@ -1,10 +1,10 @@
 ﻿import { useState } from "react";
 import { ArrowUpRight, CircleAlert, Facebook, Github, Instagram, Mail, Send } from "lucide-react";
 import Footer from "../components/Footer";
+import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL } from "../utils/externalLinks";
 
 const MAX_NAME_LENGTH = 80;
 const MAX_MESSAGE_LENGTH = 500;
-const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589413059391";
 
 const sanitizeInput = (value) =>
   value
@@ -15,7 +15,7 @@ const sanitizeInput = (value) =>
 const contactLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/danilaziz__",
+    href: INSTAGRAM_URL,
     icon: Instagram,
     description: "Lihat update karya dan aktivitas terbaru.",
   },
@@ -27,7 +27,7 @@ const contactLinks = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/danilaziz",
+    href: GITHUB_URL,
     icon: Github,
     description: "Lihat repository dan eksperimen pengembangan.",
   },
@@ -100,7 +100,7 @@ export default function Contact() {
               {contactLinks.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="glass-panel flex items-start gap-4 rounded-lg p-5 transition hover:-translate-y-1">
+                  <a key={item.label} {...externalLinkProps(item.href)} className="glass-panel flex items-start gap-4 rounded-lg p-5 transition hover:-translate-y-1">
                     <div className="theme-primary-button rounded-md p-3">
                       <Icon size={20} />
                     </div>

@@ -4,9 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import ImageLightbox from "../components/ImageLightbox";
 import templates from "../data/templates";
+import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 import NotFound from "./NotFound";
-
-const WA_NUMBER = "6282189855746";
 
 export default function PortfolioDetail() {
   const { slug } = useParams();
@@ -37,12 +36,12 @@ export default function PortfolioDetail() {
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 {item.demo && (
-                  <a href={item.demo} target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+                  <a {...externalLinkProps(item.demo)} className="premium-button theme-primary-button">
                     Lihat Demo
                     <ExternalLink size={16} className="ml-2" />
                   </a>
                 )}
-                <a href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`} target="_blank" rel="noopener noreferrer" className={`premium-button ${item.demo ? "theme-secondary-button" : "theme-primary-button"}`}>
+                <a {...externalLinkProps(whatsappHref(waText))} className={`premium-button ${item.demo ? "theme-secondary-button" : "theme-primary-button"}`}>
                   Konsultasi Serupa
                   <MessageCircleMore size={16} className="ml-2" />
                 </a>
@@ -134,7 +133,7 @@ export default function PortfolioDetail() {
               <p className="section-label">Buat Website Serupa</p>
               <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Ingin portfolio seperti ini untuk bisnis kamu?</h2>
             </div>
-            <a href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`} target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+            <a {...externalLinkProps(whatsappHref(waText))} className="premium-button theme-primary-button">
               Chat WhatsApp
               <ArrowRight size={16} className="ml-2" />
             </a>

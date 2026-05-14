@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
 import templates from "../data/templates";
+import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 const mobileHeroImage = "/danilaziz-hero-mobile.webp";
 const desktopHeroImage = "/danilaziz-hero.webp";
@@ -43,7 +44,7 @@ export default function Home() {
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
                 Konsultasi Gratis
                 <ArrowRight size={16} className="ml-2" />
               </a>
@@ -105,7 +106,7 @@ export default function Home() {
               <p className="section-label">Layanan</p>
               <h2 className="section-title mt-3">Solusi website untuk kebutuhan bisnis.</h2>
             </div>
-            <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[var(--accent)]">
+            <a {...externalLinkProps(whatsappHref())} className="text-sm font-semibold text-[var(--accent)]">
               Tanya paket custom
             </a>
           </div>
@@ -222,7 +223,7 @@ export default function Home() {
               <p className="section-label">Mulai proyek</p>
               <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Siap punya website bisnis yang terlihat lebih serius?</h2>
             </div>
-            <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+            <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
               Chat WhatsApp
               <MessagesSquare size={16} className="ml-2" />
             </a>

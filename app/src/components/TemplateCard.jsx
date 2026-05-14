@@ -2,12 +2,11 @@ import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore }
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "./ImageLightbox";
-
-const WA_NUMBER = "6282189855746";
+import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 export default function TemplateCard({ item, priority = false }) {
   const message = `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;
-  const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+  const waLink = whatsappHref(message);
 
   const images = (item.images || [item.image]).slice(0, 4);
   const [current, setCurrent] = useState(0);
@@ -80,7 +79,7 @@ export default function TemplateCard({ item, priority = false }) {
             Detail
           </Link>
 
-          <a href={waLink} target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button px-4">
+          <a {...externalLinkProps(waLink)} className="premium-button theme-primary-button px-4">
             <MessageCircleMore size={16} className="mr-2" />
             Pesan
           </a>

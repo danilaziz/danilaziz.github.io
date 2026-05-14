@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, Check, Clock3, MessageCircleMore } from "lucide-
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import { addons, packages } from "../data/pricing";
+import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 import NotFound from "./NotFound";
 
 export default function PricingDetail() {
@@ -54,9 +55,7 @@ export default function PricingDetail() {
                 Cocok untuk: <strong className="text-[color:var(--text-main)]">{item.bestFor}</strong>
               </p>
               <a
-                href={`https://wa.me/6282189855746?text=${encodeURIComponent(waText)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...externalLinkProps(whatsappHref(waText))}
                 className="premium-button theme-primary-button mt-7 w-full"
               >
                 Chat WhatsApp

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, BriefcaseBusiness, Facebook, Github, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
 import logo from "../assets/images/danil.webp";
-
-const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589413059391";
+import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
 const navItems = [
   { name: "Beranda", path: "/", icon: Home },
@@ -71,19 +70,19 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden items-center gap-3 md:flex">
-              <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
+              <a {...externalLinkProps(INSTAGRAM_URL)} className="theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
+              <a {...externalLinkProps(FACEBOOK_URL)} className="theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
-              <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
+              <a {...externalLinkProps(GITHUB_URL)} className="theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
                 <Github size={18} />
               </a>
               <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2 transition" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
                 Konsultasi
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
@@ -118,17 +117,17 @@ export default function Navbar() {
                 );
               })}
               <div className="grid grid-cols-3 gap-3">
-                <a href="https://instagram.com/danilaziz__" target="_blank" rel="noopener noreferrer" className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Instagram">
+                <a {...externalLinkProps(INSTAGRAM_URL)} className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Instagram">
                   <Instagram size={18} />
                 </a>
-                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Facebook">
+                <a {...externalLinkProps(FACEBOOK_URL)} className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Facebook">
                   <Facebook size={18} />
                 </a>
-                <a href="https://github.com/danilaziz" target="_blank" rel="noopener noreferrer" className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="GitHub">
+                <a {...externalLinkProps(GITHUB_URL)} className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="GitHub">
                   <Github size={18} />
                 </a>
               </div>
-              <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button mt-2">
+              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button mt-2">
                 Konsultasi Website
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
