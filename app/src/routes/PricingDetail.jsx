@@ -54,7 +54,7 @@ export default function PricingDetail() {
                 Cocok untuk: <strong className="text-[color:var(--text-main)]">{item.bestFor}</strong>
               </p>
               <a
-                href={`https://wa.me/6287728890135?text=${encodeURIComponent(waText)}`}
+                href={`https://wa.me/6282189855746?text=${encodeURIComponent(waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="premium-button theme-primary-button mt-7 w-full"

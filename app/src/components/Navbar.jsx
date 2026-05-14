@@ -78,7 +78,7 @@ export default function Navbar() {
               <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2 transition" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <a href="https://wa.me/6287728890135" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+              <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
                 Konsultasi
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
@@ -112,7 +112,7 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <a href="https://wa.me/6287728890135" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button mt-2">
+              <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button mt-2">
                 Konsultasi Website
                 <ArrowUpRight size={16} className="ml-2" />
               </a>

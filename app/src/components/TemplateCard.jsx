@@ -1,9 +1,9 @@
-﻿import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "./ImageLightbox";
 
-const WA_NUMBER = "6287728890135";
+const WA_NUMBER = "6282189855746";
 
 export default function TemplateCard({ item, priority = false }) {
   const message = `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;

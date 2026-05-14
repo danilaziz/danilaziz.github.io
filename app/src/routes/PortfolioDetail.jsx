@@ -1,4 +1,4 @@
-﻿import { ArrowLeft, ArrowRight, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -6,7 +6,7 @@ import ImageLightbox from "../components/ImageLightbox";
 import templates from "../data/templates";
 import NotFound from "./NotFound";
 
-const WA_NUMBER = "6287728890135";
+const WA_NUMBER = "6282189855746";
 
 export default function PortfolioDetail() {
   const { slug } = useParams();

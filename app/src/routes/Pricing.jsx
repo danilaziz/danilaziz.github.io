@@ -1,4 +1,4 @@
-﻿import { ArrowRight, Check, Clock3, Gauge, Info, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Clock3, Gauge, Info, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
@@ -62,7 +62,7 @@ export default function Pricing() {
                 </Link>
 
                 <a
-                  href={`https://wa.me/6287728890135?text=${encodeURIComponent(`Halo Danil, saya tertarik paket ${item.name}. Bisa konsultasi?`)}`}
+                  href={`https://wa.me/6282189855746?text=${encodeURIComponent(`Halo Danil, saya tertarik paket ${item.name}. Bisa konsultasi?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex min-h-11 items-center justify-center rounded-md px-3 py-3 text-center text-xs font-semibold transition sm:text-sm ${item.featured ? "theme-primary-button" : "theme-secondary-button"}`}
@@ -100,7 +100,7 @@ export default function Pricing() {
               <p className="section-label">Konsultasi</p>
               <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Mau hitung estimasi website kamu?</h2>
             </div>
-            <a href="https://wa.me/6287728890135" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
+            <a href="https://wa.me/6282189855746" target="_blank" rel="noopener noreferrer" className="premium-button theme-primary-button">
               <MessageCircleMore size={16} className="mr-2" />
               Chat WhatsApp
               <ArrowRight size={16} className="ml-2" />
