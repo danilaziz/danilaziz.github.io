@@ -1,7 +1,8 @@
-import umkmHome from "../assets/images/umkm-home-new.jpg";
-import umkmProducts from "../assets/images/umkm-products-new.jpg";
-import umkmDetail from "../assets/images/umkm-detail-new.jpg";
-import umkmContact from "../assets/images/umkm-contact-new.jpg";
+import umkm1 from "../assets/images/umkm1.webp";
+import umkm2 from "../assets/images/umkm2.webp";
+import umkm3 from "../assets/images/umkm3.webp";
+import umkm4 from "../assets/images/umkm4.webp";
+import umkm5 from "../assets/images/umkm5.webp";
 import konstruksi1 from "../assets/images/konstruksi1.webp";
 import konstruksi2 from "../assets/images/konstruksi2.webp";
 import konstruksi3 from "../assets/images/konstruksi3.webp";
@@ -32,7 +33,7 @@ const templates = [
     slug: "website-umkm",
     title: "UMKM Website",
     category: "Business",
-    images: [umkmHome, umkmProducts, umkmDetail, umkmContact],
+    images: [umkm1, umkm2, umkm3, umkm4, umkm5],
     demo: "https://umkm-website.netlify.app/",
     tech: ["React", "Framer Motion", "Tailwind CSS"],
     summary: "Website promosi untuk UMKM yang ingin menampilkan produk, keunggulan, testimoni, dan CTA pembelian dengan tampilan modern.",

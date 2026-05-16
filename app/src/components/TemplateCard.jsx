@@ -8,7 +8,7 @@ export default function TemplateCard({ item, priority = false }) {
   const message = `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;
   const waLink = whatsappHref(message);
 
-  const images = (item.images || [item.image]).slice(0, 4);
+  const images = (item.images || [item.image]).slice(0, 5);
   const [current, setCurrent] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
