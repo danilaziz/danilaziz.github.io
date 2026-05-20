@@ -18,9 +18,7 @@ export default function Pricing() {
         <div className="shell">
           <div className="max-w-3xl">
             <p className="section-label">Harga Website</p>
-            <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">
-              Paket jelas, sudah termasuk domain dan hosting 1 tahun.
-            </h1>
+            <h1 className="section-title mt-4">Paket website jelas & siap online.</h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
               Pilih paket sesuai kebutuhan: landing page, kesehatan, company profile, sekolah, desa, atau website custom.
             </p>

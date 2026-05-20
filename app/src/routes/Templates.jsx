@@ -10,9 +10,9 @@ export default function Templates() {
     <main className="overflow-hidden pt-28 md:pt-32">
       <section className="pb-20 md:pb-24">
         <div className="shell">
-          <div className="glass-panel rounded-lg px-6 py-8 md:px-10 md:py-12">
+          <div className="max-w-3xl">
             <p className="section-label">Portfolio</p>
-            <h1 className="section-title mt-3">Hasil kerja dan contoh template website.</h1>
+            <h1 className="section-title mt-4">Hasil kerja & template website.</h1>
             <p className="mt-4 max-w-2xl text-base leading-8 text-[color:var(--text-muted)]">
               Lihat hasil kerja yang sudah dibuat dan beberapa contoh template yang bisa jadi referensi arah website baru.
             </p>
