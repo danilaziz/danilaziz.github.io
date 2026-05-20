@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio Danil Aziz, pengembang web yang membantu bisnis, UMKM, dan personal brand tampil lebih profesional melalui website modern, elegan, dan premium."
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; navigate-to 'self' https://wa.me https://www.facebook.com https://instagram.com https://github.com https://ptberkahcintawisata.com https://umkm-website.netlify.app https://website-konstruksi.netlify.app https://website-desa.netlify.app; upgrade-insecure-requests"
+    />
+    <link rel="icon" type="image/webp" href="/danil-logo.webp" />
+    <link rel="preload" as="image" href="/danilaziz-hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/danilaziz-hero.webp" media="(min-width: 768px)" fetchpriority="high" />
+    <title>Danil Aziz | Portfolio Web Developer</title>
+    <script>
+      (function () {
+        const path = window.location.pathname;
+        if (path.startsWith('/docs')) {
+          const route = path.slice('/docs'.length) || '/';
+          const search = window.location.search || '';
+          const target = `${window.location.origin}${route}${search}${window.location.hash || ''}`;
+          window.location.replace(target);
+          return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const redirectPath = params.get('p');
+        if (!redirectPath || redirectPath.includes('://') || redirectPath.startsWith('//')) return;
+
+        const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
+        if (!/^\/[a-z0-9\-/_]*$/i.test(cleanPath)) return;
+
+        const nextUrl = `${window.location.origin}${cleanPath}${window.location.hash || ''}`;
+        window.history.replaceState(null, '', nextUrl);
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-C25eWPaP.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-DCseobEA.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-b7ZuP2wA.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
