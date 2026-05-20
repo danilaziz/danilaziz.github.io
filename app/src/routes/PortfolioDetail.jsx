@@ -131,7 +131,7 @@ export default function PortfolioDetail() {
           <div className="cta-band">
             <div>
               <p className="section-label">Buat Website Serupa</p>
-              <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Ingin portfolio seperti ini untuk bisnis kamu?</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Ingin portfolio seperti ini untuk bisnis kamu?</h2>
             </div>
             <a {...externalLinkProps(whatsappHref(waText))} className="premium-button theme-primary-button">
               Chat WhatsApp

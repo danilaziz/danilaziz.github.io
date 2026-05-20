@@ -76,7 +76,7 @@ export default function Pricing() {
         <div className="shell">
           <div className="mb-7 flex items-center gap-3">
             <Clock3 className="text-[var(--accent)]" size={22} />
-            <h2 className="heading-font text-3xl font-extrabold">Alur pengerjaan</h2>
+            <h2 className="heading-font text-2xl font-extrabold md:text-3xl">Alur pengerjaan</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-4">
             {process.map(({ icon: Icon, title, copy }) => (
@@ -95,7 +95,7 @@ export default function Pricing() {
           <div className="cta-band">
             <div>
               <p className="section-label">Konsultasi</p>
-              <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Mau hitung estimasi website kamu?</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Mau hitung estimasi website kamu?</h2>
             </div>
             <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
               <MessageCircleMore size={16} className="mr-2" />

@@ -28,3 +28,7 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+# legacy root build outputs
+/assets/*.js
+/assets/*.css
+/assets/*.webp

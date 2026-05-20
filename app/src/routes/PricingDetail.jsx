@@ -69,7 +69,7 @@ export default function PricingDetail() {
       <section className="pb-16 md:pb-20">
         <div className="shell grid gap-6 lg:grid-cols-2">
           <div className="soft-card p-6 md:p-8">
-            <h2 className="heading-font text-3xl font-extrabold">Semua layanan</h2>
+            <h2 className="heading-font text-2xl font-extrabold md:text-3xl">Semua layanan</h2>
             <ul className="mt-6 space-y-4">
               {item.details.map((detail) => (
                 <li key={detail} className="flex items-start gap-3 text-sm leading-7">
@@ -81,7 +81,7 @@ export default function PricingDetail() {
           </div>
 
           <div className="soft-card p-6 md:p-8">
-            <h2 className="heading-font text-3xl font-extrabold">Output yang didapat</h2>
+            <h2 className="heading-font text-2xl font-extrabold md:text-3xl">Output yang didapat</h2>
             <ul className="mt-6 space-y-4">
               {item.deliverables.map((deliverable) => (
                 <li key={deliverable} className="flex items-start gap-3 text-sm leading-7">
@@ -98,7 +98,7 @@ export default function PricingDetail() {
         <div className="shell">
           <div className="mb-6">
             <p className="section-label">Harga Tambahan</p>
-            <h2 className="heading-font mt-3 text-3xl font-extrabold">Fitur di luar paket.</h2>
+            <h2 className="heading-font mt-3 text-2xl font-extrabold md:text-3xl">Fitur di luar paket.</h2>
           </div>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {addons.map((addon) => (
@@ -119,7 +119,7 @@ export default function PricingDetail() {
                 <Clock3 size={20} />
                 <p className="section-label">Siap dibuat</p>
               </div>
-              <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Cek kebutuhan website kamu sekarang.</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Cek kebutuhan website kamu sekarang.</h2>
             </div>
             <Link to="/kontak" className="premium-button theme-primary-button">
               Isi Form Kontak

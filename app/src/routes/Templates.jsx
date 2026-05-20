@@ -1,4 +1,4 @@
-﻿import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import TemplateCard from "../components/TemplateCard";
 import templates from "../data/templates";
 
@@ -23,7 +23,7 @@ export default function Templates() {
               <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="section-label">Hasil Kerja</p>
-                  <h2 className="heading-font mt-2 text-3xl font-extrabold text-[color:var(--text-main)]">Project yang sudah dibuat.</h2>
+                  <h2 className="heading-font mt-2 text-2xl font-extrabold text-[color:var(--text-main)] md:text-3xl">Project yang sudah dibuat.</h2>
                 </div>
               </div>
               <div className="grid gap-6 lg:grid-cols-3">
@@ -40,7 +40,7 @@ export default function Templates() {
             <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="section-label">Contoh Template</p>
-                <h2 className="heading-font mt-2 text-3xl font-extrabold text-[color:var(--text-main)]">Referensi tampilan website.</h2>
+                <h2 className="heading-font mt-2 text-2xl font-extrabold text-[color:var(--text-main)] md:text-3xl">Referensi tampilan website.</h2>
               </div>
             </div>
             <div className="grid gap-6 lg:grid-cols-3">

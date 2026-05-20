@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   base: "/",
   build: {
-    outDir: "..",
-    emptyOutDir: false,
+    outDir: "../dist",
+    emptyOutDir: true,
     assetsDir: "assets",
     cssCodeSplit: true,
     modulePreload: {

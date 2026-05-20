@@ -2,12 +2,40 @@ import { ArrowRight, BadgeCheck, Building2, Check, Globe2, MessagesSquare, Rocke
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
-import templates from "../data/templates";
+import travelHome from "../assets/images/travel-home.webp";
+import umkm1 from "../assets/images/umkm1.webp";
+import konstruksi1 from "../assets/images/konstruksi1.webp";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 const mobileHeroImage = "/danilaziz-hero-mobile.webp";
 const desktopHeroImage = "/danilaziz-hero.webp";
 
+const featuredWork = [
+  {
+    id: 4,
+    slug: "website-travel-hasil-kerja",
+    title: "Website Travel",
+    category: "Hasil Kerja",
+    image: travelHome,
+    summary: "Hasil kerja website travel dengan tampilan bersih untuk menampilkan destinasi, paket perjalanan, detail layanan, dan galeri visual.",
+  },
+  {
+    id: 1,
+    slug: "website-umkm",
+    title: "UMKM Website",
+    category: "Business",
+    image: umkm1,
+    summary: "Website promosi untuk UMKM yang ingin menampilkan produk, keunggulan, testimoni, dan CTA pembelian dengan tampilan modern.",
+  },
+  {
+    id: 2,
+    slug: "website-konstruksi",
+    title: "Website Konstruksi",
+    category: "Business",
+    image: konstruksi1,
+    summary: "Company profile untuk bisnis konstruksi yang membutuhkan kesan tegas, kredibel, dan mudah dipakai untuk menampilkan layanan serta proyek.",
+  },
+];
 const services = [
   { icon: Rocket, title: "Landing Page Penjualan", copy: "Satu halaman yang fokus pada promosi, CTA WhatsApp, dan konversi dari iklan atau media sosial." },
   { icon: Building2, title: "Company Profile", copy: "Website profil bisnis yang rapi untuk menjelaskan layanan, kredibilitas, portofolio, dan kontak resmi." },
@@ -195,9 +223,9 @@ export default function Home() {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-3">
-            {templates.slice(0, 3).map((item) => (
+            {featuredWork.map((item) => (
               <article key={item.id} className="soft-card overflow-hidden">
-                <img src={item.images?.[0] ?? item.image} alt={item.title} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
+                <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
                 <div className="p-5">
                   <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{item.category}</p>
                   <div className="mt-2 flex items-center justify-between gap-4">
@@ -221,7 +249,7 @@ export default function Home() {
           <div className="cta-band">
             <div>
               <p className="section-label">Mulai proyek</p>
-              <h2 className="heading-font mt-3 text-3xl font-extrabold leading-tight md:text-5xl">Siap punya website bisnis yang terlihat lebih serius?</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Siap punya website bisnis yang terlihat lebih serius?</h2>
             </div>
             <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
               Chat WhatsApp
