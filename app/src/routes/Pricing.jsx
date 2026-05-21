@@ -20,7 +20,7 @@ export default function Pricing() {
             <p className="section-label">Harga Website</p>
             <h1 className="section-title mt-4">Paket website jelas & siap online.</h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
-              Pilih paket sesuai kebutuhan: landing page, kesehatan, company profile, sekolah, desa, atau website custom.
+              Harga paket dibuat fleksibel dan bisa disesuaikan dengan kebutuhan website, mulai dari fitur, jumlah halaman, hingga materi yang tersedia.
             </p>
           </div>
         </div>
@@ -36,9 +36,7 @@ export default function Pricing() {
                   <span className="theme-badge shrink-0 whitespace-nowrap rounded-md px-3 py-1 text-xs font-semibold">{item.bestFor}</span>
                 </div>
                 <h2 className="heading-font mt-2 text-3xl font-extrabold tracking-tight">{item.price}</h2>
-                <p className="mt-2 overflow-hidden text-ellipsis whitespace-nowrap text-xs font-semibold uppercase tracking-[0.12em] text-[var(--accent)] sm:tracking-[0.16em]">
-                  {item.adminLabel}
-                </p>
+                <p className="mt-2 text-xs font-semibold text-[var(--accent)]">Bisa disesuaikan via WhatsApp</p>
               </div>
 
               <p className="text-sm leading-7 text-[color:var(--text-muted)]">{item.summary}</p>
@@ -95,7 +93,7 @@ export default function Pricing() {
           <div className="cta-band">
             <div>
               <p className="section-label">Konsultasi</p>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Mau hitung estimasi website kamu?</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Mau nego harga sesuai fitur website kamu?</h2>
             </div>
             <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
               <MessageCircleMore size={16} className="mr-2" />

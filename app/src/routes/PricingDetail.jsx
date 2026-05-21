@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, Check, Clock3, MessageCircleMore } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
-import { addons, packages } from "../data/pricing";
+import { packages } from "../data/pricing";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 import NotFound from "./NotFound";
 
@@ -32,13 +32,8 @@ export default function PricingDetail() {
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Tanpa Admin</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Harga Mulai Dari</p>
                   <p className="heading-font mt-2 text-3xl font-extrabold">{item.price}</p>
-                </div>
-                <div className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Dengan Admin</p>
-                  <p className="heading-font mt-2 text-3xl font-extrabold">{item.adminPrice}</p>
-                  <p className="mt-1 text-xs leading-5 text-[color:var(--text-muted)]">{item.adminLabel}</p>
                 </div>
                 <div className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-inset)] p-5">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--text-muted)]">Estimasi</p>
@@ -50,8 +45,10 @@ export default function PricingDetail() {
             <aside className="price-card h-fit">
               <p className="text-sm font-semibold text-[color:var(--text-muted)]">Mulai diskusi paket</p>
               <h2 className="heading-font mt-2 text-3xl font-extrabold">{item.price}</h2>
-              <p className="mt-1 text-sm font-semibold text-[var(--accent)]">{item.adminPrice} dengan admin</p>
               <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)]">
+                Harga bisa dibahas lagi lewat WhatsApp sesuai fitur, jumlah halaman, dan materi yang dibutuhkan.
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">
                 Cocok untuk: <strong className="text-[color:var(--text-main)]">{item.bestFor}</strong>
               </p>
               <a
@@ -94,23 +91,6 @@ export default function PricingDetail() {
         </div>
       </section>
 
-      <section className="pb-16 md:pb-20">
-        <div className="shell">
-          <div className="mb-6">
-            <p className="section-label">Harga Tambahan</p>
-            <h2 className="heading-font mt-3 text-2xl font-extrabold md:text-3xl">Fitur di luar paket.</h2>
-          </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            {addons.map((addon) => (
-              <div key={addon.name} className="rounded-lg border border-[color:var(--border-soft)] bg-[color:var(--surface-card)] p-4">
-                <p className="text-sm font-semibold text-[color:var(--text-main)]">{addon.name}</p>
-                <p className="mt-2 heading-font text-lg font-extrabold text-[var(--accent)]">{addon.price}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="pb-24">
         <div className="shell">
           <div className="cta-band">
@@ -119,7 +99,7 @@ export default function PricingDetail() {
                 <Clock3 size={20} />
                 <p className="section-label">Siap dibuat</p>
               </div>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Cek kebutuhan website kamu sekarang.</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">Cek kebutuhan fitur dan nego harga lewat WhatsApp.</h2>
             </div>
             <Link to="/kontak" className="premium-button theme-primary-button">
               Isi Form Kontak
