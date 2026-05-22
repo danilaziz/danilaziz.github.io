@@ -13,8 +13,26 @@ import travelHome from "../assets/images/travel-home.webp";
 import websitedesa1 from "../assets/images/websitedesa1.webp";
 import websitedesa2 from "../assets/images/websitedesa2.webp";
 import websitedesa3 from "../assets/images/websitedesa3.webp";
+import pupuk1 from "../assets/images/pupuk1.webp";
+import pupuk2 from "../assets/images/pupuk2.webp";
+import pupuk3 from "../assets/images/pupuk3.webp";
+import pupuk4 from "../assets/images/pupuk4.webp";
 
 const templates = [
+  {
+    id: 5,
+    slug: "website-pupuk-hasil-kerja",
+    title: "Website Pupuk",
+    category: "Hasil Kerja",
+    images: [pupuk1, pupuk2, pupuk3, pupuk4],
+    coverImage: pupuk4,
+    demo: "https://berkahcintamadinah.com",
+    tech: ["React", "Tailwind CSS", "Responsive UI"],
+    summary: "Hasil kerja website bisnis pupuk dengan tampilan rapi untuk menampilkan produk, informasi layanan, keunggulan usaha, dan CTA pemesanan.",
+    objective: "Membuat website bisnis pupuk yang terlihat terpercaya, mudah dipindai calon pembeli, dan siap dipakai untuk promosi produk serta konsultasi pemesanan.",
+    scope: ["Homepage bisnis pupuk", "Katalog produk", "Highlight keunggulan", "Section informasi layanan", "CTA pemesanan WhatsApp"],
+    result: ["Tampilan lebih profesional", "Produk mudah dilihat dari mobile", "Alur kontak lebih jelas", "Cocok untuk toko pupuk dan supplier pertanian"],
+  },
   {
     id: 4,
     slug: "website-travel-hasil-kerja",

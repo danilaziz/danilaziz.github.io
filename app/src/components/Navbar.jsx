@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, BriefcaseBusiness, Facebook, Github, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
-import logo from "../assets/images/danil.webp";
 import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
+
+const logo = "/danilaziz-hero-mobile.webp";
 
 const navItems = [
   { name: "Beranda", path: "/", icon: Home },
@@ -50,7 +51,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1.5 shadow-sm md:h-14 md:w-14 md:p-2">
-                <img src={logo} alt="Danil Aziz" width="52" height="52" loading="eager" decoding="async" className="h-full w-full rounded-md object-cover object-top" />
+                <img src={logo} alt="Danil Aziz" width="52" height="52" loading="eager" fetchPriority="low" decoding="async" className="h-full w-full rounded-md object-cover object-top" />
               </span>
               <div className="min-w-0">
                 <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">Danil Aziz</p>

@@ -68,7 +68,17 @@ export default function PortfolioDetail() {
           <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="glass-panel overflow-hidden rounded-lg p-3">
               <button type="button" onClick={() => setLightboxIndex(0)} className="group relative block w-full cursor-zoom-in" aria-label={`Perbesar preview utama ${item.title}`}>
-                <img src={images[0]} alt={`${item.title} preview utama`} loading="eager" decoding="async" className="h-[320px] w-full rounded-md object-cover transition duration-500 group-hover:scale-[1.01] md:h-[520px]" />
+                <img
+                  src={images[0]}
+                  alt={`${item.title} preview utama`}
+                  width="960"
+                  height="720"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="h-[320px] w-full rounded-md object-cover transition duration-500 group-hover:scale-[1.01] md:h-[520px]"
+                />
                 <span className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-md bg-black/45 text-white transition group-hover:bg-black/65">
                   <Maximize2 size={19} />
                 </span>
@@ -78,7 +88,16 @@ export default function PortfolioDetail() {
               {images.slice(1, 3).map((image, index) => (
                 <div key={image} className="soft-card overflow-hidden p-2">
                   <button type="button" onClick={() => setLightboxIndex(index + 1)} className="group relative block w-full cursor-zoom-in" aria-label={`Perbesar preview ${index + 2} ${item.title}`}>
-                    <img src={image} alt={`${item.title} preview ${index + 2}`} loading="lazy" decoding="async" className="h-52 w-full rounded-md object-cover transition duration-500 group-hover:scale-[1.02] lg:h-[250px]" />
+                    <img
+                      src={image}
+                      alt={`${item.title} preview ${index + 2}`}
+                      width="720"
+                      height="540"
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 38vw, (min-width: 640px) 50vw, 100vw"
+                      className="h-52 w-full rounded-md object-cover transition duration-500 group-hover:scale-[1.02] lg:h-[250px]"
+                    />
                     <span className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-md bg-black/45 text-white transition group-hover:bg-black/65">
                       <Maximize2 size={18} />
                     </span>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
 import travelHome from "../assets/images/travel-home.webp";
+import pupuk4 from "../assets/images/pupuk4.webp";
 import umkm1 from "../assets/images/umkm1.webp";
 import konstruksi1 from "../assets/images/konstruksi1.webp";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
@@ -11,6 +12,14 @@ const mobileHeroImage = "/danilaziz-hero-mobile.webp";
 const desktopHeroImage = "/danilaziz-hero.webp";
 
 const featuredWork = [
+  {
+    id: 5,
+    slug: "website-pupuk-hasil-kerja",
+    title: "Website Pupuk",
+    category: "Hasil Kerja",
+    image: pupuk4,
+    summary: "Hasil kerja website bisnis pupuk dengan tampilan rapi untuk menampilkan produk, informasi layanan, keunggulan usaha, dan CTA pemesanan.",
+  },
   {
     id: 4,
     slug: "website-travel-hasil-kerja",
@@ -225,7 +234,7 @@ export default function Home() {
           <div className="grid gap-5 lg:grid-cols-3">
             {featuredWork.map((item) => (
               <article key={item.id} className="soft-card overflow-hidden">
-                <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
+                <img src={item.image} alt={item.title} width="720" height="540" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, 100vw" className="h-56 w-full object-cover" />
                 <div className="p-5">
                   <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{item.category}</p>
                   <div className="mt-2 flex items-center justify-between gap-4">
