@@ -1,10 +1,10 @@
 ﻿import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
 const About = lazy(() => import("./routes/About"));
 const Contact = lazy(() => import("./routes/Contact"));
 const Home = lazy(() => import("./routes/Home"));
+const Navbar = lazy(() => import("./components/Navbar"));
 const NotFound = lazy(() => import("./routes/NotFound"));
 const Pricing = lazy(() => import("./routes/Pricing"));
 const PricingDetail = lazy(() => import("./routes/PricingDetail"));
@@ -18,7 +18,9 @@ function RouteFallback() {
 export default function App() {
   return (
     <>
-      <Navbar />
+      <Suspense fallback={null}>
+        <Navbar />
+      </Suspense>
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />

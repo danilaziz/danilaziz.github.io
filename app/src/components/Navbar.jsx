@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-4">
-        <div className={`shell rounded-lg border backdrop-blur-xl transition-all duration-300 ${navClass}`}>
+        <div className={`shell rounded-lg border transition-colors duration-200 ${navClass}`}>
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1.5 shadow-sm md:h-14 md:w-14 md:p-2">
@@ -103,9 +103,9 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="md:hidden">
-          <button type="button" onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-black/30 backdrop-blur-[2px]" aria-label="Tutup navigasi" />
+          <button type="button" onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-black/30" aria-label="Tutup navigasi" />
 
-          <div className="fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl backdrop-blur-xl">
+          <div className="fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => {
                 const Icon = item.icon;

@@ -23,7 +23,7 @@ export default function TemplateCard({ item, priority = false }) {
   };
 
   return (
-    <article className="soft-card h-full overflow-hidden">
+    <article className="soft-card flex h-full flex-col overflow-hidden">
       <div className="relative aspect-[4/3] overflow-hidden sm:h-56 sm:aspect-auto">
         <button type="button" onClick={() => setLightboxIndex(current)} className="group block h-full w-full cursor-zoom-in" aria-label={`Perbesar gambar ${item.title}`}>
           <img
@@ -57,7 +57,7 @@ export default function TemplateCard({ item, priority = false }) {
         )}
       </div>
 
-      <div className="p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{item.category}</p>
@@ -69,9 +69,9 @@ export default function TemplateCard({ item, priority = false }) {
           </Link>
         </div>
 
-        <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)]">{item.summary}</p>
+        <p className="mt-4 min-h-[4.5rem] text-sm leading-6 text-[color:var(--text-muted)] line-clamp-3">{item.summary}</p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex min-h-[2rem] flex-wrap gap-2">
           {item.tech?.map((tech) => (
             <span key={tech} className="theme-badge rounded-md px-3 py-1 text-xs font-medium">
               {tech}
@@ -79,7 +79,7 @@ export default function TemplateCard({ item, priority = false }) {
           ))}
         </div>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="mt-auto grid gap-3 pt-5 sm:grid-cols-2">
           <Link to={`/portfolio/${item.slug}`} className="premium-button theme-secondary-button px-4">
             Detail
           </Link>
