@@ -30,7 +30,7 @@ const skills = [
 
 export default function About() {
   return (
-    <main className="overflow-hidden pt-28 md:pt-32">
+    <main className="reveal-scope overflow-hidden pt-28 md:pt-32">
       <section className="pb-16 md:pb-24">
         <div className="shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <div className="glass-panel rounded-lg p-3">

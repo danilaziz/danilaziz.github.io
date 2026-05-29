@@ -1,5 +1,6 @@
 import { ArrowRight, Building2, Check, Globe2, MessagesSquare, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
+import FaqSection from "../components/FaqSection";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
 import travelHome from "../assets/images/travel-home.webp";
@@ -56,10 +57,10 @@ const stats = [
 ];
 
 const process = [
-  { title: "Brief", copy: "Tujuan website, target pelanggan, dan materi utama dikunci dulu." },
-  { title: "Desain", copy: "Layout dibuat profesional dengan arah visual yang jelas." },
-  { title: "Build", copy: "Website dikembangkan responsive, ringan, dan siap online." },
-  { title: "Launch", copy: "Final check, setup domain-hosting, lalu website dipublikasikan." },
+  { title: "Brief", copy: "Tujuan website dan materi utama dikunci dulu." },
+  { title: "Desain", copy: "Struktur konten dan tampilan dibuat rapi." },
+  { title: "Build", copy: "Website dikembangkan responsive dan ringan." },
+  { title: "Launch", copy: "Final check, domain-hosting, lalu online." },
 ];
 
 export default function HomeDeferred() {
@@ -147,6 +148,11 @@ export default function HomeDeferred() {
 
       <section className="deferred-section pb-16 md:pb-20">
         <div className="shell">
+          <div className="mb-7 max-w-3xl">
+            <p className="section-label">Proses kerja</p>
+            <h2 className="section-title mt-3">Alur singkat dari brief sampai online.</h2>
+          </div>
+
           <div className="grid gap-4 md:grid-cols-4">
             {process.map((item, index) => (
               <article key={item.title} className="soft-card p-5">

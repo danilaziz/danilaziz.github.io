@@ -1,5 +1,6 @@
-import { ArrowRight, Check, Clock3, Gauge, Info, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
+﻿import { ArrowRight, Check, Clock3, Gauge, Info, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import FaqSection from "../components/FaqSection";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
@@ -11,16 +12,16 @@ const process = [
   { icon: ShieldCheck, title: "Online", copy: "Final check lalu siap dipublikasikan." },
 ];
 
-export default function Pricing() {
+export default function Services() {
   return (
-    <main className="overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
+    <main className="reveal-scope overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
       <section className="pb-14 md:pb-18">
         <div className="shell">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl" data-reveal>
             <p className="section-label">Harga Website</p>
-            <h1 className="section-title mt-4">Paket website jelas & siap online.</h1>
+            <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">Paket website jelas, rapi, dan siap online.</h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
-              Harga paket dibuat fleksibel dan bisa disesuaikan dengan kebutuhan website, mulai dari fitur, jumlah halaman, hingga materi yang tersedia.
+              Pilih paket sesuai tujuan bisnis, jumlah halaman, dan kebutuhan fitur. Scope bisa disesuaikan agar website tetap efektif tanpa elemen yang berlebihan.
             </p>
           </div>
         </div>
@@ -70,6 +71,7 @@ export default function Pricing() {
           ))}
         </div>
       </section>
+
       <section className="pb-20 md:pb-24">
         <div className="shell">
           <div className="mb-7 flex items-center gap-3">
@@ -87,6 +89,8 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      <FaqSection />
 
       <section className="pb-24">
         <div className="shell">

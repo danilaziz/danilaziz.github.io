@@ -5,7 +5,7 @@ import { packages } from "../data/pricing";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 import NotFound from "./NotFound";
 
-export default function PricingDetail() {
+export default function ServiceDetail() {
   const { slug } = useParams();
   const item = packages.find((pkg) => pkg.slug === slug);
 
@@ -16,7 +16,7 @@ export default function PricingDetail() {
   const waText = `Halo Danil, saya ingin konsultasi detail paket ${item.name}.`;
 
   return (
-    <main className="overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
+    <main className="reveal-scope overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
       <section className="pb-14 md:pb-18">
         <div className="shell">
           <Link to="/layanan" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)]">

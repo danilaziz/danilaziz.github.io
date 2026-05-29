@@ -20,7 +20,7 @@ export default function PortfolioDetail() {
   const waText = `Halo Danil, saya tertarik membuat website seperti ${item.title}. Bisa konsultasi?`;
 
   return (
-    <main className="overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
+    <main className="reveal-scope overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
       <section className="pb-12 md:pb-16">
         <div className="shell">
           <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)]">
@@ -105,6 +105,29 @@ export default function PortfolioDetail() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20">
+        <div className="shell">
+          <div className="mb-7">
+            <p className="section-label">Problem - Solusi - Hasil</p>
+            <h2 className="section-title mt-3">Arah pengerjaan dibuat berdasarkan kebutuhan bisnis.</h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { label: "Problem", value: item.caseStudy?.problem },
+              { label: "Solusi", value: item.caseStudy?.solution },
+              { label: "Hasil", value: item.caseStudy?.impact },
+            ].map((caseItem, index) => (
+              <article key={caseItem.label} className="soft-card p-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">0{index + 1}</div>
+                <h3 className="heading-font mt-4 text-2xl font-bold">{caseItem.label}</h3>
+                <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">{caseItem.value}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

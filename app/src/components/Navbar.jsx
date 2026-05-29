@@ -55,7 +55,7 @@ export default function Navbar() {
               </span>
               <div className="min-w-0">
                 <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">Danil Aziz</p>
-                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Modern • Cepat • Profesional</p>
+                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Modern, cepat, profesional</p>
               </div>
             </Link>
 
@@ -103,9 +103,9 @@ export default function Navbar() {
 
       {mobileMenuOpen && (
         <div className="md:hidden">
-          <button type="button" onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-30 bg-black/30" aria-label="Tutup navigasi" />
+          <button type="button" onClick={() => setMobileMenuOpen(false)} className="mobile-menu-backdrop fixed inset-0 z-30 bg-black/25" aria-label="Tutup navigasi" />
 
-          <div className="fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl">
+          <div className="mobile-menu-panel fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => {
                 const Icon = item.icon;

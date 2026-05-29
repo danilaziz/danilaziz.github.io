@@ -1,7 +1,7 @@
 ﻿import { useState } from "react";
 import { ArrowUpRight, CircleAlert, Facebook, Github, Instagram, Mail, Send } from "lucide-react";
 import Footer from "../components/Footer";
-import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL } from "../utils/externalLinks";
+import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
 const MAX_NAME_LENGTH = 80;
 const MAX_MESSAGE_LENGTH = 500;
@@ -42,7 +42,8 @@ export default function Contact() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const nextValue = sanitizeInput(value).slice(0, name === "name" ? MAX_NAME_LENGTH : MAX_MESSAGE_LENGTH);
+    const maxLength = name === "name" ? MAX_NAME_LENGTH : MAX_MESSAGE_LENGTH;
+    const nextValue = sanitizeInput(value).slice(0, maxLength);
 
     setFormData((current) => ({ ...current, [name]: nextValue }));
     setErrorMessage("");
@@ -77,23 +78,32 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
+    const whatsappMessage = [
+      "Halo Danil, saya ingin konsultasi website.",
+      "",
+      `Nama: ${cleanedName}`,
+      `Kebutuhan: ${cleanedMessage}`,
+    ].join("\n");
+
+    window.open(whatsappHref(whatsappMessage), "_blank", "noopener,noreferrer");
+
     setTimeout(() => {
       setFormData({ name: "", message: "" });
       setIsSubmitting(false);
       setErrorMessage("");
-      setSuccessMessage("Ringkasan kebutuhan sudah siap. Terima kasih, saya akan meninjau detail proyek Anda.");
+      setSuccessMessage("WhatsApp sudah dibuka dengan ringkasan kebutuhan Anda.");
     }, 400);
   };
 
   return (
-    <main className="overflow-hidden pt-28 md:pt-32">
+    <main className="reveal-scope overflow-hidden pt-28 md:pt-32">
       <section className="pb-16 md:pb-24">
         <div className="shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="soft-card p-8 md:p-10">
             <p className="section-label">Kontak</p>
-            <h1 className="section-title mt-4">Ceritakan kebutuhan website Anda.</h1>
-            <p className="mt-6 text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
-              Tulis gambaran singkat proyek, jenis website, dan tujuan utama. Saya akan bantu arahkan paket yang paling sesuai.
+            <h1 className="heading-font mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">Ceritakan kebutuhan website Anda.</h1>
+            <p className="mt-6 leading-8 text-[color:var(--text-muted)] md:text-lg">
+              Tulis nama dan kebutuhan website secara singkat. Ringkasan akan langsung diarahkan ke WhatsApp.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
@@ -138,7 +148,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="message" className="mb-2 block text-sm font-medium text-[color:var(--text-main)]">Kebutuhan website</label>
-                <textarea id="message" name="message" rows="7" value={formData.message} onChange={handleChange} placeholder="Contoh: Saya butuh website company profile untuk jasa konstruksi, berisi profil, layanan, portfolio, dan kontak." minLength={10} maxLength={MAX_MESSAGE_LENGTH} className="theme-input w-full rounded-md px-4 py-3 text-sm outline-none transition" required />
+                <textarea id="message" name="message" rows="7" value={formData.message} onChange={handleChange} placeholder="Contoh: Saya butuh website company profile untuk bisnis jasa, berisi profil, layanan, portfolio, dan kontak." minLength={10} maxLength={MAX_MESSAGE_LENGTH} className="theme-input w-full rounded-md px-4 py-3 text-sm outline-none transition" required />
                 <div className="mt-2 flex items-center justify-between gap-4 text-xs text-[color:var(--text-muted)]">
                   <span>Tulis kebutuhan utama secara singkat.</span>
                   <span>{formData.message.length}/{MAX_MESSAGE_LENGTH}</span>
