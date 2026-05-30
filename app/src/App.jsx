@@ -1,5 +1,5 @@
-﻿import { lazy, Suspense } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import RevealObserver from "./components/RevealObserver";
 import StickyWhatsApp from "./components/StickyWhatsApp";
 
@@ -17,10 +17,21 @@ function RouteFallback() {
   return <main className="min-h-screen bg-[color:var(--bg-start)] pt-28" aria-label="Memuat halaman" />;
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <>
       <RevealObserver />
+      <ScrollToTop />
       <Suspense fallback={null}>
         <Navbar />
       </Suspense>

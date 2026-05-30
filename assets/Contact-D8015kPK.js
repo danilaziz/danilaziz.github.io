@@ -1,4 +1,4 @@
-import{c,j as e,I as w,F as L,G as S,e as A,w as F}from"./index-8awGJfaS.js";import{b as i}from"./vendor-DCseobEA.js";import{F as _}from"./Footer-Csw5dCZV.js";import{I as M,F as I,G as C,A as E}from"./instagram-CIc7Rvc2.js";/**
+import{c,j as e,I as w,F as L,G as S,e as A,w as F}from"./index-DqcAMGTi.js";import{b as i}from"./vendor-DCseobEA.js";import{F as _}from"./Footer-DhFAUur1.js";import{I as M,F as I,G as C,A as E}from"./instagram-By0LIqHm.js";/**
  * @license lucide-react v0.539.0 - ISC
  *
  * This source code is licensed under the ISC license.

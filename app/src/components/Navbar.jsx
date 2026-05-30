@@ -17,7 +17,6 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === "dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const activeNavItem = navItems.find((item) => (item.path === "/" ? location.pathname === item.path : location.pathname.startsWith(item.path))) ?? navItems[0];
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
@@ -59,11 +58,6 @@ export default function Navbar() {
                 <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Modern, cepat, profesional</p>
               </div>
             </Link>
-
-            <div className="mobile-current-page md:hidden" aria-label={`Halaman aktif: ${activeNavItem.name}`}>
-              <span>Halaman</span>
-              <strong>{activeNavItem.name}</strong>
-            </div>
 
             <nav className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => {
@@ -117,12 +111,9 @@ export default function Navbar() {
                 const Icon = item.icon;
                 const active = item.path === "/" ? location.pathname === item.path : location.pathname.startsWith(item.path);
                 return (
-                  <Link key={item.path} to={item.path} className={`flex items-center justify-between gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
-                    <span className="flex items-center gap-3">
-                      <Icon size={17} />
-                      {item.name}
-                    </span>
-                    {active && <span className="mobile-active-mark">Aktif</span>}
+                  <Link key={item.path} to={item.path} className={`flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
+                    <Icon size={17} />
+                    {item.name}
                   </Link>
                 );
               })}
