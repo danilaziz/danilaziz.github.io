@@ -1,6 +1,5 @@
 ﻿import { ArrowRight, Check, Clock3, Gauge, Info, MessageCircleMore, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import FaqSection from "../components/FaqSection";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
@@ -18,7 +17,7 @@ export default function Services() {
       <section className="pb-14 md:pb-18">
         <div className="shell">
           <div className="max-w-3xl" data-reveal>
-            <p className="section-label">Harga Website</p>
+            <p className="section-label">Layanan</p>
             <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">Paket website jelas, rapi, dan siap online.</h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
               Pilih paket sesuai tujuan bisnis, jumlah halaman, dan kebutuhan fitur. Scope bisa disesuaikan agar website tetap efektif tanpa elemen yang berlebihan.
@@ -89,8 +88,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
-      <FaqSection />
 
       <section className="pb-24">
         <div className="shell">

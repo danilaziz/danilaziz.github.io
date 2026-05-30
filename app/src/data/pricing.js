@@ -9,7 +9,7 @@ export const packages = [
     bestFor: "Cepat jualan",
     features: ["1 halaman fokus konversi", "Responsive mobile", "CTA WhatsApp", yearlyBonus],
     details: [
-      "Section hero, keunggulan, layanan/produk, testimoni, FAQ, dan CTA",
+      "Section hero, keunggulan, layanan/produk, testimoni, dan CTA",
       "Copywriting singkat untuk headline dan tombol",
       "Link WhatsApp dengan pesan otomatis",
       "Optimasi gambar dan loading dasar",
@@ -27,7 +27,7 @@ export const packages = [
     bestFor: "Janji temu",
     features: ["1 halaman profesional", "CTA booking/WhatsApp", "Section layanan & jadwal", yearlyBonus],
     details: [
-      "Section hero, layanan kesehatan, jadwal, profil tenaga ahli, testimoni, FAQ, dan CTA booking",
+      "Section hero, layanan kesehatan, jadwal, profil tenaga ahli, testimoni, dan CTA booking",
       "Tampilan bersih, tenang, dan mudah dipercaya pasien",
       "Tombol WhatsApp untuk konsultasi atau reservasi",
       "Optimasi mobile untuk pengunjung dari iklan dan media sosial",

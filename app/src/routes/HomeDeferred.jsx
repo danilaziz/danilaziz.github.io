@@ -1,6 +1,5 @@
 import { ArrowRight, Building2, Check, Globe2, MessagesSquare, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
-import FaqSection from "../components/FaqSection";
 import Footer from "../components/Footer";
 import { packages } from "../data/pricing";
 import travelHome from "../assets/images/travel-home.webp";

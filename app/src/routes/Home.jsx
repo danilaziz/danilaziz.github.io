@@ -36,7 +36,7 @@ export default function Home() {
       <section className="relative pb-16 pt-6 md:pb-24 md:pt-10">
         <div className="shell grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div data-reveal>
-            <p className="section-label">Portfolio bisnis pembuatan website</p>
+            <p className="section-label">Portfolio</p>
             <h1 className="heading-font mt-4 max-w-3xl text-3xl font-extrabold leading-snug text-[color:var(--text-main)] sm:text-4xl sm:leading-tight md:text-6xl">
               Website cepat dan profesional untuk bisnis yang ingin terlihat dipercaya.
             </h1>
