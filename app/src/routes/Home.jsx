@@ -45,7 +45,7 @@ export default function Home() {
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
+              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button hidden md:inline-flex">
                 Konsultasi Gratis
                 <ArrowRight size={16} className="ml-2" />
               </a>
