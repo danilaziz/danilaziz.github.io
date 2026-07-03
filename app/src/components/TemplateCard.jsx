@@ -1,12 +1,23 @@
-import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+﻿import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 const ImageLightbox = lazy(() => import("./ImageLightbox"));
+const englishSummaries = {
+  "website-pupuk-hasil-kerja": "A fertilizer business website with a neat layout for products, service information, business strengths, and order CTAs.",
+  "website-travel-hasil-kerja": "A clean travel website for destinations, travel packages, service details, and visual galleries.",
+  "website-umkm": "A promotional website for small businesses to present products, strengths, testimonials, and purchase CTAs.",
+  "website-konstruksi": "A construction company profile with a strong, credible look for services and project highlights.",
+  "website-desa": "A village information website for profiles, public services, news, galleries, and village potential.",
+};
 
 export default function TemplateCard({ item, priority = false }) {
-  const message = `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;
+  const { isEnglish } = useLanguage();
+  const message = isEnglish
+    ? `Hi, I am interested in a website like *${item.title}*. Can I get more information?`
+    : `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;
   const waLink = whatsappHref(message);
 
   const images = (item.images || [item.image]).slice(0, 5);
@@ -23,9 +34,9 @@ export default function TemplateCard({ item, priority = false }) {
   };
 
   return (
-    <article className="soft-card flex h-full flex-col overflow-hidden">
-      <div className="relative aspect-[4/3] overflow-hidden sm:h-56 sm:aspect-auto">
-        <button type="button" onClick={() => setLightboxIndex(current)} className="group block h-full w-full cursor-zoom-in" aria-label={`Perbesar gambar ${item.title}`}>
+    <article className="template-card soft-card flex h-full flex-col overflow-hidden">
+      <div className="template-media relative aspect-[4/3] overflow-hidden sm:h-56 sm:aspect-auto">
+        <button type="button" onClick={() => setLightboxIndex(current)} className="group block h-full w-full cursor-zoom-in" aria-label={`${isEnglish ? "Open image preview" : "Perbesar gambar"} ${item.title}`}>
           <img
             src={cardImages[current]}
             alt={`${item.title} ${current + 1}`}
@@ -43,35 +54,46 @@ export default function TemplateCard({ item, priority = false }) {
         </button>
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-transparent" />
+        <div className="pointer-events-none absolute bottom-3 left-3 rounded-md bg-black/45 px-3 py-1.5 text-xs font-semibold text-white">
+          {isEnglish ? "Click image to preview" : "Klik gambar untuk preview"}
+        </div>
 
         {cardImages.length > 1 && (
           <>
-            <button type="button" onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md bg-black/32 p-2 text-white transition hover:bg-black/55" aria-label="Gambar sebelumnya">
+            <button type="button" onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md bg-black/32 p-2 text-white transition hover:bg-black/55" aria-label={isEnglish ? "Previous image" : "Gambar sebelumnya"}>
               <ChevronLeft size={18} />
             </button>
 
-            <button type="button" onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md bg-black/32 p-2 text-white transition hover:bg-black/55" aria-label="Gambar berikutnya">
+            <button type="button" onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md bg-black/32 p-2 text-white transition hover:bg-black/55" aria-label={isEnglish ? "Next image" : "Gambar berikutnya"}>
               <ChevronRight size={18} />
             </button>
           </>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="template-body flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{item.category}</p>
             <h3 className="mt-2 heading-font text-2xl font-bold text-[color:var(--text-main)]">{item.title}</h3>
           </div>
 
-          <Link to={`/portfolio/${item.slug}`} className="theme-icon-button rounded-md p-3 transition" aria-label={`Detail ${item.title}`}>
-            <ExternalLink size={16} />
-          </Link>
+          {item.demo ? (
+            <a {...externalLinkProps(item.demo)} className="theme-icon-button rounded-md p-3 transition" aria-label={`${isEnglish ? "Open demo website" : "Buka demo website"} ${item.title}`}>
+              <ExternalLink size={16} />
+            </a>
+          ) : (
+            <Link to={`/portfolio/${item.slug}`} className="theme-icon-button rounded-md p-3 transition" aria-label={`Detail ${item.title}`}>
+              <ExternalLink size={16} />
+            </Link>
+          )}
         </div>
 
-        <p className="mt-4 min-h-[4.5rem] text-sm leading-6 text-[color:var(--text-muted)] line-clamp-3">{item.summary}</p>
+        <p className="mt-4 min-h-[4.5rem] text-sm leading-6 text-[color:var(--text-muted)] line-clamp-3">{isEnglish ? englishSummaries[item.slug] || item.summary : item.summary}</p>
 
         <div className="mt-4 flex min-h-[2rem] flex-wrap gap-2">
+          <span className="theme-badge rounded-md px-3 py-1 text-xs font-medium">{isEnglish ? "Live demo" : "Demo aktif"}</span>
+          <span className="theme-badge rounded-md px-3 py-1 text-xs font-medium">{isEnglish ? "Sales-ready" : "Siap promosi"}</span>
           {item.tech?.map((tech) => (
             <span key={tech} className="theme-badge rounded-md px-3 py-1 text-xs font-medium">
               {tech}
@@ -81,12 +103,12 @@ export default function TemplateCard({ item, priority = false }) {
 
         <div className="mt-auto grid gap-3 pt-5 sm:grid-cols-2">
           <Link to={`/portfolio/${item.slug}`} className="premium-button theme-secondary-button px-4">
-            Detail
+            {isEnglish ? "Details" : "Detail"}
           </Link>
 
           <a {...externalLinkProps(waLink)} className="premium-button theme-primary-button px-4">
             <MessageCircleMore size={16} className="mr-2" />
-            Pesan
+            {isEnglish ? "Order" : "Pesan"}
           </a>
         </div>
       </div>
@@ -99,3 +121,4 @@ export default function TemplateCard({ item, priority = false }) {
     </article>
   );
 }
+

@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight, BriefcaseBusiness, Facebook, Github, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
+import { ArrowUpRight, Facebook, Github, GraduationCap, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
-const logo = "/danilaziz-hero-mobile.webp";
+const logo = "/danilaziz-hero.avif";
 
 const navItems = [
-  { name: "Beranda", path: "/", icon: Home },
-  { name: "Layanan", path: "/layanan", icon: BriefcaseBusiness },
-  { name: "Portfolio", path: "/portfolio", icon: Layers3 },
-  { name: "Kontak", path: "/kontak", icon: Phone },
+  { label: { id: "Beranda", en: "Home" }, path: "/", icon: Home },
+  { label: { id: "Portfolio", en: "Portfolio" }, path: "/portfolio", icon: Layers3 },
+  { label: { id: "Pendidikan", en: "Education" }, path: "/pendidikan", icon: GraduationCap },
+  { label: { id: "Kontak", en: "Contact" }, path: "/kontak", icon: Phone },
 ];
 
 export default function Navbar() {
   const location = useLocation();
+  const { language, isEnglish, setLanguage } = useLanguage();
   const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === "dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -35,14 +37,30 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    document.body.classList.toggle("mobile-menu-is-open", mobileMenuOpen);
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-is-open");
     };
   }, [mobileMenuOpen]);
 
   const navClass = scrolled
     ? "border-[color:var(--border-strong)] bg-[color:var(--surface-glass)] shadow-[var(--shadow-soft)]"
     : "border-transparent bg-[color:var(--surface-glass)]/60";
+  const tagline = isEnglish ? "Modern, fast, professional" : "Modern, cepat, profesional";
+  const consultationLabel = isEnglish ? "Consultation" : "Konsultasi";
+  const websiteConsultationLabel = isEnglish ? "Website Consultation" : "Konsultasi Website";
+  const languageLabel = isEnglish ? "Switch to Indonesian" : "Switch to English";
+
+  const LanguageToggle = ({ compact = false }) => (
+    <div className={`language-toggle ${compact ? "language-toggle-mobile" : ""}`} aria-label="Pilihan bahasa">
+      {["id", "en"].map((item) => (
+        <button key={item} type="button" onClick={() => setLanguage(item)} className={language === item ? "is-active" : ""} aria-label={item === "en" ? languageLabel : "Gunakan bahasa Indonesia"}>
+          {item.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
 
   return (
     <>
@@ -55,36 +73,37 @@ export default function Navbar() {
               </span>
               <div className="min-w-0">
                 <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">Danil Aziz</p>
-                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">Modern, cepat, profesional</p>
+                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">{tagline}</p>
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-7 md:flex">
+            <nav className="hidden items-center gap-5 lg:gap-7 md:flex">
               {navItems.map((item) => {
                 const active = item.path === "/" ? location.pathname === item.path : location.pathname.startsWith(item.path);
                 return (
                   <Link key={item.path} to={item.path} className={`text-sm font-medium transition ${active ? "text-[color:var(--text-main)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-main)]"}`}>
-                    {item.name}
+                    {item.label[language]}
                   </Link>
                 );
               })}
             </nav>
 
             <div className="hidden items-center gap-3 md:flex">
-              <a {...externalLinkProps(INSTAGRAM_URL)} className="theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
+              <a {...externalLinkProps(INSTAGRAM_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a {...externalLinkProps(FACEBOOK_URL)} className="theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
+              <a {...externalLinkProps(FACEBOOK_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
-              <a {...externalLinkProps(GITHUB_URL)} className="theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
+              <a {...externalLinkProps(GITHUB_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
                 <Github size={18} />
               </a>
               <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2 transition" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
+              <LanguageToggle />
               <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
-                Konsultasi
+                {consultationLabel}
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
             </div>
@@ -93,6 +112,7 @@ export default function Navbar() {
               <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
+              <LanguageToggle compact />
               <button onClick={() => setMobileMenuOpen((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Buka navigasi">
                 {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
@@ -113,23 +133,23 @@ export default function Navbar() {
                 return (
                   <Link key={item.path} to={item.path} className={`flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
                     <Icon size={17} />
-                    {item.name}
+                    {item.label[language]}
                   </Link>
                 );
               })}
               <div className="grid grid-cols-3 gap-3">
-                <a {...externalLinkProps(INSTAGRAM_URL)} className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Instagram">
+                <a {...externalLinkProps(INSTAGRAM_URL)} className="nav-social-link theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Instagram">
                   <Instagram size={18} />
                 </a>
-                <a {...externalLinkProps(FACEBOOK_URL)} className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Facebook">
+                <a {...externalLinkProps(FACEBOOK_URL)} className="nav-social-link theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Facebook">
                   <Facebook size={18} />
                 </a>
-                <a {...externalLinkProps(GITHUB_URL)} className="theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="GitHub">
+                <a {...externalLinkProps(GITHUB_URL)} className="nav-social-link theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="GitHub">
                   <Github size={18} />
                 </a>
               </div>
               <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button mt-2">
-                Konsultasi Website
+                {websiteConsultationLabel}
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
             </div>

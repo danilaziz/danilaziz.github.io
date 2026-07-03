@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 const revealSelector = [
   ".reveal-scope [data-reveal]",
   ".reveal-scope .soft-card",
-  ".reveal-scope .price-card",
   ".reveal-scope .cta-band",
   ".reveal-scope .glass-panel",
 ].join(",");
