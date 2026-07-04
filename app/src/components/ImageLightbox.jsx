@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 
 export default function ImageLightbox({ images, title, activeIndex, onClose, onChange }) {
   const { isEnglish } = useLanguage();

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import Footer from "../components/Footer";
 import TemplateCard from "../components/TemplateCard";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import templates from "../data/templates";
 
 const filters = [

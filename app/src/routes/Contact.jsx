@@ -1,7 +1,7 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight, CircleAlert, Facebook, Github, Instagram, Mail, Send } from "lucide-react";
 import Footer from "../components/Footer";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
 const MAX_NAME_LENGTH = 80;

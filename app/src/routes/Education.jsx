@@ -1,7 +1,7 @@
-﻿import { ArrowRight, BookOpenCheck, GraduationCap, Layers3, School, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpenCheck, GraduationCap, Layers3, School, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 
 const educationHistory = [
   {

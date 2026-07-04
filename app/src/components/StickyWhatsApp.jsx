@@ -1,5 +1,5 @@
-﻿import { MessageCircleMore } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
+import { MessageCircleMore } from "lucide-react";
+import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 export default function StickyWhatsApp() {

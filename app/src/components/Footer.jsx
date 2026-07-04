@@ -1,6 +1,6 @@
 import { ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 
 const links = [
   { label: { id: "Beranda", en: "Home" }, path: "/" },

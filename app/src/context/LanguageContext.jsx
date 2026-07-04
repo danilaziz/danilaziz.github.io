@@ -1,7 +1,5 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-
-const LanguageContext = createContext(null);
-const supportedLanguages = new Set(["id", "en"]);
+import { useEffect, useMemo, useState } from "react";
+import { LanguageContext, supportedLanguages } from "./languageContextCore";
 
 export function LanguageProvider({ children }) {
   const [language, setLanguageState] = useState(() => {
@@ -23,12 +21,4 @@ export function LanguageProvider({ children }) {
   const value = useMemo(() => ({ language, isEnglish: language === "en", setLanguage }), [language]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
-}
-
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used inside LanguageProvider");
-  }
-  return context;
 }

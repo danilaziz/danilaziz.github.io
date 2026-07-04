@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, Facebook, Github, GraduationCap, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
 const logo = "/danilaziz-hero.avif";
@@ -47,7 +47,7 @@ export default function Navbar() {
   const navClass = scrolled
     ? "border-[color:var(--border-strong)] bg-[color:var(--surface-glass)] shadow-[var(--shadow-soft)]"
     : "border-transparent bg-[color:var(--surface-glass)]/60";
-  const tagline = isEnglish ? "Modern, fast, professional" : "Modern, cepat, profesional";
+  const tagline = isEnglish ? "Web Developer" : "Pengembang Web";
   const consultationLabel = isEnglish ? "Consultation" : "Konsultasi";
   const websiteConsultationLabel = isEnglish ? "Website Consultation" : "Konsultasi Website";
   const languageLabel = isEnglish ? "Switch to Indonesian" : "Switch to English";
@@ -108,7 +108,7 @@ export default function Navbar() {
               </a>
             </div>
 
-            <div className="flex shrink-0 items-center gap-2 md:hidden">
+            <div className="flex shrink-0 items-center gap-1.5 md:hidden">
               <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>

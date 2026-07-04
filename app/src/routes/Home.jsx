@@ -1,7 +1,7 @@
 import { ArrowUpRight, BadgeCheck, Sparkles } from "lucide-react";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 const mobileHeroImage = "/danilaziz-hero.avif";

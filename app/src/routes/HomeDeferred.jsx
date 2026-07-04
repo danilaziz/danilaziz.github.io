@@ -1,7 +1,7 @@
 import { ArrowRight, MessagesSquare, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import travelHome from "../assets/images/travel-home.webp";
 import pupuk4 from "../assets/images/pupuk4.webp";
 import umkm1 from "../assets/images/umkm1.webp";

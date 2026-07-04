@@ -682,9 +682,17 @@ span,
     color: #0f172a;
   }
 
+  .language-toggle-mobile {
+    gap: 0.12rem;
+    padding: 0.15rem;
+  }
+
   .language-toggle-mobile button {
-    min-height: 2.25rem;
-    min-width: 2.15rem;
+    min-height: 2.15rem;
+    min-width: 1.72rem;
+    border-radius: 0.32rem;
+    font-size: 0.65rem;
+    letter-spacing: 0;
   }
 
   .theme-badge {

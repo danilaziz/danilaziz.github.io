@@ -1,9 +1,9 @@
-﻿import { ArrowLeft, ArrowRight, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import ImageLightbox from "../components/ImageLightbox";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import templates from "../data/templates";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 import NotFound from "./NotFound";

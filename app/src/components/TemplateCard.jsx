@@ -1,7 +1,7 @@
-﻿import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
 import { lazy, Suspense, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 const ImageLightbox = lazy(() => import("./ImageLightbox"));
