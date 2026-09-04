@@ -1,11 +1,11 @@
-import { ArrowUpRight, BadgeCheck, Sparkles } from "lucide-react";
+import { ArrowUpRight, Code2, Image as ImageIcon, Layers } from "lucide-react";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
-const mobileHeroImage = "/danilaziz-hero.avif";
-const desktopHeroImage = "/danilaziz-hero.avif";
+const mobileHeroImage = "/danilaziz.avif";
+const desktopHeroImage = "/danilaziz.avif";
 const HomeDeferred = lazy(() => import("./HomeDeferred"));
 
 const copy = {
@@ -15,7 +15,6 @@ const copy = {
     description: "Saya membuat website yang membantu bisnis terlihat profesional, mudah dipercaya, dan punya alur jelas menuju WhatsApp atau demo produk.",
     consult: "Konsultasi Website",
     portfolio: "Lihat Portfolio",
-    wins: ["Demo aktif", "Mobile first", "CTA menjual"],
     note: "Clean digital presence",
     wa: "Halo Danil, saya ingin konsultasi website.",
   },
@@ -25,7 +24,6 @@ const copy = {
     description: "I build websites that help businesses look professional, earn trust faster, and guide visitors clearly toward WhatsApp or product demos.",
     consult: "Website Consultation",
     portfolio: "View Portfolio",
-    wins: ["Live demos", "Mobile first", "Sales CTA"],
     note: "Clean digital presence",
     wa: "Hi Danil, I would like to consult about a website.",
   },
@@ -77,40 +75,39 @@ export default function Home() {
                 {text.portfolio}
               </Link>
             </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-2xl">
-              {text.wins.map((item, index) => (
-                <div key={item} className="quick-win" style={{ "--quick-delay": `${index * 120}ms` }}>
-                  <BadgeCheck size={16} />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="hero-media relative" data-reveal>
-            <div className="home-hero-portrait about-portrait glass-panel hero-frame rounded-lg p-3">
-              <div className="about-portrait-line" aria-hidden="true" />
-              <picture>
-                <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
-                <img
-                  src={desktopHeroImage}
-                  alt="Danil Aziz web developer"
-                  width="720"
-                  height="900"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="h-[430px] w-full rounded-md object-cover object-top md:h-[560px]"
-                />
-              </picture>
-              <div className="about-floating-note">
-                <Sparkles size={16} />
-                <span>{text.note}</span>
+            <div className="hero-media-profile">
+              <div className="hero-media-bg-circle" aria-hidden="true" />
+              <span className="hero-media-ring-glow" aria-hidden="true" />
+              <div className="hero-media-ring" aria-hidden="true" />
+
+              <div className="hero-media-img-wrap" role="img" aria-label="Foto Danil Aziz">
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
+                  <img
+                    src={desktopHeroImage}
+                    alt="Danil Aziz web developer"
+                    width="720"
+                    height="900"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="hero-portrait-img"
+                  />
+                </picture>
               </div>
-            </div>
-            <div className="hero-offer">
-              <span className="typing-name">I'm Danil Aziz</span>
+
+              <div className="hero-float-icon hero-float-icon--left" aria-hidden="true">
+                <Code2 size={22} />
+              </div>
+              <div className="hero-float-icon hero-float-icon--top-right" aria-hidden="true">
+                <Layers size={22} />
+              </div>
+              <div className="hero-float-icon hero-float-icon--bottom-right" aria-hidden="true">
+                <ImageIcon size={22} />
+              </div>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ for (const item of readdirSync(dist, { withFileTypes: true })) {
 
 writeFileSync(join(deployDir, ".nojekyll"), "");
 
-run("git", ["add", "-f", "index.html", "404.html", "_headers", "favicon.svg", ".nojekyll", "assets"], { cwd: deployDir });
+run("git", ["add", "-f", "index.html", "404.html", "_headers", "favicon.svg", ".nojekyll", "danilaziz.avif", "assets"], { cwd: deployDir });
 
 try {
   run("git", ["diff", "--cached", "--quiet"], { cwd: deployDir });

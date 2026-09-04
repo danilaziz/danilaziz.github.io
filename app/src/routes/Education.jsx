@@ -97,7 +97,7 @@ export default function Education() {
     <main className="education-page reveal-scope overflow-hidden pt-28 md:pt-32">
       <section className="education-hero pb-14 md:pb-18">
         <div className="shell">
-          <div className="education-hero-panel glass-panel rounded-lg p-6 md:p-10" data-reveal>
+          <div className="education-hero-panel p-6 md:p-10" data-reveal>
             <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
               <div>
                 <p className="section-label">{text.label}</p>
@@ -117,11 +117,16 @@ export default function Education() {
               </div>
 
               <aside className="education-summary-card">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">Academic Path</p>
-                <p className="heading-font mt-2 text-3xl font-extrabold text-[color:var(--text-main)]">{isEnglish ? "Elementary - University" : "SD - Kuliah"}</p>
-                <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">{text.summary}</p>
+                <div className="education-summary-head">
+                  <span className="education-summary-icon">
+                    <GraduationCap size={20} />
+                  </span>
+                  <span className="education-summary-label">Academic Path</span>
+                </div>
+                <p className="education-summary-title">{isEnglish ? "Elementary — University" : "SD — Kuliah"}</p>
+                <p className="education-summary-desc">{text.summary}</p>
 
-                <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="education-summary-grid">
                   {educationHistory.map((item) => (
                     <div key={item.level} className="education-summary-item">
                       <span>{isEnglish ? item.levelEn : item.level}</span>
@@ -137,12 +142,14 @@ export default function Education() {
 
       <section className="pb-16 md:pb-24">
         <div className="shell">
-          <div className="mb-8 max-w-3xl" data-reveal>
-            <p className="section-label">Timeline</p>
-            <h2 className="section-title mt-3">{text.timelineTitle}</h2>
-            <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)] md:text-base">
-              {text.timelineDescription}
-            </p>
+          <div className="education-timeline-head" data-reveal>
+            <div className="mb-8 max-w-3xl">
+              <p className="section-label">Timeline</p>
+              <h2 className="section-title mt-3">{text.timelineTitle}</h2>
+              <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)] md:text-base">
+                {text.timelineDescription}
+              </p>
+            </div>
           </div>
 
           <div className="education-timeline">
@@ -159,13 +166,12 @@ export default function Education() {
                       <Icon size={23} />
                     </div>
                     <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="theme-badge rounded-md px-3 py-1 text-xs font-bold uppercase tracking-[0.16em]">{isEnglish ? item.levelEn : item.level}</span>
-                        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">{isEnglish ? item.year : item.period}</span>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="education-level-badge">{isEnglish ? item.levelEn : item.level}</span>
+                        <span className="education-period">{isEnglish ? item.year : item.period}</span>
                       </div>
-                      <h3 className="heading-font mt-4 text-2xl font-bold text-[color:var(--text-main)]">{item.title}</h3>
+                      <h3 className="heading-font mt-3 text-xl font-bold text-[color:var(--text-main)] md:text-2xl">{item.title}</h3>
                     </div>
-                    <span className="education-year">{item.year}</span>
                   </div>
 
                   <p className="mt-5 text-sm leading-7 text-[color:var(--text-muted)]">{isEnglish ? item.descriptionEn : item.description}</p>

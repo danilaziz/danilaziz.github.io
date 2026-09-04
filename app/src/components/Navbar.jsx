@@ -4,7 +4,7 @@ import { ArrowUpRight, Facebook, Github, GraduationCap, Home, Instagram, Layers3
 import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
-const logo = "/danilaziz-hero.avif";
+const logo = "/danilaziz.avif";
 
 const navItems = [
   { label: { id: "Beranda", en: "Home" }, path: "/", icon: Home },

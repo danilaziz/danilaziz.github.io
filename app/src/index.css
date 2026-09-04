@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --accent: #6366f1;
+  --accent: #4f46e5;
   --accent-strong: #334155;
-  --accent-soft: rgba(99, 102, 241, 0.1);
+  --accent-soft: rgba(79, 70, 229, 0.1);
   --bg-start: #f8fafc;
   --bg-mid: #ffffff;
   --bg-end: #f1f5f9;
@@ -24,9 +24,9 @@
 }
 
 html.dark {
-  --accent: #818cf8;
+  --accent: #a5b4fc;
   --accent-strong: #94a3b8;
-  --accent-soft: rgba(129, 140, 248, 0.14);
+  --accent-soft: rgba(165, 180, 252, 0.14);
   --bg-start: #0f172a;
   --bg-mid: #111827;
   --bg-end: #0f172a;
@@ -65,7 +65,7 @@ body {
   background:
     linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
     linear-gradient(180deg, rgba(148, 163, 184, 0.065) 1px, transparent 1px),
-    radial-gradient(circle at top right, rgba(129, 140, 248, 0.16), transparent 30%),
+    radial-gradient(circle at top right, rgba(165, 180, 252, 0.16), transparent 30%),
     radial-gradient(circle at 12% 18%, rgba(148, 163, 184, 0.1), transparent 28%),
     linear-gradient(180deg, var(--bg-start) 0%, var(--bg-mid) 48%, var(--bg-end) 100%);
   background-size: 56px 56px, 56px 56px, auto, auto, auto;
@@ -101,6 +101,16 @@ span,
 
 ::selection {
   background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 @layer components {
@@ -150,6 +160,107 @@ span,
   .hero-media {
     position: relative;
     z-index: 1;
+  }
+
+  .hero-media-profile {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 32rem);
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+  }
+
+  .hero-media-bg-circle {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 9%, transparent);
+    box-shadow:
+      0 0 100px -20px color-mix(in srgb, var(--accent) 32%, transparent),
+      inset 0 0 70px -10px color-mix(in srgb, var(--accent) 16%, transparent);
+    animation: hero-bg-pulse 9s ease-in-out infinite;
+  }
+
+  .hero-media-ring {
+    position: absolute;
+    z-index: 0;
+    inset: 4%;
+    border-radius: 999px;
+    background: conic-gradient(from 45deg, #8b5cf6, #3b82f6 45%, transparent 56%, #8b5cf6 68%, #3b82f6 88%, transparent 96%, #8b5cf6);
+    -webkit-mask: radial-gradient(circle, transparent 69%, #000 69.4%, #000 72.6%, transparent 73%);
+    mask: radial-gradient(circle, transparent 69%, #000 69.4%, #000 72.6%, transparent 73%);
+    animation: hero-ring-spin 26s linear infinite;
+  }
+
+  .hero-media-ring-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #8b5cf6;
+    filter: blur(18px);
+    opacity: 0.35;
+    z-index: -1;
+  }
+
+  .hero-media-img-wrap {
+    position: absolute;
+    inset: 4%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .hero-media-img-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    box-shadow:
+      inset 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent),
+      inset 0 0 34px rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+  }
+
+  .hero-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-float-icon {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #4f46e5;
+    box-shadow: 0 14px 34px -12px rgba(15, 23, 42, 0.45);
+    animation: hero-float-icon 6s ease-in-out infinite;
+  }
+
+  .hero-float-icon--left {
+    left: 0;
+    top: 52%;
+    transform: translateY(-50%);
+  }
+
+  .hero-float-icon--top-right {
+    right: 2%;
+    top: 12%;
+    animation-delay: 1.6s;
+  }
+
+  .hero-float-icon--bottom-right {
+    right: 6%;
+    bottom: 16%;
+    animation-delay: 3s;
   }
 
   .hero-kicker {
@@ -574,17 +685,26 @@ span,
   }
 
   .theme-primary-button {
-    background: var(--surface-strong);
-    color: white;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #ffffff;
+    box-shadow: 0 18px 42px -22px rgba(79, 70, 229, 0.55);
   }
 
   .theme-primary-button:hover {
-    background: var(--surface-strong-hover);
+    background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
     translate: 0 -1px;
+    box-shadow: 0 22px 48px -22px rgba(79, 70, 229, 0.65);
   }
 
   .dark .theme-primary-button {
+    background: linear-gradient(135deg, #a5b4fc 0%, #c4b5fd 100%);
     color: #0f172a;
+    box-shadow: 0 18px 42px -22px rgba(165, 180, 252, 0.45);
+  }
+
+  .dark .theme-primary-button:hover {
+    background: linear-gradient(135deg, #c7d2fe 0%, #ddd6fe 100%);
+    box-shadow: 0 22px 48px -22px rgba(165, 180, 252, 0.55);
   }
 
   .theme-secondary-button {
@@ -872,10 +992,25 @@ span,
   }
 
   .education-hero-panel {
+    position: relative;
     isolation: isolate;
+    border: 1px solid var(--border-soft);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-soft);
     background:
       linear-gradient(135deg, color-mix(in srgb, var(--surface-card) 94%, var(--accent) 6%), var(--surface-card)),
       var(--surface-card);
+  }
+
+  .education-hero-panel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3rem;
+    right: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 55%, transparent), transparent);
+    pointer-events: none;
   }
 
   .education-hero-panel::before {
@@ -883,6 +1018,7 @@ span,
     position: absolute;
     inset: 0;
     z-index: -1;
+    border-radius: inherit;
     background:
       linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 10%, transparent), transparent),
       linear-gradient(180deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 42%);
@@ -891,19 +1027,80 @@ span,
   }
 
   .education-summary-card {
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--border-soft);
-    border-radius: 0.5rem;
-    background: color-mix(in srgb, var(--surface-card) 88%, transparent);
-    box-shadow: 0 22px 54px -42px color-mix(in srgb, var(--accent) 32%, rgba(15, 23, 42, 0.34));
-    padding: 1.25rem;
+    border-radius: 1rem;
+    background:
+      linear-gradient(150deg, color-mix(in srgb, var(--surface-card) 92%, var(--accent) 8%), var(--surface-card)),
+      var(--surface-card);
+    box-shadow: 0 22px 54px -42px color-mix(in srgb, var(--accent) 34%, rgba(15, 23, 42, 0.34));
+    padding: 1.5rem;
+  }
+
+  .education-summary-card::after {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    right: -3rem;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%);
+    pointer-events: none;
+  }
+
+  .education-summary-head {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .education-summary-icon {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.65rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    box-shadow: 0 12px 26px -16px color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+
+  .education-summary-label {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .education-summary-title {
+    margin-top: 1.25rem;
+    @apply heading-font text-3xl font-extrabold;
+    color: var(--text-main);
+  }
+
+  .education-summary-desc {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .education-summary-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
   .education-summary-item {
     min-width: 0;
     border: 1px solid var(--border-soft);
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     background: color-mix(in srgb, var(--surface-inset) 86%, transparent);
-    padding: 0.85rem;
+    padding: 0.9rem 1rem;
     transition:
       border-color 220ms ease,
       transform 220ms ease,
@@ -923,7 +1120,7 @@ span,
 
   .education-summary-item span {
     color: var(--accent);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -955,9 +1152,20 @@ span,
     margin-left: 2.85rem;
     overflow: visible;
     isolation: isolate;
+    border-radius: 1rem;
     background:
       linear-gradient(180deg, color-mix(in srgb, var(--surface-card) 96%, var(--accent) 4%), var(--surface-card)),
       var(--surface-card);
+    transition:
+      translate 240ms ease,
+      border-color 240ms ease,
+      box-shadow 240ms ease;
+  }
+
+  .education-card:hover {
+    translate: 0 -3px;
+    border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+    box-shadow: 0 30px 70px -46px color-mix(in srgb, var(--accent) 30%, rgba(15, 23, 42, 0.45));
   }
 
   .education-card::before {
@@ -981,7 +1189,7 @@ span,
 
   .education-card-top {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: start;
     gap: 1rem;
   }
@@ -997,18 +1205,26 @@ span,
       box-shadow 260ms ease;
   }
 
-  .education-year {
-    align-self: start;
-    border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
-    border-radius: 0.5rem;
+  .education-level-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 999px;
     background: var(--accent-soft);
     color: var(--accent);
-    padding: 0.45rem 0.65rem;
-    font-size: 0.72rem;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    white-space: nowrap;
+  }
+
+  .education-period {
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .education-step-marker {
@@ -1017,15 +1233,17 @@ span,
     top: 1.6rem;
     z-index: 2;
     display: flex;
-    height: 2.35rem;
-    width: 2.35rem;
+    height: 2.4rem;
+    width: 2.4rem;
     align-items: center;
     justify-content: center;
-    border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
     border-radius: 999px;
-    background: var(--surface-card);
+    background:
+      linear-gradient(150deg, color-mix(in srgb, var(--accent) 18%, var(--surface-card)), var(--surface-card)),
+      var(--surface-card);
     color: var(--accent);
-    box-shadow: 0 16px 34px -24px color-mix(in srgb, var(--accent) 60%, rgba(15, 23, 42, 0.45));
+    box-shadow: 0 16px 34px -22px color-mix(in srgb, var(--accent) 65%, rgba(15, 23, 42, 0.5));
   }
 
   .education-step-marker span {
@@ -1286,6 +1504,36 @@ span,
   }
 }
 
+@keyframes hero-bg-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes hero-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-float-icon {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -0.55rem;
+  }
+}
+
 @media (max-width: 767px) {
   body {
     padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
@@ -1364,8 +1612,40 @@ span,
   }
 
   .hero-frame img {
-    height: min(78vw, 370px);
+    height: min(94vw, 520px);
   }
+
+  .hero-media-profile {
+    width: min(100%, 21rem);
+  }
+
+  .hero-media-bg-circle {
+    inset: 2%;
+  }
+
+  .hero-float-icon {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .hero-float-icon--left {
+    left: -0.25rem;
+  }
+
+  .hero-float-icon--top-right {
+    right: 0;
+    top: 8%;
+  }
+
+  .hero-float-icon--bottom-right {
+    right: 2%;
+    bottom: 12%;
+  }
+
+  .hero-media-ring {
+    inset: 2%;
+  }
+
 
   .hero-offer {
     position: static;
@@ -1425,8 +1705,14 @@ span,
     display: inline-flex;
     justify-content: center;
     min-height: 3.25rem;
-    border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+    background: #4f46e5;
+    border: 1px solid #4338ca;
     box-shadow: 0 24px 52px -28px rgba(15, 23, 42, 0.62);
+  }
+
+  .dark .mobile-sticky-cta {
+    background: var(--surface-strong);
+    border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
   }
 
   .about-portrait::before {
@@ -1444,7 +1730,11 @@ span,
   }
 
   .education-summary-card {
-    padding: 1rem;
+    padding: 1.25rem;
+  }
+
+  .education-summary-title {
+    @apply text-2xl;
   }
 
   .education-timeline::before {
@@ -1458,12 +1748,6 @@ span,
 
   .education-card-top {
     grid-template-columns: auto minmax(0, 1fr);
-  }
-
-  .education-year {
-    grid-column: 1 / -1;
-    width: fit-content;
-    margin-left: 4rem;
   }
 
   .education-step-marker {
