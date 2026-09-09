@@ -8,6 +8,7 @@ const ALLOWED_EXTERNAL_HOSTS = new Set([
   "github.com",
   "instagram.com",
   "berkahcintamadinah.com",
+  "obylomboktour.com",
   "ptberkahcintawisata.com",
   "umkm-website.netlify.app",
   "wa.me",
@@ -15,6 +16,7 @@ const ALLOWED_EXTERNAL_HOSTS = new Set([
   "website-konstruksi.netlify.app",
   "www.facebook.com",
   "www.berkahcintamadinah.com",
+  "www.obylomboktour.com",
 ]);
 
 export function getSafeExternalHref(href) {

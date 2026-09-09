@@ -17,8 +17,28 @@ import pupuk1 from "../assets/images/pupuk1.webp";
 import pupuk2 from "../assets/images/pupuk2.webp";
 import pupuk3 from "../assets/images/pupuk3.webp";
 import pupuk4 from "../assets/images/pupuk4.webp";
+import obylomboktour from "../assets/images/obylomboktour.avif";
 
 const templates = [
+  {
+    id: 6,
+    slug: "website-tour-travel",
+    title: "Website Tour & Travel",
+    category: "Hasil Kerja",
+    images: [obylomboktour],
+    coverImage: obylomboktour,
+    demo: "https://obylomboktour.com",
+    tech: ["Next.js", "Tailwind CSS", "Payment Gateway", "Admin Panel"],
+    summary: "Website Tour & Travel untuk menampilkan paket wisata, destinasi pilihan, galeri, serta dilengkapi payment gateway dan halaman admin agar transaksi serta pengelolaan paket lebih profesional dan mudah.",
+    objective: "Membuat bisnis tour & travel terlihat profesional secara online, memudahkan wisatawan memahami dan memesan paket wisata, serta mempermudah pemilik mengelola website lewat halaman admin dengan pembayaran online.",
+    caseStudy: {
+      problem: "Calon wisatawan sering kesulitan menemukan informasi paket wisata yang rapi, memerlukan cara pembayaran yang aman, sementara pemilik kesulitan mengelola paket tanpa sistem admin.",
+      solution: "Menyusun website dengan hero promosi, kartu paket wisata, destinasi pilihan, galeri, halaman admin untuk kelola paket, serta payment gateway agar pembayaran dilakukan langsung dan aman.",
+      impact: "Website siap menjadi etalase promosi yang lengkap, wisatawan dapat bertanya hingga membayar secara online, dan tim tour lebih mudah mengelola paket lewat halaman admin.",
+    },
+    scope: ["Hero promosi paket wisata", "Kartu paket dan harga", "Payment gateway pembayaran online", "Halaman admin pengelolaan paket", "Destinasi pilihan dan galeri", "CTA WhatsApp pemesanan"],
+    result: ["Tampilan travel lebih premium", "Paket wisata mudah dipindai", "Pembayaran online dengan payment gateway", "Pengelolaan mudah lewat halaman admin", "Alur kontak dan pemesanan lebih singkat"],
+  },
   {
     id: 5,
     slug: "website-pupuk-hasil-kerja",

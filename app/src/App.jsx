@@ -4,8 +4,8 @@ import RevealObserver from "./components/RevealObserver";
 import StickyWhatsApp from "./components/StickyWhatsApp";
 
 const Contact = lazy(() => import("./routes/Contact"));
-const Education = lazy(() => import("./routes/Education"));
 const Home = lazy(() => import("./routes/Home"));
+const Services = lazy(() => import("./routes/Services"));
 const Navbar = lazy(() => import("./components/Navbar"));
 const NotFound = lazy(() => import("./routes/NotFound"));
 const Portfolio = lazy(() => import("./routes/Portfolio"));
@@ -36,7 +36,8 @@ export default function App() {
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pendidikan" element={<Education />} />
+          <Route path="/layanan" element={<Services />} />
+          <Route path="/pendidikan" element={<Navigate to="/layanan" replace />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
           <Route path="/contoh" element={<Navigate to="/portfolio" replace />} />

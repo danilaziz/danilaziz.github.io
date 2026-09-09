@@ -5,7 +5,7 @@ import { useLanguage } from "../context/useLanguage";
 const links = [
   { label: { id: "Beranda", en: "Home" }, path: "/" },
   { label: { id: "Portfolio", en: "Portfolio" }, path: "/portfolio" },
-  { label: { id: "Pendidikan", en: "Education" }, path: "/pendidikan" },
+  { label: { id: "Layanan", en: "Services" }, path: "/layanan" },
   { label: { id: "Kontak", en: "Contact" }, path: "/kontak" },
 ];
 

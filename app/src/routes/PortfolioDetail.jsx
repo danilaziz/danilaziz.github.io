@@ -64,6 +64,17 @@ const detailCopy = {
 };
 
 const englishDetails = {
+  "website-tour-travel": {
+    summary: "A Tour & Travel website designed to present travel packages, featured destinations, and galleries, complete with a payment gateway and an admin panel so transactions and package management are professional and easy.",
+    objective: "Make the tour & travel business look professional online, help travelers understand and book packages, and let the owner manage the site through an admin panel with online payments.",
+    caseStudy: {
+      problem: "Travelers often struggle to find neatly organized package information, need a secure payment method, while the owner finds it hard to manage packages without an admin system.",
+      solution: "The site is built with a promo hero, package cards, featured destinations, galleries, an admin panel to manage packages, and a payment gateway so payments are made directly and securely.",
+      impact: "The website becomes a complete promotional storefront where travelers can inquire and pay online, while the tour team manages packages more easily through the admin panel.",
+    },
+    scope: ["Travel package promo hero", "Package and pricing cards", "Online payment gateway", "Admin panel for package management", "Featured destinations and galleries", "WhatsApp booking CTAs"],
+    result: ["More premium travel look", "Packages quick to scan", "Online payments with payment gateway", "Easy management through the admin panel", "Shorter contact and booking flow"],
+  },
   "website-pupuk-hasil-kerja": {
     summary: "A fertilizer business website designed to present products clearly, build trust, and guide visitors toward consultation or ordering.",
     objective: "Create a professional digital storefront that makes the business look credible, easier to contact, and ready for promotion.",
@@ -172,7 +183,7 @@ export default function PortfolioDetail() {
 
             <aside className="project-meta-card soft-card p-6">
               <p className="text-sm font-semibold text-[color:var(--text-muted)]">{text.category}</p>
-              <p className="heading-font mt-2 text-2xl font-extrabold">{item.category}</p>
+              <p className="heading-font mt-2 text-2xl font-extrabold">{isEnglish && item.category === "Hasil Kerja" ? "Work" : item.category}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">{text.liveDemo}</span>
                 <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">{text.salesReady}</span>

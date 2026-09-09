@@ -6,6 +6,7 @@ import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
 const ImageLightbox = lazy(() => import("./ImageLightbox"));
 const englishSummaries = {
+  "website-tour-travel": "A Tour & Travel website designed to present packages, destinations, and galleries, complete with payment gateway and an admin panel for easy management.",
   "website-pupuk-hasil-kerja": "A fertilizer business website with a neat layout for products, service information, business strengths, and order CTAs.",
   "website-travel-hasil-kerja": "A clean travel website for destinations, travel packages, service details, and visual galleries.",
   "website-umkm": "A promotional website for small businesses to present products, strengths, testimonials, and purchase CTAs.",
@@ -13,8 +14,14 @@ const englishSummaries = {
   "website-desa": "A village information website for profiles, public services, news, galleries, and village potential.",
 };
 
+const categoryLabels = {
+  id: { "Hasil Kerja": "Hasil Kerja", Business: "Business", Government: "Government" },
+  en: { "Hasil Kerja": "Work", Business: "Business", Government: "Government" },
+};
+
 export default function TemplateCard({ item, priority = false }) {
-  const { isEnglish } = useLanguage();
+  const { language, isEnglish } = useLanguage();
+  const displayCategory = (categoryLabels[language] && categoryLabels[language][item.category]) || item.category;
   const message = isEnglish
     ? `Hi, I am interested in a website like *${item.title}*. Can I get more information?`
     : `Halo, saya tertarik dengan contoh website *${item.title}*. Bisa minta info lebih lanjut?`;
@@ -74,7 +81,7 @@ export default function TemplateCard({ item, priority = false }) {
       <div className="template-body flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{item.category}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{displayCategory}</p>
             <h3 className="mt-2 heading-font text-2xl font-bold text-[color:var(--text-main)]">{item.title}</h3>
           </div>
 
@@ -92,10 +99,10 @@ export default function TemplateCard({ item, priority = false }) {
         <p className="mt-4 min-h-[4.5rem] text-sm leading-6 text-[color:var(--text-muted)] line-clamp-3">{isEnglish ? englishSummaries[item.slug] || item.summary : item.summary}</p>
 
         <div className="mt-4 flex min-h-[2rem] flex-wrap gap-2">
-          <span className="theme-badge rounded-md px-3 py-1 text-xs font-medium">{isEnglish ? "Live demo" : "Demo aktif"}</span>
-          <span className="theme-badge rounded-md px-3 py-1 text-xs font-medium">{isEnglish ? "Sales-ready" : "Siap promosi"}</span>
+          <span className="theme-badge rounded-full px-3 py-1 text-xs font-medium">{isEnglish ? "Live demo" : "Demo aktif"}</span>
+          <span className="theme-badge rounded-full px-3 py-1 text-xs font-medium">{isEnglish ? "Sales-ready" : "Siap promosi"}</span>
           {item.tech?.map((tech) => (
-            <span key={tech} className="theme-badge rounded-md px-3 py-1 text-xs font-medium">
+            <span key={tech} className="theme-badge rounded-full px-3 py-1 text-xs font-medium">
               {tech}
             </span>
           ))}

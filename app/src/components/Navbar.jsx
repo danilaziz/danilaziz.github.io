@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight, Facebook, Github, GraduationCap, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
+import { ArrowUpRight, Briefcase, Facebook, Github, Home, Instagram, Layers3, Menu, Moon, Phone, Sun, X } from "lucide-react";
 import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, FACEBOOK_URL, GITHUB_URL, INSTAGRAM_URL, whatsappHref } from "../utils/externalLinks";
 
@@ -9,7 +9,7 @@ const logo = "/danilaziz.avif";
 const navItems = [
   { label: { id: "Beranda", en: "Home" }, path: "/", icon: Home },
   { label: { id: "Portfolio", en: "Portfolio" }, path: "/portfolio", icon: Layers3 },
-  { label: { id: "Pendidikan", en: "Education" }, path: "/pendidikan", icon: GraduationCap },
+  { label: { id: "Layanan", en: "Services" }, path: "/layanan", icon: Briefcase },
   { label: { id: "Kontak", en: "Contact" }, path: "/kontak", icon: Phone },
 ];
 
@@ -50,17 +50,17 @@ export default function Navbar() {
   const tagline = isEnglish ? "Web Developer" : "Pengembang Web";
   const consultationLabel = isEnglish ? "Consultation" : "Konsultasi";
   const websiteConsultationLabel = isEnglish ? "Website Consultation" : "Konsultasi Website";
-  const languageLabel = isEnglish ? "Switch to Indonesian" : "Switch to English";
 
-  const LanguageToggle = ({ compact = false }) => (
-    <div className={`language-toggle ${compact ? "language-toggle-mobile" : ""}`} aria-label="Pilihan bahasa">
-      {["id", "en"].map((item) => (
-        <button key={item} type="button" onClick={() => setLanguage(item)} className={language === item ? "is-active" : ""} aria-label={item === "en" ? languageLabel : "Gunakan bahasa Indonesia"}>
-          {item.toUpperCase()}
+  const LanguageToggle = ({ compact = false }) => {
+    const target = language === "id" ? "en" : "id";
+    return (
+      <div className={`language-toggle ${compact ? "language-toggle-mobile" : ""}`} aria-label="Pilihan bahasa" title={isEnglish ? "Gunakan bahasa Indonesia" : "Switch to English"}>
+        <button type="button" onClick={() => setLanguage(target)} aria-label={target === "en" ? "Switch to English" : "Gunakan bahasa Indonesia"}>
+          {target.toUpperCase()}
         </button>
-      ))}
-    </div>
-  );
+      </div>
+    );
+  };
 
   return (
     <>
@@ -68,8 +68,8 @@ export default function Navbar() {
         <div className={`shell rounded-lg border transition-colors duration-200 ${navClass}`}>
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1.5 shadow-sm md:h-14 md:w-14 md:p-2">
-                <img src={logo} alt="Danil Aziz" width="52" height="52" loading="eager" fetchPriority="low" decoding="async" className="h-full w-full rounded-md object-cover object-top" />
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1 shadow-sm md:h-14 md:w-14">
+                <img src={logo} alt="Danil Aziz" width="52" height="52" loading="eager" fetchPriority="low" decoding="async" className="h-full w-full rounded-full object-cover object-top" />
               </span>
               <div className="min-w-0">
                 <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">Danil Aziz</p>
@@ -89,15 +89,17 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden items-center gap-3 md:flex">
-              <a {...externalLinkProps(INSTAGRAM_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
-                <Instagram size={18} />
-              </a>
-              <a {...externalLinkProps(FACEBOOK_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
-                <Facebook size={18} />
-              </a>
-              <a {...externalLinkProps(GITHUB_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
-                <Github size={18} />
-              </a>
+              <div className="flex items-center gap-1.5">
+                <a {...externalLinkProps(INSTAGRAM_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="Instagram">
+                  <Instagram size={18} />
+                </a>
+                <a {...externalLinkProps(FACEBOOK_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="Facebook">
+                  <Facebook size={18} />
+                </a>
+                <a {...externalLinkProps(GITHUB_URL)} className="nav-social-link theme-icon-button rounded-md p-2 transition" aria-label="GitHub">
+                  <Github size={18} />
+                </a>
+              </div>
               <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2 transition" aria-label="Ubah tema">
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
@@ -137,7 +139,7 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2">
                 <a {...externalLinkProps(INSTAGRAM_URL)} className="nav-social-link theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3" aria-label="Instagram">
                   <Instagram size={18} />
                 </a>

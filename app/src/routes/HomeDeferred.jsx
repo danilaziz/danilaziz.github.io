@@ -160,7 +160,7 @@ export default function HomeDeferred() {
                   <img src={item.image} alt={item.title} width="720" height="540" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, 100vw" className="h-56 w-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{item.category}</p>
+                  <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">{language === "en" && item.category === "Hasil Kerja" ? "Work" : item.category}</p>
                   <div className="mt-2 flex items-center justify-between gap-4">
                     <div>
                       <h3 className="heading-font text-2xl font-bold">{item.title}</h3>
