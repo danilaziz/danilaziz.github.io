@@ -108,7 +108,7 @@ export default function TemplateCard({ item, priority = false }) {
           ))}
         </div>
 
-        <div className="mt-auto grid gap-3 pt-5 sm:grid-cols-2">
+        <div className="mt-auto grid grid-cols-2 gap-3 pt-5">
           <Link to={`/portfolio/${item.slug}`} className="premium-button theme-secondary-button px-4">
             {isEnglish ? "Details" : "Detail"}
           </Link>
