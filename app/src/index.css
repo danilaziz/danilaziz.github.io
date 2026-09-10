@@ -817,8 +817,9 @@ select:focus-visible {
   }
 
   .language-toggle-mobile button {
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     letter-spacing: 0.02em;
+    padding: 0.5rem;
   }
 
   .theme-badge {
@@ -1339,6 +1340,16 @@ select:focus-visible {
   }
 }
 
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes soft-fade {
   from {
     opacity: 0;
@@ -1553,6 +1564,10 @@ select:focus-visible {
 @media (max-width: 767px) {
   body {
     padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+
+  .premium-button {
+    min-height: 3.25rem;
   }
 
   .shell {
@@ -1794,6 +1809,50 @@ select:focus-visible {
   .education-step-marker {
     left: -3.05rem;
     top: 1.25rem;
+  }
+}
+
+.testimonials-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  padding-block: 0.5rem;
+  will-change: transform;
+  animation: marquee-scroll 46s linear infinite;
+}
+
+.testimonials-track:hover {
+  animation-play-state: paused;
+}
+
+.testimonials-track .testimonial-card {
+  flex: 0 0 auto;
+  width: min(520px, 86vw);
+}
+
+@media (max-width: 767px) {
+  .testimonials-track {
+    gap: 0.9rem;
+  }
+
+  .testimonials-track .testimonial-card {
+    width: min(520px, 76vw);
+    padding: 1.2rem 1.25rem;
+  }
+
+  .testimonials-track .testimonial-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .testimonials-track .testimonial-card p {
+    font-size: 0.82rem;
+    line-height: 1.55;
   }
 }
 

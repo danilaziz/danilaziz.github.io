@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -30,9 +30,6 @@ const detailCopy = {
     scopeTitle: "Bagian yang dibuat",
     output: "Output",
     outputTitle: "Hasil utama",
-    ctaLabel: "Buat Website Serupa",
-    ctaTitle: "Ingin portfolio seperti ini untuk bisnis kamu?",
-    chat: "Chat WhatsApp",
     waText: (title) => `Halo Danil, saya tertarik membuat website seperti ${title}. Bisa konsultasi?`,
   },
   en: {
@@ -56,9 +53,6 @@ const detailCopy = {
     scopeTitle: "Sections built",
     output: "Output",
     outputTitle: "Main results",
-    ctaLabel: "Build a Similar Website",
-    ctaTitle: "Want a portfolio like this for your business?",
-    chat: "Chat on WhatsApp",
     waText: (title) => `Hi Danil, I am interested in building a website like ${title}. Can we discuss it?`,
   },
 };
@@ -166,34 +160,36 @@ export default function PortfolioDetail() {
               <p className="section-label">{text.label}</p>
               <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">{item.title}</h1>
               <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">{summary}</p>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                {item.demo && (
-                  <a {...externalLinkProps(item.demo)} className="premium-button theme-primary-button">
-                    {text.demo}
-                    <ExternalLink size={16} className="ml-2" />
-                  </a>
-                )}
-                <a {...externalLinkProps(whatsappHref(waText))} className={`premium-button ${item.demo ? "theme-secondary-button" : "theme-primary-button"}`}>
-                  {text.consult}
-                  <MessageCircleMore size={16} className="ml-2" />
-                </a>
-              </div>
             </div>
 
-            <aside className="project-meta-card soft-card p-6">
-              <p className="text-sm font-semibold text-[color:var(--text-muted)]">{text.category}</p>
-              <p className="heading-font mt-2 text-2xl font-extrabold">{isEnglish && item.category === "Hasil Kerja" ? "Work" : item.category}</p>
+            <aside className="project-meta-card soft-card p-5">
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-sm font-semibold text-[color:var(--text-muted)]">{text.category}</p>
+                <p className="heading-font text-right text-2xl font-extrabold">{isEnglish && item.category === "Hasil Kerja" ? "Work" : item.category}</p>
+              </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">{text.liveDemo}</span>
                 <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">{text.salesReady}</span>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
                 {item.tech?.map((tech) => (
-                  <span key={tech} className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">
+                  <span key={tech} className="theme-badge rounded-md px-3 py-1 text-xs font-semibold whitespace-nowrap">
                     {tech}
                   </span>
                 ))}
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                {item.demo && (
+                  <a {...externalLinkProps(item.demo)} className="premium-button theme-primary-button col-span-full w-full sm:col-span-1">
+                    <span className="truncate">{text.demo}</span>
+                    <ExternalLink size={16} className="ml-2 shrink-0" />
+                  </a>
+                )}
+                <a {...externalLinkProps(whatsappHref(waText))} className={`premium-button hidden w-full sm:inline-flex ${item.demo ? "theme-secondary-button" : "theme-primary-button col-span-2"}`}>
+                  <span className="truncate">{text.consult}</span>
+                  <MessageCircleMore size={16} className="ml-2 shrink-0" />
+                </a>
               </div>
             </aside>
           </div>
@@ -302,21 +298,6 @@ export default function PortfolioDetail() {
               ))}
             </ul>
           </article>
-        </div>
-      </section>
-
-      <section className="pb-24">
-        <div className="shell">
-          <div className="cta-band">
-            <div>
-              <p className="section-label">{text.ctaLabel}</p>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">{text.ctaTitle}</h2>
-            </div>
-            <a {...externalLinkProps(whatsappHref(waText))} className="premium-button theme-primary-button">
-              {text.chat}
-              <ArrowRight size={16} className="ml-2" />
-            </a>
-          </div>
         </div>
       </section>
 

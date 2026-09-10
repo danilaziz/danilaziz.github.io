@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className={`shell rounded-lg border transition-colors duration-200 ${navClass}`}>
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1 shadow-sm md:h-14 md:w-14">
+              <span className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1 shadow-sm md:h-14 md:w-14">
                 <img src={logo} alt="Danil Aziz" width="52" height="52" loading="eager" fetchPriority="low" decoding="async" className="h-full w-full rounded-full object-cover object-top" />
               </span>
               <div className="min-w-0">
@@ -111,12 +111,12 @@ export default function Navbar() {
             </div>
 
             <div className="flex shrink-0 items-center gap-1.5 md:hidden">
-              <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Ubah tema">
-                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+              <button onClick={() => setDarkMode((value) => !value)} className="theme-icon-button rounded-md p-2.5" aria-label="Ubah tema">
+                {darkMode ? <Sun size={22} /> : <Moon size={22} />}
               </button>
               <LanguageToggle compact />
-              <button onClick={() => setMobileMenuOpen((value) => !value)} className="theme-icon-button rounded-md p-2" aria-label="Buka navigasi">
-                {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              <button onClick={() => setMobileMenuOpen((value) => !value)} className="theme-icon-button rounded-md p-2.5" aria-label="Buka navigasi">
+                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Navbar() {
                 const Icon = item.icon;
                 const active = item.path === "/" ? location.pathname === item.path : location.pathname.startsWith(item.path);
                 return (
-                  <Link key={item.path} to={item.path} className={`flex items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
+                  <Link key={item.path} to={item.path} className={`flex min-h-12 items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}>
                     <Icon size={17} />
                     {item.label[language]}
                   </Link>
@@ -150,7 +150,7 @@ export default function Navbar() {
                   <Github size={18} />
                 </a>
               </div>
-              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button mt-2">
+              <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button mt-2 min-h-[3.25rem]">
                 {websiteConsultationLabel}
                 <ArrowUpRight size={16} className="ml-2" />
               </a>

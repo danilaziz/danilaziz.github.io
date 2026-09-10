@@ -1,14 +1,23 @@
-import { ArrowRight, MessagesSquare, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Star } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useLanguage } from "../context/useLanguage";
 import travelHome from "../assets/images/travel-home.webp";
 import pupuk4 from "../assets/images/pupuk4.webp";
-import umkm1 from "../assets/images/umkm1.webp";
-import konstruksi1 from "../assets/images/konstruksi1.webp";
-import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
+import obylomboktour from "../assets/images/obylomboktour.avif";
+import { externalLinkProps } from "../utils/externalLinks";
 
 const featuredWork = [
+  {
+    id: 6,
+    slug: "website-tour-travel",
+    title: "Website Tour & Travel",
+    category: "Hasil Kerja",
+    image: obylomboktour,
+    demo: "https://obylomboktour.com",
+    summary: "Website Tour & Travel untuk menampilkan paket wisata, destinasi pilihan, galeri, serta dilengkapi payment gateway dan halaman admin agar transaksi serta pengelolaan paket lebih profesional dan mudah.",
+    summaryEn: "A Tour & Travel website designed to present travel packages, featured destinations, and galleries, complete with a payment gateway and an admin panel so transactions and package management are professional and easy.",
+  },
   {
     id: 5,
     slug: "website-pupuk-hasil-kerja",
@@ -29,26 +38,6 @@ const featuredWork = [
     summary: "Website travel untuk menampilkan paket, destinasi, galeri, dan kontak yang mudah ditemukan.",
     summaryEn: "A travel website for packages, destinations, galleries, and easy-to-find contact CTAs.",
   },
-  {
-    id: 1,
-    slug: "website-umkm",
-    title: "UMKM Website",
-    category: "Business",
-    image: umkm1,
-    demo: "https://umkm-website.netlify.app/",
-    summary: "Landing page UMKM yang fokus menonjolkan produk, benefit, testimoni, dan CTA pembelian.",
-    summaryEn: "A small-business landing page focused on products, benefits, testimonials, and purchase CTAs.",
-  },
-  {
-    id: 2,
-    slug: "website-konstruksi",
-    title: "Website Konstruksi",
-    category: "Business",
-    image: konstruksi1,
-    demo: "https://website-konstruksi.netlify.app/",
-    summary: "Company profile konstruksi dengan visual tegas untuk membangun kredibilitas dan permintaan penawaran.",
-    summaryEn: "A construction company profile with strong visuals to build credibility and encourage quote requests.",
-  },
 ];
 
 const copy = {
@@ -68,6 +57,11 @@ const copy = {
     testimonialsTitle: "Dipercaya oleh bisnis yang ingin tampil lebih profesional.",
     testimonials: [
       {
+        name: "Oby Lombok Tour",
+        role: "Website Tour & Travel",
+        quote: "Website tour & travel tampil premium, pemesanan online dengan payment gateway, dan pengelolaan paket jauh lebih mudah lewat admin panel.",
+      },
+      {
         name: "Berkah Cinta Madinah",
         role: "Website Pupuk",
         quote: "Website pupuk tampil lebih profesional, produk lebih mudah dilihat, dan calon pembeli lebih cepat diarahkan ke pemesanan.",
@@ -79,9 +73,6 @@ const copy = {
       },
     ],
     rating: "5.0 dari 5",
-    ctaLabel: "Mulai proyek",
-    ctaTitle: "Siap tampil lebih profesional?",
-    ctaButton: "Chat WhatsApp",
   },
   en: {
     processLabel: "Work process",
@@ -99,6 +90,11 @@ const copy = {
     testimonialsTitle: "Trusted by businesses that want a more professional presence.",
     testimonials: [
       {
+        name: "Oby Lombok Tour",
+        role: "Tour & Travel Website",
+        quote: "The tour & travel website looks premium, supports online booking with a payment gateway, and package management is much easier through the admin panel.",
+      },
+      {
         name: "Berkah Cinta Madinah",
         role: "Fertilizer Website",
         quote: "The fertilizer website looks more professional, makes products easier to browse, and guides buyers faster toward ordering.",
@@ -110,14 +106,12 @@ const copy = {
       },
     ],
     rating: "5.0 out of 5",
-    ctaLabel: "Start a project",
-    ctaTitle: "Ready to look more professional?",
-    ctaButton: "Chat on WhatsApp",
   },
 };
 
 export default function HomeDeferred() {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   const text = copy[language];
 
   return (
@@ -148,14 +142,14 @@ export default function HomeDeferred() {
               <p className="section-label">{text.portfolioLabel}</p>
               <h2 className="section-title mt-3">{text.portfolioTitle}</h2>
             </div>
-            <Link to="/portfolio" className="text-sm font-semibold text-[var(--accent)]">
+            <Link to="/portfolio" className="hidden text-sm font-semibold text-[var(--accent)] md:inline">
               {text.viewAll}
             </Link>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-3">
             {featuredWork.map((item) => (
-              <article key={item.id} className="work-card soft-card overflow-hidden">
+              <article key={item.id} className="work-card soft-card cursor-pointer overflow-hidden" onClick={() => navigate(`/portfolio/${item.slug}`)}>
                 <div className="work-image-wrap">
                   <img src={item.image} alt={item.title} width="720" height="540" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, 100vw" className="h-56 w-full object-cover" />
                 </div>
@@ -166,13 +160,18 @@ export default function HomeDeferred() {
                       <h3 className="heading-font text-2xl font-bold">{item.title}</h3>
                       <p className="mt-2 line-clamp-2 text-sm leading-6 text-[color:var(--text-muted)]">{language === "en" ? item.summaryEn : item.summary}</p>
                     </div>
-                    <a {...externalLinkProps(item.demo)} className="theme-icon-button rounded-md p-3 transition" aria-label={`${language === "en" ? "Open demo website" : "Buka demo website"} ${item.title}`}>
+                    <a {...externalLinkProps(item.demo)} className="theme-icon-button rounded-md p-3 transition" aria-label={`${language === "en" ? "Open demo website" : "Buka demo website"} ${item.title}`} onClick={(event) => event.stopPropagation()}>
                       <ArrowRight size={16} />
                     </a>
                   </div>
                 </div>
               </article>
             ))}
+
+            <Link to="/portfolio" className="md:hidden flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-[var(--border-strong)] bg-[var(--surface-card)] p-5 text-sm font-semibold text-[var(--accent)] transition hover:border-[var(--accent)]">
+              {text.viewAll}
+              <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </section>
@@ -184,39 +183,26 @@ export default function HomeDeferred() {
             <h2 className="section-title mt-3">{text.testimonialsTitle}</h2>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {text.testimonials.map((item) => (
-              <article key={item.name} className="testimonial-card soft-card p-6 md:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="heading-font text-2xl font-bold text-[color:var(--text-main)]">{item.name}</h3>
-                    <p className="mt-1 text-sm font-semibold text-[color:var(--text-muted)]">{item.role}</p>
+          <div className="testimonials-marquee">
+            <div className="testimonials-track">
+              {[...text.testimonials, ...text.testimonials].map((item, index) => (
+                <article key={`${item.name}-${index}`} className="testimonial-card soft-card p-6 md:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="heading-font text-2xl font-bold text-[color:var(--text-main)]">{item.name}</h3>
+                      <p className="mt-1 text-sm font-semibold text-[color:var(--text-muted)]">{item.role}</p>
+                    </div>
+                    <div className="rating-badge" aria-label={text.rating}>
+                      {[0, 1, 2, 3, 4].map((star) => (
+                        <Star key={star} size={15} fill="currentColor" />
+                      ))}
+                    </div>
                   </div>
-                  <div className="rating-badge" aria-label={text.rating}>
-                    {[0, 1, 2, 3, 4].map((star) => (
-                      <Star key={star} size={15} fill="currentColor" />
-                    ))}
-                  </div>
-                </div>
-                <p className="mt-5 text-sm leading-7 text-[color:var(--text-muted)]">{item.quote}</p>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent)]">{text.rating}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="deferred-section pb-24">
-        <div className="shell">
-          <div className="cta-band">
-            <div>
-              <p className="section-label">{text.ctaLabel}</p>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">{text.ctaTitle}</h2>
+                  <p className="mt-5 text-sm leading-7 text-[color:var(--text-muted)]">{item.quote}</p>
+                  <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent)]">{text.rating}</p>
+                </article>
+              ))}
             </div>
-            <a {...externalLinkProps(whatsappHref())} className="premium-button theme-primary-button">
-              {text.ctaButton}
-              <MessagesSquare size={16} className="ml-2" />
-            </a>
           </div>
         </div>
       </section>

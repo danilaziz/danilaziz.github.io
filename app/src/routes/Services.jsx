@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Globe, Home as HomeIcon, MessagesSquare, MonitorSmartphone, Rocket, Store } from "lucide-react";
+import { ArrowRight, Building2, Globe, Home as HomeIcon, MonitorSmartphone, Rocket, Store } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useLanguage } from "../context/useLanguage";
@@ -57,9 +57,6 @@ const copy = {
     portfolio: "Lihat Portfolio",
     servicesTitle: "Jenis layanan",
     servicesSubtitle: "Website yang disesuaikan dengan kebutuhan bisnis.",
-    ctaLabel: "Mulai proyek",
-    ctaTitle: "Siap tampil lebih profesional?",
-    ctaButton: "Chat WhatsApp",
   },
   en: {
     title: "Websites that are light, fast, and ready to go online.",
@@ -68,9 +65,6 @@ const copy = {
     portfolio: "View Portfolio",
     servicesTitle: "Service types",
     servicesSubtitle: "Websites tailored to your business needs.",
-    ctaLabel: "Start a project",
-    ctaTitle: "Ready to look more professional?",
-    ctaButton: "Chat on WhatsApp",
   },
 };
 
@@ -124,21 +118,6 @@ export default function Services() {
                 </article>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-24">
-        <div className="shell">
-          <div className="cta-band">
-            <div>
-              <p className="section-label">{text.ctaLabel}</p>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">{text.ctaTitle}</h2>
-            </div>
-            <a {...externalLinkProps(whatsappHref(waMessage))} className="premium-button theme-primary-button">
-              {text.ctaButton}
-              <MessagesSquare size={16} className="ml-2" />
-            </a>
           </div>
         </div>
       </section>
