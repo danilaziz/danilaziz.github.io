@@ -18,6 +18,11 @@ import pupuk2 from "../assets/images/pupuk2.webp";
 import pupuk3 from "../assets/images/pupuk3.webp";
 import pupuk4 from "../assets/images/pupuk4.webp";
 import obylomboktour from "../assets/images/obylomboktour.avif";
+import thumbnailTravel from "../assets/images/thumbnail-travel.avif";
+import thumbnailPupuk from "../assets/images/thumbnail-pupuk.avif";
+import thumbnailKonstruksi from "../assets/images/thumbnail-konstruksi.avif";
+import thumbnailDesa from "../assets/images/thumbnail-desa.avif";
+import thumbnailUmkm from "../assets/images/thubmnail-umkm.avif";
 
 const templates = [
   {
@@ -44,8 +49,8 @@ const templates = [
     slug: "website-pupuk-hasil-kerja",
     title: "Website Pupuk",
     category: "Hasil Kerja",
-    images: [pupuk1, pupuk2, pupuk3, pupuk4],
-    coverImage: pupuk4,
+    images: [thumbnailPupuk, pupuk1, pupuk2, pupuk3, pupuk4],
+    coverImage: thumbnailPupuk,
     demo: "https://berkahcintamadinah.com",
     tech: ["React", "Tailwind CSS", "Responsive UI"],
     summary: "Website bisnis pupuk yang dirancang untuk membuat produk terlihat terpercaya, mudah dipilih, dan langsung mengarahkan calon pembeli ke pemesanan.",
@@ -63,7 +68,8 @@ const templates = [
     slug: "website-travel-hasil-kerja",
     title: "Website Travel",
     category: "Hasil Kerja",
-    images: [travelHome, travelCard, travelDetailCard, travelGaleri],
+    images: [thumbnailTravel, travelHome, travelCard, travelDetailCard, travelGaleri],
+    coverImage: thumbnailTravel,
     demo: "https://ptberkahcintawisata.com",
     tech: ["React", "Tailwind CSS", "Responsive UI"],
     summary: "Website travel yang menonjolkan paket perjalanan, destinasi, galeri, dan CTA kontak agar calon pelanggan lebih cepat percaya dan bertanya.",
@@ -81,7 +87,8 @@ const templates = [
     slug: "website-umkm",
     title: "UMKM Website",
     category: "Business",
-    images: [umkm1, umkm2, umkm3, umkm4, umkm5],
+    images: [thumbnailUmkm, umkm1, umkm2, umkm3, umkm4, umkm5],
+    coverImage: thumbnailUmkm,
     demo: "https://umkm-website.netlify.app/",
     tech: ["React", "Framer Motion", "Tailwind CSS"],
     summary: "Landing page UMKM yang fokus menjual produk utama, menampilkan manfaat, membangun kepercayaan, dan mengarahkan pembeli ke CTA.",
@@ -99,7 +106,8 @@ const templates = [
     slug: "website-konstruksi",
     title: "Website Konstruksi",
     category: "Business",
-    images: [konstruksi1, konstruksi2, konstruksi3],
+    images: [thumbnailKonstruksi, konstruksi1, konstruksi2, konstruksi3],
+    coverImage: thumbnailKonstruksi,
     demo: "https://website-konstruksi.netlify.app/",
     tech: ["HTML", "CSS", "JavaScript"],
     summary: "Company profile konstruksi dengan visual tegas untuk memperlihatkan kredibilitas, layanan, proyek, dan jalur kontak penawaran.",
@@ -117,7 +125,8 @@ const templates = [
     slug: "website-desa",
     title: "Website Desa",
     category: "Government",
-    images: [websitedesa1, websitedesa2, websitedesa3],
+    images: [thumbnailDesa, websitedesa1, websitedesa2, websitedesa3],
+    coverImage: thumbnailDesa,
     demo: "https://website-desa.netlify.app/",
     tech: ["React", "Framer Motion", "Tailwind CSS"],
     summary: "Website informasi desa yang membuat profil, layanan publik, berita, galeri, dan potensi desa lebih rapi serta mudah diakses warga.",
