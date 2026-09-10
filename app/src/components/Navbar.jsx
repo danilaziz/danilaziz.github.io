@@ -64,7 +64,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-4">
+      <header className="fixed inset-x-0 top-0 z-50 px-1 pt-3 md:px-6 md:pt-4">
         <div className={`shell rounded-lg border transition-colors duration-200 ${navClass}`}>
           <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
             <Link to="/" className="flex min-w-0 items-center gap-3">
