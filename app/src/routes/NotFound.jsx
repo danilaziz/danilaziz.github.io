@@ -27,9 +27,17 @@ export default function NotFound() {
           <div className="soft-card mx-auto max-w-2xl p-8 text-center md:p-12">
             <SearchX className="mx-auto text-[var(--accent)]" size={42} />
             <p className="section-label mt-6">404 Not Found</p>
-            <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">{text.title}</h1>
-            <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-[color:var(--text-muted)]">{text.body}</p>
-            <Link to="/" replace className="premium-button theme-primary-button mt-8">
+            <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">
+              {text.title}
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-[color:var(--text-muted)]">
+              {text.body}
+            </p>
+            <Link
+              to="/"
+              replace
+              className="premium-button theme-primary-button mt-8"
+            >
               <ArrowLeft size={16} className="mr-2" />
               {text.button}
             </Link>

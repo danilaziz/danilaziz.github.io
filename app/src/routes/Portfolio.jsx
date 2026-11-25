@@ -14,12 +14,14 @@ const filters = [
 const copy = {
   id: {
     title: "Portfolio website yang bisa langsung jadi referensi bisnis.",
-    description: "Lihat hasil kerja, demo aktif, dan struktur halaman yang dirancang untuk membuat bisnis terlihat profesional, dipercaya, dan mudah dihubungi.",
+    description:
+      "Lihat hasil kerja, demo aktif, dan struktur halaman yang dirancang untuk membuat bisnis terlihat profesional, dipercaya, dan mudah dihubungi.",
     allPortfolio: "Semua Portfolio",
   },
   en: {
     title: "Website portfolio ready to become business references.",
-    description: "Explore live demos and page structures designed to help businesses look professional, build trust, and make contact easier.",
+    description:
+      "Explore live demos and page structures designed to help businesses look professional, build trust, and make contact easier.",
     allPortfolio: "All Portfolio",
   },
 };
@@ -27,7 +29,13 @@ const copy = {
 export default function Portfolio() {
   const { language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("Semua");
-  const visibleItems = useMemo(() => (activeFilter === "Semua" ? templates : templates.filter((item) => item.category === activeFilter)), [activeFilter]);
+  const visibleItems = useMemo(
+    () =>
+      activeFilter === "Semua"
+        ? templates
+        : templates.filter((item) => item.category === activeFilter),
+    [activeFilter],
+  );
   const text = copy[language];
 
   return (
@@ -36,7 +44,9 @@ export default function Portfolio() {
         <div className="shell">
           <div className="max-w-3xl" data-reveal>
             <p className="section-label">Portfolio</p>
-            <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">{text.title}</h1>
+            <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
+              {text.title}
+            </h1>
             <p className="mt-4 max-w-2xl text-base leading-8 text-[color:var(--text-muted)]">
               {text.description}
             </p>
@@ -44,7 +54,12 @@ export default function Portfolio() {
 
           <div className="portfolio-filter-bar mt-8 flex flex-wrap gap-2">
             {filters.map((filter) => (
-              <button key={filter.value} type="button" onClick={() => setActiveFilter(filter.value)} className={`filter-chip ${activeFilter === filter.value ? "is-active" : ""}`}>
+              <button
+                key={filter.value}
+                type="button"
+                onClick={() => setActiveFilter(filter.value)}
+                className={`filter-chip ${activeFilter === filter.value ? "is-active" : ""}`}
+              >
                 {filter.label[language]}
               </button>
             ))}
@@ -53,7 +68,12 @@ export default function Portfolio() {
           <section className="mt-12">
             <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="section-label">{activeFilter === "Semua" ? text.allPortfolio : filters.find((item) => item.value === activeFilter)?.label[language]}</p>
+                <p className="section-label">
+                  {activeFilter === "Semua"
+                    ? text.allPortfolio
+                    : filters.find((item) => item.value === activeFilter)
+                        ?.label[language]}
+                </p>
               </div>
             </div>
             <div className="grid gap-6 lg:grid-cols-3">

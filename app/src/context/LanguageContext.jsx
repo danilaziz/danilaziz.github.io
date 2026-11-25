@@ -18,7 +18,14 @@ export function LanguageProvider({ children }) {
     }
   };
 
-  const value = useMemo(() => ({ language, isEnglish: language === "en", setLanguage }), [language]);
+  const value = useMemo(
+    () => ({ language, isEnglish: language === "en", setLanguage }),
+    [language],
+  );
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }

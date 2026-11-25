@@ -1,4 +1,10 @@
-import { ArrowLeft, Check, ExternalLink, Maximize2, MessageCircleMore } from "lucide-react";
+import {
+  ArrowLeft,
+  Check,
+  ExternalLink,
+  Maximize2,
+  MessageCircleMore,
+} from "lucide-react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -30,7 +36,8 @@ const detailCopy = {
     scopeTitle: "Bagian yang dibuat",
     output: "Output",
     outputTitle: "Hasil utama",
-    waText: (title) => `Halo Danil, saya tertarik membuat website seperti ${title}. Bisa konsultasi?`,
+    waText: (title) =>
+      `Halo DA Code, saya tertarik membuat website seperti ${title}. Bisa konsultasi?`,
   },
   en: {
     back: "Back to Portfolio",
@@ -53,76 +60,165 @@ const detailCopy = {
     scopeTitle: "Sections built",
     output: "Output",
     outputTitle: "Main results",
-    waText: (title) => `Hi Danil, I am interested in building a website like ${title}. Can we discuss it?`,
+    waText: (title) =>
+      `Hi DA Code, I am interested in building a website like ${title}. Can we discuss it?`,
   },
 };
 
 const englishDetails = {
   "website-tour-travel": {
-    summary: "A Tour & Travel website designed to present travel packages, featured destinations, and galleries, complete with a payment gateway and an admin panel so transactions and package management are professional and easy.",
-    objective: "Make the tour & travel business look professional online, help travelers understand and book packages, and let the owner manage the site through an admin panel with online payments.",
+    summary:
+      "A Tour & Travel website designed to present travel packages, featured destinations, and galleries, complete with a payment gateway and an admin panel so transactions and package management are professional and easy.",
+    objective:
+      "Make the tour & travel business look professional online, help travelers understand and book packages, and let the owner manage the site through an admin panel with online payments.",
     caseStudy: {
-      problem: "Travelers often struggle to find neatly organized package information, need a secure payment method, while the owner finds it hard to manage packages without an admin system.",
-      solution: "The site is built with a promo hero, package cards, featured destinations, galleries, an admin panel to manage packages, and a payment gateway so payments are made directly and securely.",
-      impact: "The website becomes a complete promotional storefront where travelers can inquire and pay online, while the tour team manages packages more easily through the admin panel.",
+      problem:
+        "Travelers often struggle to find neatly organized package information, need a secure payment method, while the owner finds it hard to manage packages without an admin system.",
+      solution:
+        "The site is built with a promo hero, package cards, featured destinations, galleries, an admin panel to manage packages, and a payment gateway so payments are made directly and securely.",
+      impact:
+        "The website becomes a complete promotional storefront where travelers can inquire and pay online, while the tour team manages packages more easily through the admin panel.",
     },
-    scope: ["Travel package promo hero", "Package and pricing cards", "Online payment gateway", "Admin panel for package management", "Featured destinations and galleries", "WhatsApp booking CTAs"],
-    result: ["More premium travel look", "Packages quick to scan", "Online payments with payment gateway", "Easy management through the admin panel", "Shorter contact and booking flow"],
+    scope: [
+      "Travel package promo hero",
+      "Package and pricing cards",
+      "Online payment gateway",
+      "Admin panel for package management",
+      "Featured destinations and galleries",
+      "WhatsApp booking CTAs",
+    ],
+    result: [
+      "More premium travel look",
+      "Packages quick to scan",
+      "Online payments with payment gateway",
+      "Easy management through the admin panel",
+      "Shorter contact and booking flow",
+    ],
   },
   "website-pupuk-hasil-kerja": {
-    summary: "A fertilizer business website designed to present products clearly, build trust, and guide visitors toward consultation or ordering.",
-    objective: "Create a professional digital storefront that makes the business look credible, easier to contact, and ready for promotion.",
+    summary:
+      "A fertilizer business website designed to present products clearly, build trust, and guide visitors toward consultation or ordering.",
+    objective:
+      "Create a professional digital storefront that makes the business look credible, easier to contact, and ready for promotion.",
     caseStudy: {
-      problem: "The business needed a cleaner way to explain fertilizer products and make customer inquiries easier to start.",
-      solution: "The website was structured with product highlights, credibility sections, visual previews, and direct WhatsApp calls to action.",
-      impact: "Visitors can understand the offer faster and contact the business without searching for separate information.",
+      problem:
+        "The business needed a cleaner way to explain fertilizer products and make customer inquiries easier to start.",
+      solution:
+        "The website was structured with product highlights, credibility sections, visual previews, and direct WhatsApp calls to action.",
+      impact:
+        "Visitors can understand the offer faster and contact the business without searching for separate information.",
     },
-    scope: ["Homepage with strong product positioning", "Product and service sections", "Trust-focused visual layout", "WhatsApp conversion buttons"],
-    result: ["More professional fertilizer brand presence", "Clearer product communication", "Sales-ready website flow"],
+    scope: [
+      "Homepage with strong product positioning",
+      "Product and service sections",
+      "Trust-focused visual layout",
+      "WhatsApp conversion buttons",
+    ],
+    result: [
+      "More professional fertilizer brand presence",
+      "Clearer product communication",
+      "Sales-ready website flow",
+    ],
   },
   "website-travel-hasil-kerja": {
-    summary: "A travel and Umrah website built to showcase packages, destinations, service quality, and quick inquiry paths for prospective pilgrims.",
-    objective: "Help the travel business look trustworthy online while making package discovery and consultation simple.",
+    summary:
+      "A travel and Umrah website built to showcase packages, destinations, service quality, and quick inquiry paths for prospective pilgrims.",
+    objective:
+      "Help the travel business look trustworthy online while making package discovery and consultation simple.",
     caseStudy: {
-      problem: "Prospective customers need clear package information, strong trust signals, and an easy way to ask questions before booking.",
-      solution: "The layout highlights Umrah travel offers, service benefits, gallery content, and direct WhatsApp actions.",
-      impact: "The website feels premium, easier to browse, and better prepared to convert interest into consultation.",
+      problem:
+        "Prospective customers need clear package information, strong trust signals, and an easy way to ask questions before booking.",
+      solution:
+        "The layout highlights Umrah travel offers, service benefits, gallery content, and direct WhatsApp actions.",
+      impact:
+        "The website feels premium, easier to browse, and better prepared to convert interest into consultation.",
     },
-    scope: ["Travel and Umrah package presentation", "Service benefit sections", "Gallery and destination visuals", "Inquiry-focused CTA flow"],
-    result: ["More credible travel brand image", "Packages easier to understand", "Faster route from browsing to WhatsApp"],
+    scope: [
+      "Travel and Umrah package presentation",
+      "Service benefit sections",
+      "Gallery and destination visuals",
+      "Inquiry-focused CTA flow",
+    ],
+    result: [
+      "More credible travel brand image",
+      "Packages easier to understand",
+      "Faster route from browsing to WhatsApp",
+    ],
   },
   "website-umkm": {
-    summary: "A promotional website for small businesses to introduce products, strengths, testimonials, and purchase actions in one polished place.",
-    objective: "Make the business easier to discover, understand, and contact through a lightweight website that is ready for promotion.",
+    summary:
+      "A promotional website for small businesses to introduce products, strengths, testimonials, and purchase actions in one polished place.",
+    objective:
+      "Make the business easier to discover, understand, and contact through a lightweight website that is ready for promotion.",
     caseStudy: {
-      problem: "Many small businesses rely only on social media, so product information can feel scattered and less credible.",
-      solution: "A focused landing experience brings products, proof, and contact actions together in a clean structure.",
-      impact: "Customers get the key information faster and the business has a stronger link to share in promotions.",
+      problem:
+        "Many small businesses rely only on social media, so product information can feel scattered and less credible.",
+      solution:
+        "A focused landing experience brings products, proof, and contact actions together in a clean structure.",
+      impact:
+        "Customers get the key information faster and the business has a stronger link to share in promotions.",
     },
-    scope: ["Product showcase", "Business strengths", "Testimonials", "Order CTA sections"],
-    result: ["Clearer business presentation", "More convincing promotion link", "Simple customer inquiry path"],
+    scope: [
+      "Product showcase",
+      "Business strengths",
+      "Testimonials",
+      "Order CTA sections",
+    ],
+    result: [
+      "Clearer business presentation",
+      "More convincing promotion link",
+      "Simple customer inquiry path",
+    ],
   },
   "website-konstruksi": {
-    summary: "A construction company profile with a strong visual tone for services, project credibility, and consultation flow.",
-    objective: "Present the company as credible, organized, and ready to handle construction inquiries professionally.",
+    summary:
+      "A construction company profile with a strong visual tone for services, project credibility, and consultation flow.",
+    objective:
+      "Present the company as credible, organized, and ready to handle construction inquiries professionally.",
     caseStudy: {
-      problem: "Construction services need trust, proof, and clear service information before potential clients make contact.",
-      solution: "The page combines service highlights, project-style visuals, credibility copy, and direct consultation buttons.",
-      impact: "The company appears more established and visitors can move from interest to consultation more easily.",
+      problem:
+        "Construction services need trust, proof, and clear service information before potential clients make contact.",
+      solution:
+        "The page combines service highlights, project-style visuals, credibility copy, and direct consultation buttons.",
+      impact:
+        "The company appears more established and visitors can move from interest to consultation more easily.",
     },
-    scope: ["Company profile sections", "Service highlights", "Project-oriented visuals", "Consultation CTA"],
-    result: ["Stronger professional impression", "Clearer service positioning", "Better inquiry readiness"],
+    scope: [
+      "Company profile sections",
+      "Service highlights",
+      "Project-oriented visuals",
+      "Consultation CTA",
+    ],
+    result: [
+      "Stronger professional impression",
+      "Clearer service positioning",
+      "Better inquiry readiness",
+    ],
   },
   "website-desa": {
-    summary: "A village information website for public profiles, services, news, galleries, and local potential in a clean digital format.",
-    objective: "Make village information easier to access while presenting local identity and public services more professionally.",
+    summary:
+      "A village information website for public profiles, services, news, galleries, and local potential in a clean digital format.",
+    objective:
+      "Make village information easier to access while presenting local identity and public services more professionally.",
     caseStudy: {
-      problem: "Village information often sits across different channels, making it harder for residents and visitors to find updates.",
-      solution: "A structured website organizes profile content, services, news, gallery items, and village potential in one place.",
-      impact: "The village gains a clearer digital presence and public information becomes easier to browse.",
+      problem:
+        "Village information often sits across different channels, making it harder for residents and visitors to find updates.",
+      solution:
+        "A structured website organizes profile content, services, news, gallery items, and village potential in one place.",
+      impact:
+        "The village gains a clearer digital presence and public information becomes easier to browse.",
     },
-    scope: ["Village profile", "Public service information", "News and gallery sections", "Local potential highlights"],
-    result: ["Cleaner public information access", "More modern village identity", "Organized content structure"],
+    scope: [
+      "Village profile",
+      "Public service information",
+      "News and gallery sections",
+      "Local potential highlights",
+    ],
+    result: [
+      "Cleaner public information access",
+      "More modern village identity",
+      "Organized content structure",
+    ],
   },
 };
 
@@ -150,7 +246,10 @@ export default function PortfolioDetail() {
     <main className="portfolio-detail-page reveal-scope overflow-hidden pt-28 text-[color:var(--text-main)] md:pt-32">
       <section className="pb-12 md:pb-16">
         <div className="shell">
-          <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)]">
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-muted)] transition hover:text-[var(--accent)]"
+          >
             <ArrowLeft size={16} />
             {text.back}
           </Link>
@@ -158,22 +257,39 @@ export default function PortfolioDetail() {
           <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-start">
             <div>
               <p className="section-label">{text.label}</p>
-              <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">{item.title}</h1>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">{summary}</p>
+              <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">
+                {item.title}
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
+                {summary}
+              </p>
             </div>
 
             <aside className="project-meta-card soft-card p-5">
               <div className="flex items-center justify-between gap-2">
-                <p className="text-sm font-semibold text-[color:var(--text-muted)]">{text.category}</p>
-                <p className="heading-font text-right text-2xl font-extrabold">{isEnglish && item.category === "Hasil Kerja" ? "Work" : item.category}</p>
+                <p className="text-sm font-semibold text-[color:var(--text-muted)]">
+                  {text.category}
+                </p>
+                <p className="heading-font text-right text-2xl font-extrabold">
+                  {isEnglish && item.category === "Hasil Kerja"
+                    ? "Work"
+                    : item.category}
+                </p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">{text.liveDemo}</span>
-                <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">{text.salesReady}</span>
+                <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">
+                  {text.liveDemo}
+                </span>
+                <span className="theme-badge rounded-md px-3 py-1 text-xs font-semibold">
+                  {text.salesReady}
+                </span>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
                 {item.tech?.map((tech) => (
-                  <span key={tech} className="theme-badge rounded-md px-3 py-1 text-xs font-semibold whitespace-nowrap">
+                  <span
+                    key={tech}
+                    className="theme-badge rounded-md px-3 py-1 text-xs font-semibold whitespace-nowrap"
+                  >
                     {tech}
                   </span>
                 ))}
@@ -181,12 +297,18 @@ export default function PortfolioDetail() {
 
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {item.demo && (
-                  <a {...externalLinkProps(item.demo)} className="premium-button theme-primary-button col-span-full w-full sm:col-span-1">
+                  <a
+                    {...externalLinkProps(item.demo)}
+                    className="premium-button theme-primary-button col-span-full w-full sm:col-span-1"
+                  >
                     <span className="truncate">{text.demo}</span>
                     <ExternalLink size={16} className="ml-2 shrink-0" />
                   </a>
                 )}
-                <a {...externalLinkProps(whatsappHref(waText))} className={`premium-button hidden w-full sm:inline-flex ${item.demo ? "theme-secondary-button" : "theme-primary-button col-span-2"}`}>
+                <a
+                  {...externalLinkProps(whatsappHref(waText))}
+                  className={`premium-button hidden w-full sm:inline-flex ${item.demo ? "theme-secondary-button" : "theme-primary-button col-span-2"}`}
+                >
                   <span className="truncate">{text.consult}</span>
                   <MessageCircleMore size={16} className="ml-2 shrink-0" />
                 </a>
@@ -200,7 +322,12 @@ export default function PortfolioDetail() {
         <div className="shell">
           <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="project-preview glass-panel overflow-hidden rounded-lg p-3">
-              <button type="button" onClick={() => setLightboxIndex(0)} className="group relative block w-full cursor-zoom-in" aria-label={`${text.mainPreview} ${item.title}`}>
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(0)}
+                className="group relative block w-full cursor-zoom-in"
+                aria-label={`${text.mainPreview} ${item.title}`}
+              >
                 <img
                   src={images[0]}
                   alt={`${item.title} ${isEnglish ? "main preview" : "preview utama"}`}
@@ -219,8 +346,16 @@ export default function PortfolioDetail() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {images.slice(1, 3).map((image, index) => (
-                <div key={image} className="project-preview-thumb soft-card overflow-hidden p-2">
-                  <button type="button" onClick={() => setLightboxIndex(index + 1)} className="group relative block w-full cursor-zoom-in" aria-label={`${text.preview} ${index + 2} ${item.title}`}>
+                <div
+                  key={image}
+                  className="project-preview-thumb soft-card overflow-hidden p-2"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(index + 1)}
+                    className="group relative block w-full cursor-zoom-in"
+                    aria-label={`${text.preview} ${index + 2} ${item.title}`}
+                  >
                     <img
                       src={image}
                       alt={`${item.title} ${isEnglish ? "preview" : "preview"} ${index + 2}`}
@@ -256,9 +391,15 @@ export default function PortfolioDetail() {
               { label: text.impact, value: caseStudy?.impact },
             ].map((caseItem, index) => (
               <article key={caseItem.label} className="case-card soft-card p-6">
-                <div className="process-number flex h-10 w-10 items-center justify-center rounded-md bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">0{index + 1}</div>
-                <h3 className="heading-font mt-4 text-2xl font-bold">{caseItem.label}</h3>
-                <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">{caseItem.value}</p>
+                <div className="process-number flex h-10 w-10 items-center justify-center rounded-md bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">
+                  0{index + 1}
+                </div>
+                <h3 className="heading-font mt-4 text-2xl font-bold">
+                  {caseItem.label}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[color:var(--text-muted)]">
+                  {caseItem.value}
+                </p>
               </article>
             ))}
           </div>
@@ -269,17 +410,29 @@ export default function PortfolioDetail() {
         <div className="shell grid gap-5 lg:grid-cols-3">
           <article className="case-card soft-card p-6 lg:col-span-1">
             <p className="section-label">{text.objective}</p>
-            <h2 className="heading-font mt-3 text-2xl font-extrabold">{text.objectiveTitle}</h2>
-            <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)]">{objective}</p>
+            <h2 className="heading-font mt-3 text-2xl font-extrabold">
+              {text.objectiveTitle}
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-[color:var(--text-muted)]">
+              {objective}
+            </p>
           </article>
 
           <article className="case-card soft-card p-6">
             <p className="section-label">{text.scope}</p>
-            <h2 className="heading-font mt-3 text-2xl font-extrabold">{text.scopeTitle}</h2>
+            <h2 className="heading-font mt-3 text-2xl font-extrabold">
+              {text.scopeTitle}
+            </h2>
             <ul className="mt-5 space-y-3">
               {scope?.map((scopeItem) => (
-                <li key={scopeItem} className="flex items-start gap-3 text-sm leading-7">
-                  <Check size={16} className="mt-1 shrink-0 text-[var(--accent)]" />
+                <li
+                  key={scopeItem}
+                  className="flex items-start gap-3 text-sm leading-7"
+                >
+                  <Check
+                    size={16}
+                    className="mt-1 shrink-0 text-[var(--accent)]"
+                  />
                   {scopeItem}
                 </li>
               ))}
@@ -288,11 +441,19 @@ export default function PortfolioDetail() {
 
           <article className="case-card soft-card p-6">
             <p className="section-label">{text.output}</p>
-            <h2 className="heading-font mt-3 text-2xl font-extrabold">{text.outputTitle}</h2>
+            <h2 className="heading-font mt-3 text-2xl font-extrabold">
+              {text.outputTitle}
+            </h2>
             <ul className="mt-5 space-y-3">
               {result?.map((resultItem) => (
-                <li key={resultItem} className="flex items-start gap-3 text-sm leading-7">
-                  <Check size={16} className="mt-1 shrink-0 text-[var(--accent)]" />
+                <li
+                  key={resultItem}
+                  className="flex items-start gap-3 text-sm leading-7"
+                >
+                  <Check
+                    size={16}
+                    className="mt-1 shrink-0 text-[var(--accent)]"
+                  />
                   {resultItem}
                 </li>
               ))}
@@ -301,7 +462,13 @@ export default function PortfolioDetail() {
         </div>
       </section>
 
-      <ImageLightbox images={images} title={item.title} activeIndex={lightboxIndex} onClose={() => setLightboxIndex(null)} onChange={setLightboxIndex} />
+      <ImageLightbox
+        images={images}
+        title={item.title}
+        activeIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onChange={setLightboxIndex}
+      />
       <Footer />
     </main>
   );

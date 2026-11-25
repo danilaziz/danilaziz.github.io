@@ -1,6 +1,7 @@
 export const WHATSAPP_NUMBER = "6287728890135";
 
-export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589413059391";
+export const FACEBOOK_URL =
+  "https://www.facebook.com/profile.php?id=61589413059391";
 export const GITHUB_URL = "https://github.com/danilaziz";
 export const INSTAGRAM_URL = "https://instagram.com/dacode2026";
 
@@ -22,7 +23,10 @@ const ALLOWED_EXTERNAL_HOSTS = new Set([
 export function getSafeExternalHref(href) {
   try {
     const url = new URL(href);
-    if (url.protocol !== "https:" || !ALLOWED_EXTERNAL_HOSTS.has(url.hostname)) {
+    if (
+      url.protocol !== "https:" ||
+      !ALLOWED_EXTERNAL_HOSTS.has(url.hostname)
+    ) {
       return "#";
     }
     return url.toString();

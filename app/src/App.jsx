@@ -12,7 +12,12 @@ const Portfolio = lazy(() => import("./routes/Portfolio"));
 const PortfolioDetail = lazy(() => import("./routes/PortfolioDetail"));
 
 function RouteFallback() {
-  return <main className="min-h-screen bg-[color:var(--bg-start)] pt-28" aria-label="Memuat halaman" />;
+  return (
+    <main
+      className="min-h-screen bg-[color:var(--bg-start)] pt-28"
+      aria-label="Memuat halaman"
+    />
+  );
 }
 
 function ScrollToTop() {
@@ -37,12 +42,21 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/layanan" element={<Services />} />
-          <Route path="/pendidikan" element={<Navigate to="/layanan" replace />} />
+          <Route
+            path="/pendidikan"
+            element={<Navigate to="/layanan" replace />}
+          />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
-          <Route path="/contoh" element={<Navigate to="/portfolio" replace />} />
+          <Route
+            path="/contoh"
+            element={<Navigate to="/portfolio" replace />}
+          />
           <Route path="/contoh/:slug" element={<PortfolioDetail />} />
-          <Route path="/template" element={<Navigate to="/portfolio" replace />} />
+          <Route
+            path="/template"
+            element={<Navigate to="/portfolio" replace />}
+          />
           <Route path="/kontak" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

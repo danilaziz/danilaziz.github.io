@@ -4,28 +4,30 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
 import { externalLinkProps, whatsappHref } from "../utils/externalLinks";
 
-const mobileHeroImage = "/danilaziz.avif";
-const desktopHeroImage = "/danilaziz.avif";
+const mobileHeroImage = "/dahero.webp";
+const desktopHeroImage = "/dahero.webp";
 const HomeDeferred = lazy(() => import("./HomeDeferred"));
 
 const copy = {
   id: {
     kicker: "Portfolio web developer",
     title: "Portfolio website bisnis yang clean, cepat, dan siap menjual.",
-    description: "Saya membuat website yang membantu bisnis terlihat profesional, mudah dipercaya, dan punya alur jelas menuju WhatsApp atau demo produk.",
+    description:
+      "Saya membuat website yang membantu bisnis terlihat profesional, mudah dipercaya, dan punya alur jelas menuju WhatsApp atau demo produk.",
     consult: "Konsultasi Website",
     portfolio: "Lihat Portfolio",
     note: "Clean digital presence",
-    wa: "Halo Danil, saya ingin konsultasi website.",
+    wa: "Halo DA Code, saya ingin konsultasi website.",
   },
   en: {
     kicker: "Web developer portfolio",
     title: "Clean business website portfolio built to convert.",
-    description: "I build websites that help businesses look professional, earn trust faster, and guide visitors clearly toward WhatsApp or product demos.",
+    description:
+      "I build websites that help businesses look professional, earn trust faster, and guide visitors clearly toward WhatsApp or product demos.",
     consult: "Website Consultation",
     portfolio: "View Portfolio",
     note: "Clean digital presence",
-    wa: "Hi Danil, I would like to consult about a website.",
+    wa: "Hi DA Code, I would like to consult about a website.",
   },
 };
 
@@ -67,11 +69,17 @@ export default function Home() {
             </p>
 
             <div className="hero-actions mt-7 flex flex-col gap-3 sm:flex-row">
-              <a {...externalLinkProps(whatsappHref(text.wa))} className="premium-button theme-primary-button hidden md:inline-flex">
+              <a
+                {...externalLinkProps(whatsappHref(text.wa))}
+                className="premium-button theme-primary-button hidden md:inline-flex"
+              >
                 {text.consult}
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
-              <Link to="/portfolio" className="premium-button theme-secondary-button">
+              <Link
+                to="/portfolio"
+                className="premium-button theme-secondary-button"
+              >
                 {text.portfolio}
               </Link>
             </div>
@@ -83,12 +91,16 @@ export default function Home() {
               <span className="hero-media-ring-glow" aria-hidden="true" />
               <div className="hero-media-ring" aria-hidden="true" />
 
-              <div className="hero-media-img-wrap" role="img" aria-label="Foto Danil Aziz">
+              <div
+                className="hero-media-img-wrap"
+                role="img"
+                aria-label="Foto DA Code"
+              >
                 <picture>
                   <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
                   <img
                     src={desktopHeroImage}
-                    alt="Danil Aziz web developer"
+                    alt="DA Code web developer"
                     width="720"
                     height="900"
                     loading="eager"
@@ -99,13 +111,22 @@ export default function Home() {
                 </picture>
               </div>
 
-              <div className="hero-float-icon hero-float-icon--left" aria-hidden="true">
+              <div
+                className="hero-float-icon hero-float-icon--left"
+                aria-hidden="true"
+              >
                 <Code2 size={22} />
               </div>
-              <div className="hero-float-icon hero-float-icon--top-right" aria-hidden="true">
+              <div
+                className="hero-float-icon hero-float-icon--top-right"
+                aria-hidden="true"
+              >
                 <Layers size={22} />
               </div>
-              <div className="hero-float-icon hero-float-icon--bottom-right" aria-hidden="true">
+              <div
+                className="hero-float-icon hero-float-icon--bottom-right"
+                aria-hidden="true"
+              >
                 <ImageIcon size={22} />
               </div>
             </div>

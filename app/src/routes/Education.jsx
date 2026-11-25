@@ -1,4 +1,11 @@
-import { ArrowRight, BookOpenCheck, GraduationCap, Layers3, School, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpenCheck,
+  GraduationCap,
+  Layers3,
+  School,
+  Sparkles,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useLanguage } from "../context/useLanguage";
@@ -39,7 +46,8 @@ const educationHistory = [
     period: "Ilmu Pengetahuan Sosial",
     year: "Focus",
     description: "Belajar memahami sosial, komunikasi, dan pola analitis.",
-    descriptionEn: "Learned social understanding, communication, and analytical patterns.",
+    descriptionEn:
+      "Learned social understanding, communication, and analytical patterns.",
     focus: ["Teknologi", "Kreativitas", "Presentasi"],
     focusEn: ["Technology", "Creativity", "Presentation"],
     tone: "Analitis",
@@ -66,24 +74,30 @@ const copy = {
   id: {
     label: "Riwayat Pendidikan",
     title: "Perjalanan belajar yang membentuk cara kerja.",
-    description: "Dari fondasi akademik sampai Sistem Informasi, setiap tahap membentuk pola pikir yang rapi, analitis, dan dekat dengan solusi digital.",
+    description:
+      "Dari fondasi akademik sampai Sistem Informasi, setiap tahap membentuk pola pikir yang rapi, analitis, dan dekat dengan solusi digital.",
     viewWork: "Lihat Karya",
     contact: "Hubungi Saya",
-    summary: "Fokus pada disiplin, komunikasi, problem solving, dan pengembangan sistem.",
+    summary:
+      "Fokus pada disiplin, komunikasi, problem solving, dan pengembangan sistem.",
     timelineTitle: "Riwayat pendidikan",
-    timelineDescription: "Disusun sebagai perjalanan singkat yang menunjukkan perkembangan fokus belajar dari tahap dasar sampai perguruan tinggi.",
+    timelineDescription:
+      "Disusun sebagai perjalanan singkat yang menunjukkan perkembangan fokus belajar dari tahap dasar sampai perguruan tinggi.",
     ctaTitle: "Lihat bagaimana latar belajar ini diterapkan ke karya digital.",
     portfolio: "Lihat Portfolio",
   },
   en: {
     label: "Education History",
     title: "A learning journey that shaped the way I work.",
-    description: "From academic foundations to Information Systems, each stage shaped a neat, analytical mindset close to digital solutions.",
+    description:
+      "From academic foundations to Information Systems, each stage shaped a neat, analytical mindset close to digital solutions.",
     viewWork: "View Work",
     contact: "Contact Me",
-    summary: "Focused on discipline, communication, problem solving, and system development.",
+    summary:
+      "Focused on discipline, communication, problem solving, and system development.",
     timelineTitle: "Education history",
-    timelineDescription: "Presented as a short journey showing how my learning focus developed from elementary school to university.",
+    timelineDescription:
+      "Presented as a short journey showing how my learning focus developed from elementary school to university.",
     ctaTitle: "See how this learning background is applied to digital work.",
     portfolio: "View Portfolio",
   },
@@ -101,16 +115,24 @@ export default function Education() {
             <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
               <div>
                 <p className="section-label">{text.label}</p>
-                <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">{text.title}</h1>
+                <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
+                  {text.title}
+                </h1>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
                   {text.description}
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Link to="/portfolio" className="premium-button theme-primary-button">
+                  <Link
+                    to="/portfolio"
+                    className="premium-button theme-primary-button"
+                  >
                     {text.viewWork}
                     <ArrowRight size={16} className="ml-2" />
                   </Link>
-                  <Link to="/kontak" className="premium-button theme-secondary-button">
+                  <Link
+                    to="/kontak"
+                    className="premium-button theme-secondary-button"
+                  >
                     {text.contact}
                   </Link>
                 </div>
@@ -123,7 +145,9 @@ export default function Education() {
                   </span>
                   <span className="education-summary-label">Academic Path</span>
                 </div>
-                <p className="education-summary-title">{isEnglish ? "Elementary — University" : "SD — Kuliah"}</p>
+                <p className="education-summary-title">
+                  {isEnglish ? "Elementary — University" : "SD — Kuliah"}
+                </p>
                 <p className="education-summary-desc">{text.summary}</p>
 
                 <div className="education-summary-grid">
@@ -156,7 +180,15 @@ export default function Education() {
             {educationHistory.map((item, index) => {
               const Icon = item.icon;
               return (
-                <article key={item.level} className="education-card soft-card p-6 md:p-7" data-reveal style={{ "--reveal-delay": `${index * 90}ms`, "--step": index + 1 }}>
+                <article
+                  key={item.level}
+                  className="education-card soft-card p-6 md:p-7"
+                  data-reveal
+                  style={{
+                    "--reveal-delay": `${index * 90}ms`,
+                    "--step": index + 1,
+                  }}
+                >
                   <div className="education-step-marker" aria-hidden="true">
                     <span>{String(index + 1).padStart(2, "0")}</span>
                   </div>
@@ -167,14 +199,22 @@ export default function Education() {
                     </div>
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="education-level-badge">{isEnglish ? item.levelEn : item.level}</span>
-                        <span className="education-period">{isEnglish ? item.year : item.period}</span>
+                        <span className="education-level-badge">
+                          {isEnglish ? item.levelEn : item.level}
+                        </span>
+                        <span className="education-period">
+                          {isEnglish ? item.year : item.period}
+                        </span>
                       </div>
-                      <h3 className="heading-font mt-3 text-xl font-bold text-[color:var(--text-main)] md:text-2xl">{item.title}</h3>
+                      <h3 className="heading-font mt-3 text-xl font-bold text-[color:var(--text-main)] md:text-2xl">
+                        {item.title}
+                      </h3>
                     </div>
                   </div>
 
-                  <p className="mt-5 text-sm leading-7 text-[color:var(--text-muted)]">{isEnglish ? item.descriptionEn : item.description}</p>
+                  <p className="mt-5 text-sm leading-7 text-[color:var(--text-muted)]">
+                    {isEnglish ? item.descriptionEn : item.description}
+                  </p>
 
                   <div className="mt-6 flex flex-wrap gap-2">
                     {(isEnglish ? item.focusEn : item.focus).map((focus) => (
@@ -196,9 +236,14 @@ export default function Education() {
           <div className="education-cta cta-band">
             <div>
               <p className="section-label">Portfolio</p>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">{text.ctaTitle}</h2>
+              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">
+                {text.ctaTitle}
+              </h2>
             </div>
-            <Link to="/portfolio" className="premium-button theme-primary-button">
+            <Link
+              to="/portfolio"
+              className="premium-button theme-primary-button"
+            >
               {text.portfolio}
               <ArrowRight size={16} className="ml-2" />
             </Link>
@@ -210,5 +255,3 @@ export default function Education() {
     </main>
   );
 }
-
-

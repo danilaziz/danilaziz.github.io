@@ -1,4 +1,12 @@
-import { ArrowRight, Building2, Globe, Home as HomeIcon, MonitorSmartphone, Rocket, Store } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  Globe,
+  Home as HomeIcon,
+  MonitorSmartphone,
+  Rocket,
+  Store,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useLanguage } from "../context/useLanguage";
@@ -10,28 +18,32 @@ const services = [
     title: "Landing Page UMKM",
     titleEn: "UMKM Landing Page",
     desc: "Halaman fokus untuk menonjolkan produk, benefit, testimoni, dan CTA pembelian.",
-    descEn: "A focused page to highlight products, benefits, testimonials, and purchase CTAs.",
+    descEn:
+      "A focused page to highlight products, benefits, testimonials, and purchase CTAs.",
   },
   {
     icon: Building2,
     title: "Company Profile",
     titleEn: "Company Profile",
     desc: "Profil bisnis profesional untuk membangun kredibilitas dan permintaan penawaran.",
-    descEn: "A professional business profile to build credibility and encourage quote requests.",
+    descEn:
+      "A professional business profile to build credibility and encourage quote requests.",
   },
   {
     icon: Globe,
     title: "Website Sekolah",
     titleEn: "School Website",
     desc: "Informasi sekolah, pengumuman, dan profil yang rapi untuk wali murid dan publik.",
-    descEn: "Clean school info, announcements, and profiles for parents and the public.",
+    descEn:
+      "Clean school info, announcements, and profiles for parents and the public.",
   },
   {
     icon: HomeIcon,
     title: "Website Desa",
     titleEn: "Village Website",
     desc: "Profil desa, layanan, dan berita yang mudah diakses oleh warga dan pemerintah.",
-    descEn: "Village profile, services, and news that are easy for residents and officials to access.",
+    descEn:
+      "Village profile, services, and news that are easy for residents and officials to access.",
   },
   {
     icon: Rocket,
@@ -45,14 +57,16 @@ const services = [
     title: "Website Custom",
     titleEn: "Custom Website",
     desc: "Kebutuhan khusus dengan desain dan fitur yang disesuaikan dengan bisnis Anda.",
-    descEn: "Specific needs with design and features tailored to your business.",
+    descEn:
+      "Specific needs with design and features tailored to your business.",
   },
 ];
 
 const copy = {
   id: {
     title: "Jasa website yang ringan, cepat, dan siap online.",
-    description: "Saya membantu UMKM, bisnis jasa, sekolah, desa, dan personal brand membuat website yang terlihat profesional dan memandu pengunjung menuju WhatsApp atau demo produk.",
+    description:
+      "Saya membantu UMKM, bisnis jasa, sekolah, desa, dan personal brand membuat website yang terlihat profesional dan memandu pengunjung menuju WhatsApp atau demo produk.",
     cta: "Konsultasi Gratis",
     portfolio: "Lihat Portfolio",
     servicesTitle: "Jenis layanan",
@@ -60,7 +74,8 @@ const copy = {
   },
   en: {
     title: "Websites that are light, fast, and ready to go online.",
-    description: "I help SMEs, service businesses, schools, villages, and personal brands create professional websites that guide visitors toward WhatsApp or product demos.",
+    description:
+      "I help SMEs, service businesses, schools, villages, and personal brands create professional websites that guide visitors toward WhatsApp or product demos.",
     cta: "Free Consultation",
     portfolio: "View Portfolio",
     servicesTitle: "Service types",
@@ -73,8 +88,8 @@ export default function Services() {
   const text = copy[language];
 
   const waMessage = isEnglish
-    ? "Hi Danil, I want to consult about a website."
-    : "Halo Danil, saya ingin konsultasi website.";
+    ? "Hi DA Code, I want to consult about a website."
+    : "Halo DA Code, saya ingin konsultasi website.";
 
   return (
     <main className="services-page reveal-scope overflow-hidden pt-28 md:pt-32">
@@ -82,16 +97,26 @@ export default function Services() {
         <div className="shell">
           <div className="max-w-3xl" data-reveal>
             <p className="section-label">Layanan</p>
-            <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">{text.title}</h1>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-[color:var(--text-muted)]">{text.description}</p>
+            <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
+              {text.title}
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-[color:var(--text-muted)]">
+              {text.description}
+            </p>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a {...externalLinkProps(whatsappHref(waMessage))} className="premium-button theme-primary-button hidden md:inline-flex">
+            <a
+              {...externalLinkProps(whatsappHref(waMessage))}
+              className="premium-button theme-primary-button hidden md:inline-flex"
+            >
               {text.cta}
               <ArrowRight size={16} className="ml-2" />
             </a>
-            <Link to="/portfolio" className="premium-button theme-secondary-button">
+            <Link
+              to="/portfolio"
+              className="premium-button theme-secondary-button"
+            >
               {text.portfolio}
             </Link>
           </div>
@@ -109,12 +134,21 @@ export default function Services() {
             {services.map((item, index) => {
               const Icon = item.icon;
               return (
-                <article key={item.titleEn} className="soft-card p-6" data-reveal style={{ "--reveal-delay": `${(index % 3) * 90}ms` }}>
+                <article
+                  key={item.titleEn}
+                  className="soft-card p-6"
+                  data-reveal
+                  style={{ "--reveal-delay": `${(index % 3) * 90}ms` }}
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-[var(--accent-soft)] text-[var(--accent)]">
                     <Icon size={23} />
                   </div>
-                  <h3 className="heading-font mt-4 text-xl font-bold">{isEnglish ? item.titleEn : item.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-[color:var(--text-muted)]">{isEnglish ? item.descEn : item.desc}</p>
+                  <h3 className="heading-font mt-4 text-xl font-bold">
+                    {isEnglish ? item.titleEn : item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-[color:var(--text-muted)]">
+                    {isEnglish ? item.descEn : item.desc}
+                  </p>
                 </article>
               );
             })}

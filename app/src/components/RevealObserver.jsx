@@ -12,7 +12,9 @@ export default function RevealObserver() {
   const location = useLocation();
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     if (prefersReducedMotion || !("IntersectionObserver" in window)) {
       document.querySelectorAll(revealSelector).forEach((element) => {
@@ -34,13 +36,15 @@ export default function RevealObserver() {
 
     const checkVisibleElements = () => {
       frameId = null;
-      document.querySelectorAll(".reveal-item:not(.is-visible)").forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.88 && rect.bottom >= 0) {
-          revealElement(element);
-          observer.unobserve(element);
-        }
-      });
+      document
+        .querySelectorAll(".reveal-item:not(.is-visible)")
+        .forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.88 && rect.bottom >= 0) {
+            revealElement(element);
+            observer.unobserve(element);
+          }
+        });
     };
 
     const scheduleVisibilityCheck = () => {
@@ -69,7 +73,10 @@ export default function RevealObserver() {
 
         element.classList.add("reveal-item");
         element.classList.remove("is-visible", "reveal-complete");
-        element.style.setProperty("--reveal-delay", `${Math.min(revealCount % 5, 4) * 45}ms`);
+        element.style.setProperty(
+          "--reveal-delay",
+          `${Math.min(revealCount % 5, 4) * 45}ms`,
+        );
         revealCount += 1;
         observer.observe(element);
       });
@@ -78,7 +85,9 @@ export default function RevealObserver() {
     };
 
     observeElements();
-    window.addEventListener("scroll", scheduleVisibilityCheck, { passive: true });
+    window.addEventListener("scroll", scheduleVisibilityCheck, {
+      passive: true,
+    });
     window.addEventListener("resize", scheduleVisibilityCheck);
 
     const mutationObserver = new MutationObserver((mutations) => {
