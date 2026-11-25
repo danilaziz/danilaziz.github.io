@@ -1,8 +1,8 @@
-export const WHATSAPP_NUMBER = "6282189855746";
+export const WHATSAPP_NUMBER = "6287728890135";
 
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589413059391";
 export const GITHUB_URL = "https://github.com/danilaziz";
-export const INSTAGRAM_URL = "https://instagram.com/danilaziz__";
+export const INSTAGRAM_URL = "https://instagram.com/dacode2026";
 
 const ALLOWED_EXTERNAL_HOSTS = new Set([
   "github.com",
