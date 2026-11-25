@@ -49,7 +49,7 @@ const featuredWork = [
 const copy = {
   id: {
     processLabel: "Proses kerja",
-    processTitle: "Alur singkat dari brief sampai online.",
+    processTitle: "Dari brief sampai website online.",
     process: [
       { title: "Brief", copy: "Tujuan website dan materi utama dikunci dulu." },
       { title: "Desain", copy: "Struktur konten dan tampilan dibuat rapi." },
@@ -57,11 +57,10 @@ const copy = {
       { title: "Launch", copy: "Final check, domain-hosting, lalu online." },
     ],
     portfolioLabel: "Portfolio",
-    portfolioTitle: "Portfolio website yang siap jadi referensi bisnis.",
+    portfolioTitle: "Proyek website pilihan untuk klien.",
     viewAll: "Lihat semua portfolio",
     testimonialsLabel: "Testimonial",
-    testimonialsTitle:
-      "Dipercaya oleh bisnis yang ingin tampil lebih profesional.",
+    testimonialsTitle: "Dipercaya oleh berbagai klien bisnis.",
     testimonials: [
       {
         name: "Oby Lombok Tour",
@@ -86,7 +85,7 @@ const copy = {
   },
   en: {
     processLabel: "Work process",
-    processTitle: "A short flow from brief to launch.",
+    processTitle: "From brief to launch.",
     process: [
       {
         title: "Brief",
@@ -106,11 +105,10 @@ const copy = {
       },
     ],
     portfolioLabel: "Portfolio",
-    portfolioTitle: "Website portfolio built as business references.",
+    portfolioTitle: "Selected website projects for clients.",
     viewAll: "View all portfolio",
     testimonialsLabel: "Testimonials",
-    testimonialsTitle:
-      "Trusted by businesses that want a more professional presence.",
+    testimonialsTitle: "Trusted by business clients.",
     testimonials: [
       {
         name: "Oby Lombok Tour",
@@ -142,7 +140,7 @@ export default function HomeDeferred() {
 
   return (
     <>
-      <section className="deferred-section pb-16 md:pb-20">
+      <section className="deferred-section pt-10 pb-16 md:pt-14 md:pb-20" data-reveal>
         <div className="shell">
           <div className="mb-7 max-w-3xl">
             <p className="section-label">{text.processLabel}</p>
@@ -167,7 +165,7 @@ export default function HomeDeferred() {
         </div>
       </section>
 
-      <section id="selected-work" className="deferred-section pb-16 md:pb-20">
+      <section id="selected-work" className="deferred-section pb-16 md:pb-20" data-reveal>
         <div className="shell">
           <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
@@ -240,7 +238,7 @@ export default function HomeDeferred() {
         </div>
       </section>
 
-      <section className="deferred-section pb-16 md:pb-20">
+      <section className="deferred-section pb-16 md:pb-20" data-reveal>
         <div className="shell">
           <div className="mb-7 max-w-3xl">
             <p className="section-label">{text.testimonialsLabel}</p>

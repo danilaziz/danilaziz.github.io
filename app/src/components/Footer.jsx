@@ -21,7 +21,7 @@ export default function Footer() {
   const backToTopLabel = isEnglish ? "Back to top" : "Kembali ke atas";
 
   return (
-    <footer className="pb-10 pt-6">
+    <footer className="pb-[calc(4.5rem+env(safe-area-inset-bottom))] pt-6 md:pb-10">
       <div className="shell">
         <div className="footer-panel glass-panel rounded-lg px-8 py-8 md:px-10 md:py-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">

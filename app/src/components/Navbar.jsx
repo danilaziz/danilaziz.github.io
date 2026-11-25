@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   ArrowUpRight,
@@ -47,6 +47,8 @@ export default function Navbar() {
     localStorage.getItem("theme") === "dark",
   );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuRendered, setMobileMenuRendered] = useState(false);
+  const menuCloseTimer = useRef(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -72,6 +74,29 @@ export default function Navbar() {
       document.body.classList.remove("mobile-menu-is-open");
     };
   }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    if (menuCloseTimer.current) clearTimeout(menuCloseTimer.current);
+
+    if (mobileMenuOpen) {
+      setMobileMenuRendered(true);
+      return undefined;
+    }
+
+    if (mobileMenuRendered) {
+      menuCloseTimer.current = setTimeout(() => {
+        setMobileMenuRendered(false);
+        menuCloseTimer.current = null;
+      }, 560);
+    }
+
+    return () => {
+      if (menuCloseTimer.current) {
+        clearTimeout(menuCloseTimer.current);
+        menuCloseTimer.current = null;
+      }
+    };
+  }, [mobileMenuOpen, mobileMenuRendered]);
 
   const navClass = scrolled
     ? "border-[color:var(--border-strong)] bg-[color:var(--surface-glass)] shadow-[var(--shadow-soft)]"
@@ -124,10 +149,10 @@ export default function Navbar() {
                 />
               </span>
               <div className="min-w-0">
-                <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)]">
+                <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)] md:text-base lg:text-[17px]">
                   DA Code
                 </p>
-                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)]">
+                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)] md:text-[13px] lg:text-sm">
                   {tagline}
                 </p>
               </div>
@@ -143,7 +168,7 @@ export default function Navbar() {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`text-sm font-medium transition ${active ? "text-[color:var(--text-main)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-main)]"}`}
+                    className={`text-sm font-medium transition md:text-[15px] lg:text-base ${active ? "text-[color:var(--text-main)]" : "text-[color:var(--text-muted)] hover:text-[color:var(--text-main)]"}`}
                   >
                     {item.label[language]}
                   </Link>
@@ -185,7 +210,7 @@ export default function Navbar() {
               <LanguageToggle />
               <a
                 {...externalLinkProps(whatsappHref())}
-                className="premium-button theme-primary-button"
+                className="btn-hero-primary lg:px-7 lg:py-3.5 lg:text-[15px]"
               >
                 {consultationLabel}
                 <ArrowUpRight size={16} className="ml-2" />
@@ -204,44 +229,57 @@ export default function Navbar() {
               <button
                 onClick={() => setMobileMenuOpen((value) => !value)}
                 className="theme-icon-button rounded-md p-2.5"
-                aria-label="Buka navigasi"
+                aria-label={mobileMenuOpen ? "Tutup navigasi" : "Buka navigasi"}
+                aria-expanded={mobileMenuOpen}
               >
-                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                <span className={`mobile-menu-icon ${mobileMenuOpen ? "is-open" : ""}`} aria-hidden="true">
+                  <Menu size={22} className="mobile-menu-icon-menu" />
+                  <X size={22} className="mobile-menu-icon-close" />
+                </span>
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {mobileMenuOpen && (
+      {mobileMenuRendered && (
         <div className="md:hidden">
           <button
             type="button"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mobile-menu-backdrop fixed inset-0 z-30 bg-black/25"
+            onClick={() => mobileMenuOpen && setMobileMenuOpen(false)}
+            className={`mobile-menu-backdrop fixed inset-0 z-30 bg-black/25 ${mobileMenuOpen ? "is-open" : "is-closing"}`}
             aria-label="Tutup navigasi"
           />
 
-          <div className="mobile-menu-panel fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl">
+          <div
+            className={`mobile-menu-panel fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl ${mobileMenuOpen ? "is-open" : "is-closing"}`}
+            style={{ pointerEvents: mobileMenuOpen ? "auto" : "none" }}
+          >
             <div className="flex flex-col gap-3">
-              {navItems.map((item) => {
+              {navItems.map((item, index) => {
                 const Icon = item.icon;
                 const active =
                   item.path === "/"
                     ? location.pathname === item.path
                     : location.pathname.startsWith(item.path);
+                const total = navItems.length + 2;
+                const delay = mobileMenuOpen ? index * 55 : (total - 1 - index) * 45;
                 return (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex min-h-12 items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}
+                    className={`mobile-menu-item ${mobileMenuOpen ? "is-open" : "is-closing"} flex min-h-12 items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition ${active ? "theme-primary-button" : "theme-badge text-[color:var(--text-main)]"}`}
+                    style={{ animationDelay: `${delay}ms` }}
                   >
                     <Icon size={17} />
                     {item.label[language]}
                   </Link>
                 );
               })}
-              <div className="grid grid-cols-3 gap-2">
+              <div
+                className={`mobile-menu-item ${mobileMenuOpen ? "is-open" : "is-closing"} grid grid-cols-3 gap-2`}
+                style={{ animationDelay: `${mobileMenuOpen ? navItems.length * 55 : 45}ms` }}
+              >
                 <a
                   {...externalLinkProps(INSTAGRAM_URL)}
                   className="nav-social-link theme-icon-button flex min-h-11 items-center justify-center rounded-md p-3"
@@ -266,7 +304,8 @@ export default function Navbar() {
               </div>
               <a
                 {...externalLinkProps(whatsappHref())}
-                className="premium-button theme-primary-button mt-2 min-h-[3.25rem]"
+                className={`mobile-menu-item ${mobileMenuOpen ? "is-open" : "is-closing"} btn-hero-primary mt-2 min-h-[3.25rem] w-full`}
+                style={{ animationDelay: `${mobileMenuOpen ? (navItems.length + 1) * 55 : 0}ms` }}
               >
                 {websiteConsultationLabel}
                 <ArrowUpRight size={16} className="ml-2" />
