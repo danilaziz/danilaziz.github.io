@@ -99,24 +99,22 @@ export default function Services() {
   const text = copy[language];
 
   return (
-    <main className="reveal-scope overflow-hidden bg-[#F8FAFF] pt-28 dark:bg-[color:var(--bg-page)] md:pt-32">
+    <main className="reveal-scope overflow-hidden pt-28 md:pt-32">
       <section className="pb-16 md:pb-20">
         <div className="shell">
           <div className="mx-auto max-w-3xl text-center" data-reveal>
-            <span className="inline-flex rounded-full bg-[#0866F5]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#0866F5] dark:bg-[color:var(--accent-soft)]">
-              {text.badge}
-            </span>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)] md:text-5xl lg:text-[3.5rem] lg:leading-[1.1]">
+            <p className="section-label">{text.badge}</p>
+            <h1 className="heading-font mt-4 max-w-full break-words text-3xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
               <span>{text.headingMain} </span>
-              <span className="text-[#0866F5]">{text.headingAccent}</span>
+              <span className="text-[var(--accent)]">{text.headingAccent}</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#64748B] dark:text-[color:var(--text-muted)] md:text-lg">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[color:var(--text-muted)] md:text-lg">
               {text.subtitle}
             </p>
-            <div className="mx-auto mt-6 h-1 w-14 rounded-full bg-[#0866F5]" />
+            <div className="mx-auto mt-6 h-1 w-14 rounded-full bg-[color:var(--accent)]" />
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-7 grid gap-6 sm:mt-10 md:mt-14 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -130,7 +128,7 @@ export default function Services() {
                     <Icon size={26} strokeWidth={1.8} />
                   </div>
 
-                  <h2 className="mt-8 text-xl font-semibold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)] md:text-[1.35rem]">
+                  <h2 className="mt-8 break-words text-xl font-semibold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)] md:text-[1.35rem]">
                     {service.title[language]}
                   </h2>
                   <p className="mt-3 max-w-[34ch] text-sm leading-7 text-[#64748B] dark:text-[color:var(--text-muted)] md:text-[15px]">
@@ -152,8 +150,8 @@ export default function Services() {
                 <Rocket size={26} strokeWidth={1.8} />
               </div>
 
-              <div className="flex-1">
-                <h2 className="text-2xl font-bold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)] md:text-3xl">
+              <div className="min-w-0 flex-1">
+                <h2 className="break-words text-2xl font-bold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)] md:text-3xl">
                   {text.ctaTitle}
                 </h2>
                 <p className="mt-2 text-sm leading-7 text-[#64748B] dark:text-[color:var(--text-muted)] md:text-base">

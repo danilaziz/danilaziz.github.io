@@ -133,6 +133,11 @@ const copy = {
   },
 };
 
+const loopedTestimonials = {
+  id: [...copy.id.testimonials, ...copy.id.testimonials],
+  en: [...copy.en.testimonials, ...copy.en.testimonials],
+};
+
 export default function HomeDeferred() {
   const { language } = useLanguage();
   const navigate = useNavigate();
@@ -140,16 +145,16 @@ export default function HomeDeferred() {
 
   return (
     <>
-      <section className="deferred-section pt-10 pb-16 md:pt-14 md:pb-20" data-reveal>
+      <section className="deferred-section pt-12 pb-20 md:pt-14 md:pb-20" data-reveal>
         <div className="shell">
-          <div className="mb-7 max-w-3xl">
+          <div className="mb-9 max-w-3xl md:mb-7">
             <p className="section-label">{text.processLabel}</p>
             <h2 className="section-title mt-3">{text.processTitle}</h2>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {text.process.map((item, index) => (
-              <article key={item.title} className="process-card soft-card p-5">
+              <article key={item.title} className="process-card soft-card p-6 md:p-5">
                 <div className="process-number flex h-10 w-10 items-center justify-center rounded-md bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">
                   0{index + 1}
                 </div>
@@ -165,9 +170,9 @@ export default function HomeDeferred() {
         </div>
       </section>
 
-      <section id="selected-work" className="deferred-section pb-16 md:pb-20" data-reveal>
+      <section id="selected-work" className="deferred-section pb-20 md:pb-20" data-reveal>
         <div className="shell">
-          <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div className="mb-9 flex flex-col gap-3 md:mb-7 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="section-label">{text.portfolioLabel}</p>
               <h2 className="section-title mt-3">{text.portfolioTitle}</h2>
@@ -180,7 +185,7 @@ export default function HomeDeferred() {
             </Link>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-6 lg:gap-5 lg:grid-cols-3">
             {featuredWork.map((item) => (
               <article
                 key={item.id}
@@ -199,15 +204,15 @@ export default function HomeDeferred() {
                     className="h-56 w-full object-cover"
                   />
                 </div>
-                <div className="p-5">
+                <div className="p-6 md:p-5">
                   <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
                     {language === "en" && item.category === "Hasil Kerja"
                       ? "Work"
                       : item.category}
                   </p>
                   <div className="mt-2 flex items-center justify-between gap-4">
-                    <div>
-                      <h3 className="heading-font text-2xl font-bold">
+                    <div className="min-w-0">
+                      <h3 className="heading-font break-words text-2xl font-bold">
                         {item.title}
                       </h3>
                       <p className="mt-2 line-clamp-2 text-sm leading-6 text-[color:var(--text-muted)]">
@@ -216,7 +221,7 @@ export default function HomeDeferred() {
                     </div>
                     <a
                       {...externalLinkProps(item.demo)}
-                      className="theme-icon-button rounded-md p-3 transition"
+                      className="theme-icon-button shrink-0 rounded-md p-3 transition"
                       aria-label={`${language === "en" ? "Open demo website" : "Buka demo website"} ${item.title}`}
                       onClick={(event) => event.stopPropagation()}
                     >
@@ -238,24 +243,24 @@ export default function HomeDeferred() {
         </div>
       </section>
 
-      <section className="deferred-section pb-16 md:pb-20" data-reveal>
+      <section className="deferred-section pb-20 md:pb-20" data-reveal>
         <div className="shell">
-          <div className="mb-7 max-w-3xl">
+          <div className="mb-9 max-w-3xl md:mb-7">
             <p className="section-label">{text.testimonialsLabel}</p>
             <h2 className="section-title mt-3">{text.testimonialsTitle}</h2>
           </div>
 
           <div className="testimonials-marquee">
             <div className="testimonials-track">
-              {[...text.testimonials, ...text.testimonials].map(
+              {loopedTestimonials[language].map(
                 (item, index) => (
                   <article
                     key={`${item.name}-${index}`}
                     className="testimonial-card soft-card p-6 md:p-7"
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="heading-font text-2xl font-bold text-[color:var(--text-main)]">
+                      <div className="min-w-0">
+                        <h3 className="heading-font break-words text-2xl font-bold text-[color:var(--text-main)]">
                           {item.name}
                         </h3>
                         <p className="mt-1 text-sm font-semibold text-[color:var(--text-muted)]">

@@ -22,11 +22,9 @@
     <meta name="color-scheme" content="light dark" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; navigate-to 'self' https://wa.me https://www.facebook.com https://instagram.com https://github.com https://ptberkahcintawisata.com https://berkahcintamadinah.com https://umkm-website.netlify.app https://website-konstruksi.netlify.app https://website-desa.netlify.app; upgrade-insecure-requests"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; navigate-to 'self' https://wa.me https://www.facebook.com https://instagram.com https://github.com https://ptberkahcintawisata.com https://berkahcintamadinah.com https://umkm-website.netlify.app https://website-konstruksi.netlify.app https://website-desa.netlify.app; upgrade-insecure-requests"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/png" href="/favicon.png?v=3" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
     <link rel="icon" type="image/avif" href="/dacode.avif?v=3" />
@@ -62,21 +60,12 @@
         const redirectPath = params.get('p');
 
         if ((path === '/' || path === '/index.html') && !redirectPath) {
-          var mobileHero = document.createElement('link');
-          mobileHero.rel = 'preload';
-          mobileHero.as = 'image';
-          mobileHero.href = '/dahero.webp';
-          mobileHero.media = '(max-width: 767px)';
-          mobileHero.fetchPriority = 'high';
-          document.head.appendChild(mobileHero);
-
-          var desktopHero = document.createElement('link');
-          desktopHero.rel = 'preload';
-          desktopHero.as = 'image';
-          desktopHero.href = '/dahero.webp';
-          desktopHero.media = '(min-width: 768px)';
-          desktopHero.fetchPriority = 'high';
-          document.head.appendChild(desktopHero);
+          var heroPreload = document.createElement('link');
+          heroPreload.rel = 'preload';
+          heroPreload.as = 'image';
+          heroPreload.href = '/dahero.webp';
+          heroPreload.fetchPriority = 'high';
+          document.head.appendChild(heroPreload);
         }
 
         if (path.startsWith('/docs')) {

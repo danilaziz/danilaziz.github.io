@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   CircleAlert,
@@ -110,6 +110,14 @@ export default function Contact() {
   const [botField, setBotField] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const submitTimer = useRef(null);
+
+  useEffect(
+    () => () => {
+      if (submitTimer.current) window.clearTimeout(submitTimer.current);
+    },
+    [],
+  );
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -158,7 +166,9 @@ export default function Contact() {
 
     window.open(whatsappHref(whatsappMessage), "_blank", "noopener,noreferrer");
 
-    setTimeout(() => {
+    if (submitTimer.current) window.clearTimeout(submitTimer.current);
+    submitTimer.current = window.setTimeout(() => {
+      submitTimer.current = null;
       setFormData({ name: "", message: "" });
       setIsSubmitting(false);
       setErrorMessage("");
@@ -170,12 +180,12 @@ export default function Contact() {
     <main className="contact-page reveal-scope overflow-hidden pt-28 md:pt-32">
       <section className="pb-16 md:pb-24">
         <div className="shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="contact-intro-card soft-card p-8 md:p-10">
+          <div className="contact-intro-card soft-card min-w-0 p-6 sm:p-8 md:p-10">
             <p className="section-label">{text.label}</p>
-            <h1 className="heading-font mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
+            <h1 className="heading-font mt-4 max-w-full break-words text-3xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
               {text.title}
             </h1>
-            <p className="mt-6 leading-8 text-[color:var(--text-muted)] md:text-lg">
+            <p className="mt-6 break-words text-base leading-7 text-[color:var(--text-muted)] md:text-lg">
               {text.description}
             </p>
 
@@ -191,9 +201,9 @@ export default function Contact() {
                     <div className="theme-primary-button rounded-md p-3">
                       <Icon size={20} />
                     </div>
-                    <div className="flex-1">
+                    <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-4">
-                        <p className="heading-font text-xl font-bold text-[color:var(--text-main)]">
+                        <p className="heading-font break-words text-xl font-bold text-[color:var(--text-main)]">
                           {item.label}
                         </p>
                         <ArrowUpRight
@@ -211,7 +221,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="contact-form-panel glass-panel rounded-lg p-8 md:p-10">
+          <div className="contact-form-panel glass-panel min-w-0 rounded-lg p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-3">
               <div className="rounded-md bg-[var(--accent)]/20 p-3 text-[var(--accent)]">
                 <Mail size={18} />

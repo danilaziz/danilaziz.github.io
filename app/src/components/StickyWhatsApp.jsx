@@ -10,7 +10,8 @@ export default function StickyWhatsApp() {
     ? "Free consultation via WhatsApp"
     : "Konsultasi gratis via WhatsApp";
 
-  if (pathname === "/kontak") return null;
+  // Home renders its own sticky CTA once the hero CTA is scrolled out of view.
+  if (pathname === "/" || pathname === "/kontak") return null;
 
   return (
     <a

@@ -56,7 +56,7 @@ export default function ImageLightbox({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[80] h-[100dvh] w-screen bg-slate-950/96 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] h-[100dvh] w-full max-w-full bg-slate-950/96 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label={`${isEnglish ? "Image preview" : "Preview gambar"} ${title}`}
@@ -66,7 +66,7 @@ export default function ImageLightbox({
         className="absolute left-3 right-3 top-3 z-20 flex items-center justify-between gap-3 text-white md:left-5 md:right-5 md:top-5"
         onClick={(event) => event.stopPropagation()}
       >
-        <p className="max-w-[calc(100vw-5.5rem)] truncate rounded-md bg-black/35 px-3 py-2 text-sm font-semibold shadow-lg md:text-base">
+        <p className="min-w-0 max-w-[calc(100%-5.5rem)] truncate rounded-md bg-black/35 px-3 py-2 text-sm font-semibold shadow-lg md:text-base">
           {title}
         </p>
         <button
@@ -79,7 +79,7 @@ export default function ImageLightbox({
         </button>
       </div>
 
-      <div className="flex h-[100dvh] w-screen items-center justify-center p-2 pb-12 pt-16 md:p-6 md:pb-16 md:pt-20">
+      <div className="flex h-[100dvh] w-full max-w-full items-center justify-center p-2 pb-12 pt-16 md:p-6 md:pb-16 md:pt-20">
         <img
           src={activeImage}
           alt={`${title} ${isEnglish ? "enlarged" : "diperbesar"} ${activeIndex + 1}`}

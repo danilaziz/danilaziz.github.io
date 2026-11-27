@@ -23,13 +23,13 @@ export default function Footer() {
   return (
     <footer className="pb-[calc(4.5rem+env(safe-area-inset-bottom))] pt-6 md:pb-10">
       <div className="shell">
-        <div className="footer-panel glass-panel rounded-lg px-8 py-8 md:px-10 md:py-10">
+        <div className="footer-panel glass-panel rounded-lg px-6 py-7 sm:px-8 sm:py-8 md:px-10 md:py-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div>
+            <div className="min-w-0">
               <p className="heading-font text-2xl font-bold text-[color:var(--text-main)]">
                 DA Code
               </p>
-              <p className="mt-2 max-w-md text-sm leading-7 text-[color:var(--text-muted)]">
+              <p className="mt-2 max-w-md break-words text-sm leading-7 text-[color:var(--text-muted)]">
                 {description}
               </p>
             </div>

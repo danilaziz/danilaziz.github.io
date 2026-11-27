@@ -41,17 +41,15 @@ export default function Portfolio() {
   const text = copy[language];
 
   return (
-    <main className="portfolio-page reveal-scope overflow-hidden bg-[#F8FAFF] pt-28 dark:bg-[color:var(--bg-page)] md:pt-32">
+    <main className="portfolio-page reveal-scope overflow-hidden pt-28 md:pt-32">
       <section className="pb-20 md:pb-28">
         <div className="shell">
           <div className="mx-auto max-w-2xl text-center" data-reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#0866F5]">
-              {text.label}
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)] md:text-5xl lg:text-[3.5rem] lg:leading-[1.1]">
+            <p className="section-label">{text.label}</p>
+            <h1 className="heading-font mt-4 max-w-full break-words text-3xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
               {text.title}
             </h1>
-            <p className="mt-5 text-base leading-7 text-[#64748B] dark:text-[color:var(--text-muted)] md:text-lg">
+            <p className="mt-5 break-words text-base leading-7 text-[color:var(--text-muted)] md:text-lg">
               {text.description}
             </p>
           </div>
@@ -73,7 +71,7 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-7 grid gap-8 sm:mt-10 sm:grid-cols-2 md:mt-14 xl:grid-cols-3">
             {visibleItems.map((item, index) => (
               <div key={item.id} className="portfolio-grid-item h-full">
                 <TemplateCard item={item} priority={index < 3} />

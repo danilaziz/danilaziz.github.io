@@ -61,25 +61,28 @@ const techLogos = [
   },
 ];
 
+const mobileLogos = [...techLogos, ...techLogos];
+
 export default function TechnologyBar() {
   const { language } = useLanguage();
   const label =
     language === "en" ? "Trusted by clients worldwide" : "Dipercaya klien di berbagai proyek";
-
-  const mobileLogos = [...techLogos, ...techLogos];
+  const shortLabel =
+    language === "en" ? "Trusted by clients" : "Dipercaya klien";
 
   return (
     <section className="pb-6 md:pb-8">
       <div className="shell">
         <div className="techbar-3d-wrap mx-auto max-w-5xl">
-          <div className="techbar-3d-card flex flex-col items-center gap-4 rounded-3xl border border-[#E5EAF3] bg-white px-5 py-5 dark:border-[color:var(--border-soft)] dark:bg-[color:var(--surface-card)] md:flex-row md:justify-center md:gap-0 md:rounded-full md:px-8">
-            <p className="shrink-0 text-center text-sm font-medium text-[#52627A] dark:text-[color:var(--text-muted)] md:pr-6 md:text-left">
-              {label}
+          <div className="techbar-3d-card flex max-w-full flex-col items-center gap-4 rounded-3xl border border-[#E5EAF3] bg-white px-5 py-5 dark:border-[color:var(--border-soft)] dark:bg-[color:var(--surface-card)] xl:flex-row xl:justify-center xl:gap-0 xl:rounded-full xl:px-8">
+            <p className="shrink-0 text-center text-sm font-medium text-[#52627A] dark:text-[color:var(--text-muted)] xl:pr-6 xl:text-left">
+              <span className="xl:hidden">{shortLabel}</span>
+              <span className="hidden xl:inline">{label}</span>
             </p>
-            <div className="hidden h-8 w-px bg-[#E5EAF3] dark:bg-[color:var(--border-soft)] md:block" aria-hidden="true" />
+            <div className="hidden h-8 w-px bg-[#E5EAF3] dark:bg-[color:var(--border-soft)] xl:block" aria-hidden="true" />
 
-            <div className="techbar-marquee w-full overflow-hidden md:hidden" aria-label={label}>
-              <div className="techbar-marquee-track flex w-max items-center gap-6 px-1">
+            <div className="techbar-marquee w-full overflow-hidden xl:hidden" aria-label={label}>
+              <div className="techbar-marquee-track flex w-max items-center gap-6 px-2">
                 {mobileLogos.map((tech, index) => (
                   <div
                     key={`${tech.name}-${index}`}
@@ -93,7 +96,7 @@ export default function TechnologyBar() {
               </div>
             </div>
 
-            <div className="hidden w-full items-center gap-6 px-1 md:flex md:w-auto md:gap-8 md:overflow-visible md:pl-6">
+            <div className="hidden w-full items-center gap-6 px-1 xl:flex xl:w-auto xl:gap-8 xl:overflow-visible xl:pl-6">
               {techLogos.map((tech, index) => (
                 <div
                   key={tech.name}
@@ -104,7 +107,7 @@ export default function TechnologyBar() {
                   {tech.svg}
                   <span className="text-sm font-semibold text-[#101828] dark:text-[color:var(--text-main)]">{tech.name}</span>
                   {index === techLogos.length - 2 && (
-                    <span className="ml-4 hidden h-8 w-px bg-[#E5EAF3] dark:bg-[color:var(--border-soft)] md:block" aria-hidden="true" />
+                    <span className="ml-4 hidden h-8 w-px bg-[#E5EAF3] dark:bg-[color:var(--border-soft)] xl:block" aria-hidden="true" />
                   )}
                 </div>
               ))}

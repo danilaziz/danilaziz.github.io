@@ -40,6 +40,27 @@ const navItems = [
   { label: { id: "Kontak", en: "Contact" }, path: "/kontak", icon: Phone },
 ];
 
+function LanguageToggle({ compact = false, language, isEnglish, setLanguage }) {
+  const target = language === "id" ? "en" : "id";
+  return (
+    <div
+      className={`language-toggle ${compact ? "language-toggle-mobile" : ""}`}
+      aria-label="Pilihan bahasa"
+      title={isEnglish ? "Gunakan bahasa Indonesia" : "Switch to English"}
+    >
+      <button
+        type="button"
+        onClick={() => setLanguage(target)}
+        aria-label={
+          target === "en" ? "Switch to English" : "Gunakan bahasa Indonesia"
+        }
+      >
+        {target.toUpperCase()}
+      </button>
+    </div>
+  );
+}
+
 export default function Navbar() {
   const location = useLocation();
   const { language, isEnglish, setLanguage } = useLanguage();
@@ -107,36 +128,15 @@ export default function Navbar() {
     ? "Website Consultation"
     : "Konsultasi Website";
 
-  const LanguageToggle = ({ compact = false }) => {
-    const target = language === "id" ? "en" : "id";
-    return (
-      <div
-        className={`language-toggle ${compact ? "language-toggle-mobile" : ""}`}
-        aria-label="Pilihan bahasa"
-        title={isEnglish ? "Gunakan bahasa Indonesia" : "Switch to English"}
-      >
-        <button
-          type="button"
-          onClick={() => setLanguage(target)}
-          aria-label={
-            target === "en" ? "Switch to English" : "Gunakan bahasa Indonesia"
-          }
-        >
-          {target.toUpperCase()}
-        </button>
-      </div>
-    );
-  };
-
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 px-1 pt-3 md:px-6 md:pt-4">
         <div
           className={`shell rounded-lg border transition-colors duration-200 ${navClass}`}
         >
-          <div className="flex items-center justify-between gap-3 py-2.5 md:py-3">
-            <Link to="/" className="flex min-w-0 items-center gap-3">
-              <span className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1 shadow-sm md:h-14 md:w-14">
+          <div className="flex items-center justify-between gap-2 py-2.5 md:gap-3 md:py-3">
+            <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-1 shadow-sm sm:h-[3.25rem] sm:w-[3.25rem] md:h-14 md:w-14">
                 <img
                   src={logo}
                   alt="DA Code"
@@ -149,16 +149,16 @@ export default function Navbar() {
                 />
               </span>
               <div className="min-w-0">
-                <p className="heading-font truncate text-sm font-bold text-[color:var(--text-main)] md:text-base lg:text-[17px]">
+                <p className="heading-font truncate text-[13px] font-bold text-[color:var(--text-main)] sm:text-sm md:text-base lg:text-[17px]">
                   DA Code
                 </p>
-                <p className="line-clamp-1 text-xs leading-5 text-[color:var(--text-muted)] md:text-[13px] lg:text-sm">
+                <p className="line-clamp-1 text-[0.65rem] leading-4 text-[color:var(--text-muted)] sm:text-xs sm:leading-5 md:text-[13px] lg:text-sm">
                   {tagline}
                 </p>
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-5 lg:gap-7 md:flex">
+            <nav className="hidden items-center gap-5 lg:flex lg:gap-7">
               {navItems.map((item) => {
                 const active =
                   item.path === "/"
@@ -176,8 +176,8 @@ export default function Navbar() {
               })}
             </nav>
 
-            <div className="hidden items-center gap-3 md:flex">
-              <div className="flex items-center gap-1.5">
+            <div className="hidden items-center gap-3 lg:flex">
+              <div className="hidden items-center gap-1.5 xl:flex">
                 <a
                   {...externalLinkProps(INSTAGRAM_URL)}
                   className="nav-social-link theme-icon-button rounded-md p-2 transition"
@@ -207,34 +207,47 @@ export default function Navbar() {
               >
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <LanguageToggle />
+              <LanguageToggle
+                language={language}
+                isEnglish={isEnglish}
+                setLanguage={setLanguage}
+              />
               <a
                 {...externalLinkProps(whatsappHref())}
-                className="btn-hero-primary lg:px-7 lg:py-3.5 lg:text-[15px]"
+                className="btn-hero-primary shrink-0 lg:px-7 lg:py-3.5 lg:text-[15px]"
               >
                 {consultationLabel}
                 <ArrowUpRight size={16} className="ml-2" />
               </a>
             </div>
 
-            <div className="flex shrink-0 items-center gap-1.5 md:hidden">
+            <div className="flex shrink-0 items-center gap-1 sm:gap-1.5 lg:hidden">
               <button
                 onClick={() => setDarkMode((value) => !value)}
-                className="theme-icon-button rounded-md p-2.5"
+                className="theme-icon-button flex h-10 w-10 shrink-0 items-center justify-center rounded-md p-0 sm:h-11 sm:w-11"
                 aria-label="Ubah tema"
               >
-                {darkMode ? <Sun size={22} /> : <Moon size={22} />}
+                {darkMode ? (
+                  <Sun className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
+                ) : (
+                  <Moon className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
+                )}
               </button>
-              <LanguageToggle compact />
+              <LanguageToggle
+                compact
+                language={language}
+                isEnglish={isEnglish}
+                setLanguage={setLanguage}
+              />
               <button
                 onClick={() => setMobileMenuOpen((value) => !value)}
-                className="theme-icon-button rounded-md p-2.5"
+                className="theme-icon-button flex h-10 w-10 shrink-0 items-center justify-center rounded-md p-0 sm:h-11 sm:w-11"
                 aria-label={mobileMenuOpen ? "Tutup navigasi" : "Buka navigasi"}
                 aria-expanded={mobileMenuOpen}
               >
                 <span className={`mobile-menu-icon ${mobileMenuOpen ? "is-open" : ""}`} aria-hidden="true">
-                  <Menu size={22} className="mobile-menu-icon-menu" />
-                  <X size={22} className="mobile-menu-icon-close" />
+                  <Menu className="mobile-menu-icon-menu h-5 w-5 sm:h-[22px] sm:w-[22px]" />
+                  <X className="mobile-menu-icon-close h-5 w-5 sm:h-[22px] sm:w-[22px]" />
                 </span>
               </button>
             </div>
@@ -243,7 +256,7 @@ export default function Navbar() {
       </header>
 
       {mobileMenuRendered && (
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             type="button"
             onClick={() => mobileMenuOpen && setMobileMenuOpen(false)}
@@ -252,7 +265,7 @@ export default function Navbar() {
           />
 
           <div
-            className={`mobile-menu-panel fixed inset-x-3 top-24 z-40 rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl ${mobileMenuOpen ? "is-open" : "is-closing"}`}
+            className={`mobile-menu-panel fixed inset-x-3 top-24 z-40 max-h-[calc(100dvh-7rem)] overflow-hidden overflow-y-auto rounded-lg border border-[color:var(--border-strong)] bg-[color:var(--surface-card)] p-5 shadow-2xl ${mobileMenuOpen ? "is-open" : "is-closing"}`}
             style={{ pointerEvents: mobileMenuOpen ? "auto" : "none" }}
           >
             <div className="flex flex-col gap-3">

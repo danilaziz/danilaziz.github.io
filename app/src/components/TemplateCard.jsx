@@ -67,11 +67,11 @@ export default function TemplateCard({ item, priority = false }) {
         />
       </button>
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex min-w-0 flex-1 flex-col p-6">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0866F5]">
           {displayCategory}
         </p>
-        <h3 className="mt-3 text-xl font-semibold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)]">
+        <h3 className="mt-3 break-words text-xl font-semibold tracking-tight text-[#14264A] dark:text-[color:var(--text-main)]">
           {item.title}
         </h3>
         <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#64748B] dark:text-[color:var(--text-muted)]">

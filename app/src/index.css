@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/plus-jakarta-sans-latin.woff2") format("woff2");
+}
+
 :root {
   --accent: #0866f5;
   --accent-strong: #0757d1;
@@ -588,6 +596,7 @@ select:focus-visible {
   }
 
   .portfolio-card-media {
+    width: calc(100% - 1.5rem);
     aspect-ratio: 16 / 10;
     margin: 0.75rem 0.75rem 0;
     border-radius: 14px;
@@ -907,6 +916,8 @@ select:focus-visible {
   .premium-button {
     position: relative;
     isolation: isolate;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     @apply inline-flex items-center justify-center whitespace-nowrap rounded-md px-5 py-3 text-sm font-semibold transition duration-200;
     transform: translateY(0);
     box-shadow:
@@ -1457,6 +1468,21 @@ select:focus-visible {
     transform: rotate(0deg) scale(1);
   }
 
+  @keyframes mobile-sticky-cta-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-sticky-cta--enter {
+    animation: mobile-sticky-cta-in 220ms ease-out;
+  }
+
   .mobile-sticky-cta {
     position: fixed;
     z-index: 60;
@@ -1928,26 +1954,23 @@ select:focus-visible {
 
   .reveal-ready .reveal-item {
     opacity: 0;
-    translate: -8px 22px;
-    scale: 0.992;
-    filter: blur(5px);
+    translate: -8px 18px;
+    scale: 0.996;
     transition:
-      opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
-      translate 620ms cubic-bezier(0.22, 1, 0.36, 1),
-      scale 620ms cubic-bezier(0.22, 1, 0.36, 1),
-      filter 520ms ease,
+      opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      translate 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      scale 520ms cubic-bezier(0.22, 1, 0.36, 1),
       border-color 220ms ease,
       box-shadow 220ms ease,
       background-color 220ms ease;
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, translate, scale, filter;
+    will-change: opacity, translate, scale;
   }
 
   .reveal-ready .reveal-item.is-visible {
     opacity: 1;
     translate: 0 0;
     scale: 1;
-    filter: blur(0);
     will-change: auto;
   }
 
@@ -1955,7 +1978,6 @@ select:focus-visible {
     opacity: 1 !important;
     translate: 0 0 !important;
     scale: 1 !important;
-    filter: blur(0) !important;
   }
 }
 
@@ -2341,7 +2363,6 @@ select:focus-visible {
     radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.95), rgba(240, 246, 255, 0.65) 28%, transparent 58%),
     linear-gradient(145deg, rgba(240, 246, 255, 0.98) 0%, rgba(220, 235, 255, 0.82) 42%, rgba(187, 215, 255, 0.55) 100%);
   opacity: 0.52;
-  filter: blur(2px);
   transform: translate(-46%, -48%);
   animation: hero-fluid-float 11s ease-in-out infinite;
   will-change: transform;
@@ -2358,7 +2379,6 @@ select:focus-visible {
     radial-gradient(circle at 65% 35%, rgba(255, 255, 255, 0.8), transparent 52%),
     linear-gradient(160deg, rgba(220, 235, 255, 0.65) 0%, rgba(187, 215, 255, 0.4) 55%, rgba(141, 189, 255, 0.18) 100%);
   opacity: 0.36;
-  filter: blur(1px);
   transform: translate(-46%, -50%) rotate(-6deg);
   animation: hero-fluid-float-alt 9s ease-in-out infinite;
   will-change: transform;
@@ -2396,6 +2416,25 @@ select:focus-visible {
   opacity: 0.58;
 }
 
+.hero-right-bleed {
+  position: absolute;
+  top: 8%;
+  right: -180px;
+  width: 420px;
+  height: 420px;
+  border-radius: 42% 58% 55% 45% / 45% 45% 55% 55%;
+  background: radial-gradient(circle at 35% 35%, rgba(96, 165, 250, 0.35), rgba(8, 102, 245, 0.18) 55%, rgba(8, 102, 245, 0.04) 75%, transparent 100%);
+  filter: blur(2px);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .hero-right-bleed {
+  background: radial-gradient(circle at 35% 35%, rgba(96, 165, 250, 0.22), rgba(37, 99, 235, 0.14) 55%, rgba(8, 102, 245, 0.04) 75%, transparent 100%);
+  opacity: 0.55;
+}
+
 @keyframes hero-fluid-float {
   0%,
   100% {
@@ -2418,37 +2457,53 @@ select:focus-visible {
 
 @media (max-width: 1023px) {
   .hero-fluid-shape {
-    width: min(108%, 36rem);
+    width: min(92%, 36rem);
     opacity: 0.42;
   }
 
   .hero-fluid-shape--alt {
-    width: min(100%, 32rem);
+    width: min(88%, 32rem);
     opacity: 0.28;
   }
 
   .hero-fluid-glow {
-    width: min(88%, 28rem);
+    width: min(80%, 28rem);
     opacity: 0.54;
+  }
+
+  .hero-right-bleed {
+    right: 0;
+    width: min(60%, 280px);
+    height: auto;
+    aspect-ratio: 1;
+    opacity: 0.55;
   }
 }
 
 @media (max-width: 639px) {
   .hero-fluid-shape {
-    width: min(104%, 28rem);
+    width: min(92%, 28rem);
     opacity: 0.34;
-    filter: blur(1px);
   }
 
   .hero-fluid-shape--alt {
-    width: min(96%, 24rem);
+    width: min(88%, 24rem);
     opacity: 0.22;
   }
 
   .hero-fluid-glow {
-    width: min(84%, 22rem);
+    width: min(80%, 22rem);
     opacity: 0.44;
     filter: blur(28px);
+  }
+
+  .hero-right-bleed {
+    top: 4%;
+    right: 0;
+    width: min(70%, 200px);
+    height: auto;
+    aspect-ratio: 1;
+    opacity: 0.45;
   }
 }
 
@@ -2574,9 +2629,27 @@ select:focus-visible {
   }
 }
 
+.techbar-marquee {
+  min-width: 0;
+  max-width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12px,
+    #000 calc(100% - 12px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12px,
+    #000 calc(100% - 12px),
+    transparent
+  );
+}
+
 .techbar-marquee-track {
   animation: marquee-scroll 22s linear infinite;
-  will-change: transform;
 }
 
 .techbar-marquee:hover .techbar-marquee-track {
@@ -2609,6 +2682,11 @@ select:focus-visible {
 
   .premium-button {
     min-height: 3.25rem;
+  }
+
+  .btn-hero-primary {
+    max-width: 100%;
+    white-space: normal;
   }
 
   .shell {
@@ -2664,7 +2742,6 @@ select:focus-visible {
   .reveal-ready .reveal-item {
     translate: 0 14px;
     scale: 1;
-    filter: none;
     transition:
       opacity 360ms ease,
       translate 360ms ease,
@@ -2872,7 +2949,6 @@ select:focus-visible {
   gap: 1.25rem;
   width: max-content;
   padding-block: 0.5rem;
-  will-change: transform;
   animation: marquee-scroll 46s linear infinite;
 }
 
@@ -2916,5 +2992,26 @@ select:focus-visible {
 
   .testimonials-track .testimonial-card .mt-5 {
     margin-top: 0.875rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .language-toggle-mobile button {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .footer-panel {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .education-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-summary-item span {
+    letter-spacing: 0.1em;
   }
 }

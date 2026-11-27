@@ -255,17 +255,17 @@ export default function PortfolioDetail() {
           </Link>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-start">
-            <div>
+            <div className="min-w-0">
               <p className="section-label">{text.label}</p>
-              <h1 className="heading-font mt-4 text-4xl font-extrabold leading-tight md:text-6xl">
+              <h1 className="heading-font mt-4 break-words text-4xl font-extrabold leading-tight md:text-6xl">
                 {item.title}
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
+              <p className="mt-5 max-w-full break-words text-base leading-8 text-[color:var(--text-muted)] md:max-w-2xl md:text-lg">
                 {summary}
               </p>
             </div>
 
-            <aside className="project-meta-card soft-card p-5">
+            <aside className="project-meta-card soft-card min-w-0 p-5">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-sm font-semibold text-[color:var(--text-muted)]">
                   {text.category}
@@ -295,11 +295,11 @@ export default function PortfolioDetail() {
                 ))}
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 {item.demo && (
                   <a
                     {...externalLinkProps(item.demo)}
-                    className="premium-button theme-primary-button col-span-full w-full sm:col-span-1"
+                    className="premium-button theme-primary-button col-span-full w-full sm:col-span-1 lg:col-span-full xl:col-span-1"
                   >
                     <span className="truncate">{text.demo}</span>
                     <ExternalLink size={16} className="ml-2 shrink-0" />
@@ -307,7 +307,7 @@ export default function PortfolioDetail() {
                 )}
                 <a
                   {...externalLinkProps(whatsappHref(waText))}
-                  className={`premium-button hidden w-full sm:inline-flex ${item.demo ? "theme-secondary-button" : "theme-primary-button col-span-2"}`}
+                  className={`premium-button hidden w-full sm:inline-flex ${item.demo ? "theme-secondary-button" : "theme-primary-button sm:col-span-2 lg:col-span-full xl:col-span-2"}`}
                 >
                   <span className="truncate">{text.consult}</span>
                   <MessageCircleMore size={16} className="ml-2 shrink-0" />

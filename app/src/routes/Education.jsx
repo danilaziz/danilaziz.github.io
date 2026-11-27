@@ -112,13 +112,13 @@ export default function Education() {
       <section className="education-hero pb-14 md:pb-18">
         <div className="shell">
           <div className="education-hero-panel p-6 md:p-10" data-reveal>
-            <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
-              <div>
+            <div className="grid min-w-0 gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+              <div className="min-w-0">
                 <p className="section-label">{text.label}</p>
-                <h1 className="heading-font mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:text-6xl">
+                <h1 className="heading-font mt-4 max-w-full break-words text-4xl font-extrabold leading-tight text-[color:var(--text-main)] md:max-w-3xl md:text-6xl">
                   {text.title}
                 </h1>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-[color:var(--text-muted)] md:text-lg">
+                <p className="mt-6 max-w-full break-words text-base leading-8 text-[color:var(--text-muted)] md:max-w-2xl md:text-lg">
                   {text.description}
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -138,7 +138,7 @@ export default function Education() {
                 </div>
               </div>
 
-              <aside className="education-summary-card">
+              <aside className="education-summary-card min-w-0">
                 <div className="education-summary-head">
                   <span className="education-summary-icon">
                     <GraduationCap size={20} />
@@ -234,9 +234,9 @@ export default function Education() {
       <section className="pb-24">
         <div className="shell">
           <div className="education-cta cta-band">
-            <div>
+            <div className="min-w-0">
               <p className="section-label">Portfolio</p>
-              <h2 className="heading-font mt-3 text-2xl font-extrabold leading-tight md:text-5xl">
+              <h2 className="heading-font mt-3 break-words text-2xl font-extrabold leading-tight md:text-5xl">
                 {text.ctaTitle}
               </h2>
             </div>
